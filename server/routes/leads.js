@@ -1,6 +1,6 @@
 import express from 'express';
 import Lead from '../models/Lead.js';
-import { authenticateToken } from '../server.js';
+import { authenticateToken } from '../middleware/auth.js';
 
 const router = express.Router();
 

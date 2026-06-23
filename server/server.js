@@ -1,15 +1,18 @@
 import express from 'express';
 import jwt from 'jsonwebtoken';
 import cors from 'cors';
-import dotenv from 'dotenv';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import mongoose from 'mongoose';
-import leadsRoutes from './routes/leads.js';
+import { MongoMemoryServer } from 'mongodb-memory-server';
+import dotenv from 'dotenv';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 dotenv.config({ path: path.join(__dirname, '../.env') });
+
+import leadsRoutes from './routes/leads.js';
+import { authenticateToken } from './middleware/auth.js';
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -43,28 +46,30 @@ app.post('/api/auth/login', (req, res) => {
 
 app.use('/api/leads', leadsRoutes);
 
-export const authenticateToken = (req, res, next) => {
-  const authHeader = req.headers['authorization'];
-  const token = authHeader && authHeader.split(' ')[1];
-
-  if (!token) return res.status(401).json({ error: 'Access denied' });
-
-  jwt.verify(token, JWT_SECRET, (err, user) => {
-    if (err) return res.status(403).json({ error: 'Invalid or expired token' });
-    req.user = user;
-    next();
-  });
-};
-
 app.get('/api/auth/verify', authenticateToken, (req, res) => {
   res.json({ valid: true, user: req.user });
 });
 
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/brightpath';
-mongoose.connect(MONGODB_URI)
-  .then(() => console.log('Connected to MongoDB'))
-  .catch(err => console.error('MongoDB connection error:', err));
 
-app.listen(PORT, () => {
-  console.log(`Backend server running on http://localhost:${PORT}`);
-});
+const startServer = async () => {
+  try {
+    if (MONGODB_URI.includes('localhost')) {
+      const mongoServer = await MongoMemoryServer.create();
+      const uri = mongoServer.getUri();
+      await mongoose.connect(uri);
+      console.log('Connected to auto-provisioned in-memory MongoDB');
+    } else {
+      await mongoose.connect(MONGODB_URI);
+      console.log('Connected to external MongoDB');
+    }
+  } catch (err) {
+    console.error('MongoDB connection error:', err);
+  }
+
+  app.listen(PORT, '127.0.0.1', () => {
+    console.log(`Backend server running on http://127.0.0.1:${PORT}`);
+  });
+};
+
+startServer();
