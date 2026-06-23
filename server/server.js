@@ -14,7 +14,7 @@ dotenv.config({ path: path.join(__dirname, '../.env') });
 import leadsRoutes from './routes/leads.js';
 import { authenticateToken } from './middleware/auth.js';
 
-const app = express();
+export const app = express();
 const PORT = process.env.PORT || 3001;
 
 app.use(cors());
@@ -52,24 +52,41 @@ app.get('/api/auth/verify', authenticateToken, (req, res) => {
 
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/brightpath';
 
-const startServer = async () => {
-  try {
-    if (MONGODB_URI.includes('localhost')) {
-      const mongoServer = await MongoMemoryServer.create();
-      const uri = mongoServer.getUri();
-      await mongoose.connect(uri);
-      console.log('Connected to auto-provisioned in-memory MongoDB');
+export const connectDB = async () => {
+  if (mongoose.connection.readyState >= 1) return;
+  
+  if (MONGODB_URI.includes('localhost') || !process.env.VERCEL) {
+    // Only use memory server locally, NEVER on Vercel
+    if (!process.env.VERCEL && MONGODB_URI.includes('localhost')) {
+      try {
+        const mongoServer = await MongoMemoryServer.create();
+        const uri = mongoServer.getUri();
+        await mongoose.connect(uri);
+        console.log('Connected to auto-provisioned in-memory MongoDB');
+      } catch (err) {
+        console.error('Local memory server error:', err);
+      }
     } else {
       await mongoose.connect(MONGODB_URI);
-      console.log('Connected to external MongoDB');
+      console.log('Connected to external MongoDB (Local)');
     }
-  } catch (err) {
-    console.error('MongoDB connection error:', err);
+  } else {
+    // Vercel Serverless Connection
+    await mongoose.connect(process.env.MONGODB_URI);
+    console.log('Connected to Vercel MongoDB Atlas');
   }
+};
 
+const startLocalServer = async () => {
+  await connectDB();
   app.listen(PORT, '127.0.0.1', () => {
     console.log(`Backend server running on http://127.0.0.1:${PORT}`);
   });
 };
 
-startServer();
+// Only bind to port if running locally
+if (!process.env.VERCEL) {
+  startLocalServer();
+}
+
+export default app;
