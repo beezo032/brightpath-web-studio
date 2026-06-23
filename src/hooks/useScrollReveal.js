@@ -1,6 +1,9 @@
 import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 export const useScrollReveal = () => {
+  const { pathname } = useLocation();
+
   useEffect(() => {
     const observerOptions = {
       root: null,
@@ -30,5 +33,5 @@ export const useScrollReveal = () => {
       revealElements.forEach(el => observer.unobserve(el));
       observer.disconnect();
     };
-  }, []);
+  }, [pathname]);
 };
