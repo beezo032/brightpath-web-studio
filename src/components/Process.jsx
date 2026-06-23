@@ -53,6 +53,12 @@ const Process = () => {
             </div>
           ))}
         </div>
+
+        <div className="section-cta text-center reveal reveal-delay-2" style={{marginTop: '4rem'}}>
+          <a href="#contact" className="btn btn-primary pulse-cta">
+            Start Your Journey Today
+          </a>
+        </div>
       </div>
     </section>
   );

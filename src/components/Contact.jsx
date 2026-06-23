@@ -249,17 +249,14 @@ const Contact = () => {
                 
                 <button 
                   type="submit" 
-                  className={`btn btn-primary submit-btn ${formState === 'submitting' ? 'loading' : ''}`}
-                  disabled={formState === 'submitting'}
+                  className={`btn btn-primary submit-btn pulse-cta ${formState === 'submitting' ? 'loading' : ''}`}
+                  disabled={formState === 'submitting' || formState === 'success'}
                 >
-                  {formState === 'submitting' ? (
-                    <span className="loading-spinner"></span>
-                  ) : (
-                    <>Submit Request <Send size={18} /></>
-                  )}
+                  {formState === 'submitting' ? 'Sending...' : formState === 'success' ? 'Sent!' : 'Get Your Free Custom Proposal'}
                 </button>
-                <p className="trust-note text-center">
-                  No pressure. We'll review your request and reply with honest next steps.
+                <p className="contact-trust-note" style={{marginTop: '1rem', textAlign: 'center'}}>
+                  No pressure. We'll review your request and reply with honest next steps.<br/>
+                  <strong style={{color: 'var(--color-primary)'}}>100% Privacy Guaranteed. No spam.</strong>
                 </p>
               </form>
             )}

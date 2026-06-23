@@ -25,7 +25,7 @@ const Navbar = () => {
           <a href="#process" onClick={() => setMobileMenuOpen(false)}>Process</a>
           <a href="#portfolio" onClick={() => setMobileMenuOpen(false)}>Work</a>
           <a href="#pricing" onClick={() => setMobileMenuOpen(false)}>Pricing</a>
-          <a href="#contact" className="btn btn-primary" onClick={() => setMobileMenuOpen(false)}>Get a Quote</a>
+          <a href="#contact" className="btn btn-primary pulse-cta" onClick={() => setMobileMenuOpen(false)}>Get a Quote</a>
         </nav>
 
         <button 

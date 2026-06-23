@@ -116,14 +116,20 @@ button, input, textarea {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 0.5rem;
   padding: 0.875rem 1.75rem;
   border-radius: 50px;
   font-weight: 600;
-  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border: none;
   cursor: pointer;
-  transition: all 0.3s ease;
-  border: 2px solid transparent;
-  gap: 0.5rem;
+  font-size: 1rem;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.4);
 }
 
 .btn-primary {
@@ -173,6 +179,16 @@ button, input, textarea {
 
 .animate-fade-in {
   animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes pulse-shadow {
+  0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.7); }
+  70% { box-shadow: 0 0 0 15px rgba(37, 99, 235, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+}
+
+.pulse-cta {
+  animation: pulse-shadow 2s infinite;
 }
 
 html {

@@ -60,6 +60,12 @@ const Services = () => {
             </div>
           ))}
         </div>
+        
+        <div className="section-cta text-center reveal reveal-delay-2" style={{marginTop: '4rem', background: 'var(--color-bg-gray)', padding: '3rem', borderRadius: 'var(--border-radius-lg)', border: '1px solid var(--color-border)'}}>
+          <h3 style={{marginBottom: '1rem', color: 'var(--color-primary)'}}>Not sure exactly what you need?</h3>
+          <p style={{color: 'var(--color-text-muted)', marginBottom: '1.5rem', maxWidth: '600px', margin: '0 auto 1.5rem'}}>Every business is different. Let's hop on a quick call to figure out the best approach for your specific goals.</p>
+          <a href="#contact" className="btn btn-primary pulse-cta">Get a Free Website Audit</a>
+        </div>
       </div>
     </section>
   );

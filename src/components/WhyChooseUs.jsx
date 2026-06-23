@@ -1,62 +1,69 @@
 import React from 'react';
-import { Zap, Smartphone, DollarSign, Users } from 'lucide-react';
+import { Smartphone, Search, Zap, MessageCircle, HeadphonesIcon, Code } from 'lucide-react';
 import './WhyChooseUs.css';
+
+const trustCards = [
+  { icon: <Smartphone size={24} />, title: "Mobile-First Design", text: "Sites engineered to perform flawlessly on any device." },
+  { icon: <Search size={24} />, title: "SEO Optimized", text: "Built from the ground up for maximum local search visibility." },
+  { icon: <Zap size={24} />, title: "Fast Turnaround", text: "We deliver premium websites quickly without cutting corners." },
+  { icon: <MessageCircle size={24} />, title: "Direct Communication", text: "You work directly with the developer, no middlemen." },
+  { icon: <HeadphonesIcon size={24} />, title: "Ongoing Support", text: "Reliable maintenance so you never have to worry about your site." },
+  { icon: <Code size={24} />, title: "Fully Custom Websites", text: "Unique designs tailored specifically to your business goals." }
+];
 
 const WhyChooseUs = () => {
   return (
-    <section className="why-us section section-dark">
-      <div className="container">
-        <div className="why-us-grid">
-          <div className="why-us-content reveal">
-            <h2>Why Choose Brightpath?</h2>
-            <p className="subtitle">
-              A pretty website isn't enough. You need a platform that actively works to grow your bottom line. Here is how we make that happen.
-            </p>
-            <div className="why-us-features">
-              <div className="feature-item">
-                <div className="feature-icon" aria-hidden="true"><Zap size={24} /></div>
-                <div>
-                  <h4>Instantly Fast Loading</h4>
-                  <p>Slow sites kill conversions. Our code is optimized for speed so you never lose a frustrated visitor.</p>
-                </div>
-              </div>
-              <div className="feature-item">
-                <div className="feature-icon" aria-hidden="true"><Smartphone size={24} /></div>
-                <div>
-                  <h4>Flawless on Mobile</h4>
-                  <p>Most of your customers are searching on their phones. We ensure your site looks and works perfectly on every device.</p>
-                </div>
-              </div>
-              <div className="feature-item">
-                <div className="feature-icon" aria-hidden="true"><DollarSign size={24} /></div>
-                <div>
-                  <h4>High ROI Pricing</h4>
-                  <p>Get top-tier agency quality without the bloated price tag. Your new site is an investment that pays for itself.</p>
-                </div>
-              </div>
-              <div className="feature-item">
-                <div className="feature-icon" aria-hidden="true"><Users size={24} /></div>
-                <div>
-                  <h4>Built to Convert</h4>
-                  <p>Every button, form, and layout decision is strategically placed to maximize your calls and quote requests.</p>
-                </div>
-              </div>
-            </div>
+    <section id="why-us" className="why-us section section-dark relative">
+      <div className="why-us-bg-glow"></div>
+      
+      <div className="container relative">
+        <div className="section-header text-center reveal">
+          <h2>Why Businesses Trust Brightpath</h2>
+          <p className="subtitle">
+            We combine high-end design with proven growth strategies to deliver reliable results.
+          </p>
+        </div>
+        
+        {/* Statistics Section */}
+        <div className="trust-stats reveal reveal-delay-1">
+          <div className="stat-item">
+            <span className="stat-number">100%</span>
+            <span className="stat-label">Mobile Friendly</span>
           </div>
-          <div className="why-us-image reveal reveal-delay-2" aria-hidden="true">
-            <div className="stat-card stat-1">
-              <div className="stat-value">99%</div>
-              <div className="stat-label">Performance Score</div>
-            </div>
-            <div className="stat-card stat-2">
-              <div className="stat-value">24/7</div>
-              <div className="stat-label">Lead Capture</div>
-            </div>
-            <div className="stat-card stat-3">
-              <div className="stat-value">100%</div>
-              <div className="stat-label">Responsive</div>
-            </div>
+          <div className="stat-divider"></div>
+          <div className="stat-item">
+            <span className="stat-number">Fast</span>
+            <span className="stat-label">Performance</span>
           </div>
+          <div className="stat-divider"></div>
+          <div className="stat-item">
+            <span className="stat-number">Local</span>
+            <span className="stat-label">Business Focus</span>
+          </div>
+          <div className="stat-divider"></div>
+          <div className="stat-item">
+            <span className="stat-number">Custom</span>
+            <span className="stat-label">Built Solutions</span>
+          </div>
+        </div>
+        
+        {/* 6 Trust Cards */}
+        <div className="trust-grid-6">
+          {trustCards.map((card, index) => (
+            <div key={index} className={`trust-card-new reveal reveal-delay-${(index % 3) + 1}`}>
+              <div className="trust-icon-glass" aria-hidden="true">
+                {card.icon}
+              </div>
+              <h3>{card.title}</h3>
+              <p>{card.text}</p>
+            </div>
+          ))}
+        </div>
+        
+        <div className="section-cta text-center reveal reveal-delay-2" style={{marginTop: '4rem'}}>
+          <a href="#contact" className="btn btn-primary pulse-cta" style={{display: 'inline-flex', alignItems: 'center'}}>
+            Experience the Brightpath Difference <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{marginLeft: '0.5rem'}}><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
         </div>
       </div>
     </section>

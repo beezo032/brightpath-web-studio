@@ -1,67 +1,96 @@
 import React from 'react';
-import { ExternalLink } from 'lucide-react';
+import { ArrowRight, TrendingUp } from 'lucide-react';
 import './Portfolio.css';
+
+const projects = [
+  {
+    title: "We Can Do It! Lawn & Landscape",
+    category: "Landscaping",
+    description: "A high-converting lead generation website designed to capture seasonal lawn care contracts and large landscaping quotes.",
+    services: ["Web Design", "Local SEO", "Copywriting"],
+    technologies: ["React", "Vite", "CSS3"],
+    results: "+45% Quote Requests",
+  },
+  {
+    title: "Premium Barbershop Demo",
+    category: "Grooming",
+    description: "A sleek, dark-themed website with integrated booking to help a local barbershop manage their growing clientele.",
+    services: ["Redesign", "Booking Integration"],
+    technologies: ["React", "Custom CSS"],
+    results: "Fully Booked Schedule",
+  },
+  {
+    title: "Elite Pressure Washing Demo",
+    category: "Home Services",
+    description: "A visually striking site highlighting dramatic before-and-after transformations to build immediate customer trust.",
+    services: ["Web Design", "SEO Setup"],
+    technologies: ["React", "Animations"],
+    results: "Top 3 Local Maps Ranking",
+  }
+];
 
 const Portfolio = () => {
   return (
     <section id="portfolio" className="portfolio section section-light">
       <div className="container">
-        <div className="section-header reveal">
-          <h2>Featured Work</h2>
+        <div className="section-header text-center reveal">
+          <h2>Featured Projects</h2>
           <p className="subtitle">
-            Take a look at how we've helped local businesses transform their online presence.
+            Take a look at how we've helped local businesses transform their online presence and dominate their market.
           </p>
         </div>
         
-        <div className="case-study reveal reveal-delay-1">
-          <div className="case-study-image" aria-label="Mockup of GreenScapes Landscaping website">
-            <div className="browser-mockup">
-              <div className="browser-header">
-                <span className="dot red"></span>
-                <span className="dot yellow"></span>
-                <span className="dot green"></span>
-              </div>
-              <div className="browser-content">
-                <div className="placeholder-website-image">
-                  <div className="site-hero">
-                    <div className="site-title">GreenScapes Landscaping</div>
-                    <div className="site-btn">Get a Quote</div>
-                  </div>
-                  <div className="site-body">
-                    <div className="site-card"></div>
-                    <div className="site-card"></div>
-                    <div className="site-card"></div>
-                  </div>
+        <div className="portfolio-grid">
+          {projects.map((project, index) => (
+            <div key={index} className={`project-card reveal reveal-delay-${(index % 3) + 1}`}>
+              <div className="project-image-wrapper">
+                <div className="project-category">{project.category}</div>
+                {/* Placeholder for screenshot */}
+                <div className="project-image-placeholder">
+                  <span>Screenshot Coming Soon</span>
                 </div>
               </div>
+              
+              <div className="project-content">
+                <h3>{project.title}</h3>
+                <p className="project-description">{project.description}</p>
+                
+                <div className="project-meta">
+                  <div className="meta-group">
+                    <span className="meta-label">Services</span>
+                    <div className="tags">
+                      {project.services.map((service, i) => (
+                        <span key={i} className="tag">{service}</span>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="meta-group">
+                    <span className="meta-label">Technologies</span>
+                    <div className="tags">
+                      {project.technologies.map((tech, i) => (
+                        <span key={i} className="tag">{tech}</span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="project-results">
+                  <TrendingUp size={18} />
+                  {project.results}
+                </div>
+                
+                <a href="#contact" className="btn btn-outline" style={{width: '100%', textAlign: 'center'}}>
+                  View Full Case Study
+                </a>
+              </div>
             </div>
-          </div>
-          <div className="case-study-content">
-            <div className="case-study-tag">Landscaping Company</div>
-            <h3>GreenScapes Complete Redesign</h3>
-            <p className="case-study-desc">
-              GreenScapes needed a website that matched the quality of their work. We built a custom, mobile-first design focused on capturing leads for high-value hardscaping projects.
-            </p>
-            
-            <div className="results-grid">
-              <div className="result-item">
-                <div className="result-number">+145%</div>
-                <div className="result-label">More Leads</div>
-              </div>
-              <div className="result-item">
-                <div className="result-number">#1</div>
-                <div className="result-label">Local Ranking</div>
-              </div>
-              <div className="result-item">
-                <div className="result-number">2.1s</div>
-                <div className="result-label">Load Time</div>
-              </div>
-            </div>
-            
-            <a href="#contact" className="btn btn-secondary">
-              View Live Site <ExternalLink size={18} className="ml-2" />
-            </a>
-          </div>
+          ))}
+        </div>
+        
+        <div className="portfolio-actions reveal reveal-delay-2">
+          <a href="#contact" className="btn btn-secondary pulse-cta" style={{display: 'inline-flex', alignItems: 'center'}}>
+            See How We Can Transform Your Business <ArrowRight size={18} style={{marginLeft: '0.5rem'}} />
+          </a>
         </div>
       </div>
     </section>

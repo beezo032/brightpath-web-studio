@@ -23,18 +23,28 @@ const Hero = () => {
 
         <div className="container hero-container relative">
           <div className="hero-content reveal">
-            <div className="badge">Top Rated Web Design Agency</div>
+            <div className="badge" style={{display: 'inline-flex', alignItems: 'center', gap: '0.5rem'}}>
+              <span style={{fontSize: '1.2rem'}}>🔥</span> Limited availability for {new Date().toLocaleString('default', { month: 'long' })}
+            </div>
             <h1>Websites Built to Help Local Businesses Get More Calls, Leads, and Customers</h1>
             <p className="hero-subtitle">
               Brightpath Web Studio designs fast, mobile-friendly websites that help local businesses stand out online, generate more leads, and convert visitors into paying customers.
             </p>
             <div className="hero-actions">
-              <a href="#contact" className="btn btn-primary" aria-label="Get a Free Website Review">
+              <a href="#contact" className="btn btn-primary pulse-cta" aria-label="Get a Free Website Review">
                 Get a Free Website Review <ArrowRight size={20} />
               </a>
               <a href="#portfolio" className="btn btn-secondary bg-white-blur">
                 View Our Work
               </a>
+            </div>
+            <div className="hero-trust-signals" style={{marginTop: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
+              <div style={{display: 'flex', color: '#F59E0B'}}>
+                {'★★★★★'}
+              </div>
+              <span style={{fontSize: '0.875rem', color: 'var(--color-text-muted)', fontWeight: '500'}}>
+                Trusted by 50+ Local Businesses
+              </span>
             </div>
           </div>
           <div className="hero-image reveal reveal-delay-2">

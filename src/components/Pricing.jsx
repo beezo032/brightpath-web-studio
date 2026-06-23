@@ -49,8 +49,8 @@ const Pricing = () => {
                 <li><Check className="check-icon" /> Speed Optimization</li>
               </ul>
             </div>
-            <div className="pricing-footer">
-              <a href="#contact" className="btn btn-primary full-width">Get Started</a>
+            <div className="pricing-cta">
+              <a href="#contact" className="btn btn-primary pulse-cta" style={{width: '100%', textAlign: 'center'}}>Get Started</a>
             </div>
           </div>
           
@@ -81,7 +81,7 @@ const Pricing = () => {
             <div className="price">$99<span>/month</span></div>
             <p>Focus on running your business, not updating plugins. Our care plan covers premium hosting, SSL security, daily backups, uptime monitoring, and content updates.</p>
           </div>
-          <a href="#contact" className="btn btn-dark">Learn More</a>
+          <a href="#contact" className="btn btn-dark">Secure Your Website Now</a>
         </div>
       </div>
     </section>
