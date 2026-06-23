@@ -1,0 +1,147 @@
+.portfolio {
+  /* Inherits from section */
+}
+
+.case-study {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-top: 3rem;
+  background-color: var(--color-bg-gray);
+  border-radius: var(--border-radius-lg);
+  padding: 3rem;
+}
+
+.case-study-tag {
+  color: var(--color-accent-blue);
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+}
+
+.case-study-content h3 {
+  font-size: 2.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.case-study-desc {
+  color: var(--color-text-muted);
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.result-number {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-accent-green);
+  margin-bottom: 0.25rem;
+}
+
+.result-label {
+  color: var(--color-text-dark);
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+.ml-2 {
+  margin-left: 0.5rem;
+}
+
+/* Browser Mockup */
+.browser-mockup {
+  background: white;
+  border-radius: 12px;
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+}
+
+.browser-header {
+  background: #f1f5f9;
+  padding: 12px 16px;
+  display: flex;
+  gap: 8px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.browser-header .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.dot.red { background: #ef4444; }
+.dot.yellow { background: #f59e0b; }
+.dot.green { background: #22c55e; }
+
+.browser-content {
+  aspect-ratio: 4/3;
+  background-color: #f8fafc;
+}
+
+.placeholder-website-image {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.site-hero {
+  height: 50%;
+  background: linear-gradient(135deg, #166534, #15803d);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  gap: 1rem;
+}
+
+.site-title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.site-btn {
+  background: white;
+  color: #166534;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.75rem;
+}
+
+.site-body {
+  height: 50%;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.site-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-border);
+}
+
+@media (max-width: 992px) {
+  .case-study {
+    grid-template-columns: 1fr;
+    padding: 2rem;
+  }
+}
