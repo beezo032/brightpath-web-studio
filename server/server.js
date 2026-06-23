@@ -4,6 +4,8 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import mongoose from 'mongoose';
+import leadsRoutes from './routes/leads.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -39,6 +41,8 @@ app.post('/api/auth/login', (req, res) => {
   return res.status(401).json({ error: 'Invalid credentials' });
 });
 
+app.use('/api/leads', leadsRoutes);
+
 export const authenticateToken = (req, res, next) => {
   const authHeader = req.headers['authorization'];
   const token = authHeader && authHeader.split(' ')[1];
@@ -55,6 +59,11 @@ export const authenticateToken = (req, res, next) => {
 app.get('/api/auth/verify', authenticateToken, (req, res) => {
   res.json({ valid: true, user: req.user });
 });
+
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/brightpath';
+mongoose.connect(MONGODB_URI)
+  .then(() => console.log('Connected to MongoDB'))
+  .catch(err => console.error('MongoDB connection error:', err));
 
 app.listen(PORT, () => {
   console.log(`Backend server running on http://localhost:${PORT}`);

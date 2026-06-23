@@ -19,9 +19,9 @@ import LoginPage from './pages/LoginPage';
 
 // Dashboard Pages
 import DashboardOverview from './dashboard/pages/DashboardOverview';
+import LeadsPage from './dashboard/pages/LeadsPage';
 import PipelinePage from './dashboard/pages/PipelinePage';
 import { 
-  LeadsPage, 
   LeadDetailPage, 
   AnalyzerPage, 
   FollowupsPage, 
