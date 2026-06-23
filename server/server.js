@@ -72,8 +72,16 @@ export const connectDB = async () => {
     }
   } else {
     // Vercel Serverless Connection
-    await mongoose.connect(process.env.MONGODB_URI);
-    console.log('Connected to Vercel MongoDB Atlas');
+    if (!process.env.MONGODB_URI) {
+      console.warn('WARNING: MONGODB_URI is not set in Vercel. Database features will fail.');
+      return;
+    }
+    try {
+      await mongoose.connect(process.env.MONGODB_URI);
+      console.log('Connected to Vercel MongoDB Atlas');
+    } catch (err) {
+      console.error('Failed to connect to Vercel MongoDB Atlas:', err);
+    }
   }
 };
 
