@@ -12,7 +12,6 @@ import AboutFounder from '../components/AboutFounder';
 import Contact from '../components/Contact';
 import FinalCTA from '../components/FinalCTA';
 import { Helmet } from 'react-helmet-async';
-import './Home.css';
 
 const Home = () => {
   return (

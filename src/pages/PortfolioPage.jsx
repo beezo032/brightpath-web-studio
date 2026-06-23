@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink, Code } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import './PortfolioPage.css';
 
@@ -129,7 +129,7 @@ const PortfolioPage = () => {
                       Live Demo <ExternalLink size={18} style={{marginLeft: '0.5rem'}} />
                     </a>
                     <a href={project.githubUrl} className="btn btn-outline" style={{flex: 1, display: 'inline-flex', alignItems: 'center', justifyContent: 'center'}}>
-                      <Github size={18} style={{marginRight: '0.5rem'}} /> GitHub
+                      <Code size={16} aria-hidden="true" /> View Code
                     </a>
                   </div>
                 </div>
