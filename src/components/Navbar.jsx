@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link, NavLink } from 'react-router-dom';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -16,16 +17,16 @@ const Navbar = () => {
   return (
     <header className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="container navbar-container">
-        <a href="/" className="logo">
+        <Link to="/" className="logo">
           <span className="logo-accent">Bright</span>path
-        </a>
+        </Link>
         
         <nav className={`nav-links ${mobileMenuOpen ? 'open' : ''}`}>
-          <a href="#services" onClick={() => setMobileMenuOpen(false)}>Services</a>
-          <a href="#process" onClick={() => setMobileMenuOpen(false)}>Process</a>
-          <a href="#portfolio" onClick={() => setMobileMenuOpen(false)}>Work</a>
-          <a href="#pricing" onClick={() => setMobileMenuOpen(false)}>Pricing</a>
-          <a href="#contact" className="btn btn-primary pulse-cta" onClick={() => setMobileMenuOpen(false)}>Get a Quote</a>
+          <NavLink to="/about" className={({isActive}) => isActive ? 'active-link' : ''} onClick={() => setMobileMenuOpen(false)}>About</NavLink>
+          <NavLink to="/services" className={({isActive}) => isActive ? 'active-link' : ''} onClick={() => setMobileMenuOpen(false)}>Services</NavLink>
+          <NavLink to="/portfolio" className={({isActive}) => isActive ? 'active-link' : ''} onClick={() => setMobileMenuOpen(false)}>Work</NavLink>
+          <Link to="/#pricing" onClick={() => setMobileMenuOpen(false)}>Pricing</Link>
+          <Link to="/contact" className="btn btn-primary pulse-cta" onClick={() => setMobileMenuOpen(false)}>Get a Quote</Link>
         </nav>
 
         <button 

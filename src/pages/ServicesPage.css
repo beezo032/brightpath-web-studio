@@ -1,0 +1,137 @@
+.services-page {
+  padding-top: 80px; /* offset navbar */
+  min-height: 100vh;
+  background: var(--color-bg-gray);
+}
+
+.services-hero {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, var(--color-primary) 0%, #112A4F 100%);
+  color: white;
+}
+
+.services-hero h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.services-detailed-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.service-detail-block {
+  background: white;
+  border-radius: var(--border-radius-lg);
+  padding: 4rem;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.4s ease;
+}
+
+.service-detail-block:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-5px);
+  border-color: rgba(37, 99, 235, 0.2);
+}
+
+.service-detail-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.service-icon-large {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  color: var(--color-accent-blue);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.1);
+  flex-shrink: 0;
+}
+
+.service-detail-header h2 {
+  font-size: 2rem;
+  color: var(--color-primary);
+  margin: 0;
+}
+
+.service-desc-large {
+  font-size: 1.15rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+  max-width: 900px;
+}
+
+.service-meta-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  background: #f8fafc;
+  padding: 2.5rem;
+  border-radius: var(--border-radius-lg);
+  border: 1px solid var(--color-border);
+}
+
+.service-meta-box h4 {
+  font-size: 1.1rem;
+  color: var(--color-primary);
+  margin-bottom: 1.25rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.service-check-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.service-check-list li {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  color: var(--color-text-dark);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.service-check-list li .check-icon {
+  color: var(--color-accent-green);
+  margin-right: 0.75rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+@media (max-width: 900px) {
+  .service-detail-block {
+    padding: 2.5rem;
+  }
+  
+  .service-meta-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .service-detail-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .service-detail-header h2 {
+    font-size: 1.5rem;
+  }
+}

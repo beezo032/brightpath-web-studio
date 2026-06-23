@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Footer.css';
 
 const Footer = () => {
@@ -9,9 +10,9 @@ const Footer = () => {
       <div className="container">
         <div className="footer-grid">
           <div className="footer-brand">
-            <a href="/" className="logo">
+            <Link to="/" className="logo">
               <span className="logo-accent">Bright</span>path
-            </a>
+            </Link>
             <p className="footer-desc">
               Building high-converting, premium websites for local service businesses. We help you turn visitors into paying customers.
             </p>
@@ -20,28 +21,29 @@ const Footer = () => {
           <nav className="footer-links" aria-label="Services navigation">
             <h4>Services</h4>
             <ul>
-              <li><a href="#services">Custom Web Design</a></li>
-              <li><a href="#services">Website Redesign</a></li>
-              <li><a href="#services">Local SEO</a></li>
-              <li><a href="#services">Google Business Profile</a></li>
+              <li><Link to="/services">Custom Web Design</Link></li>
+              <li><Link to="/services">Website Redesign</Link></li>
+              <li><Link to="/services">Local SEO</Link></li>
+              <li><Link to="/services">Google Business Profile</Link></li>
             </ul>
           </nav>
           
           <nav className="footer-links" aria-label="Company navigation">
             <h4>Company</h4>
             <ul>
-              <li><a href="#portfolio">Our Work</a></li>
-              <li><a href="#pricing">Pricing</a></li>
-              <li><a href="#process">Process</a></li>
-              <li><a href="#contact">Contact</a></li>
+              <li><Link to="/portfolio">Our Work</Link></li>
+              <li><Link to="/blog">Blog</Link></li>
+              <li><Link to="/#pricing">Pricing</Link></li>
+              <li><Link to="/#process">Process</Link></li>
+              <li><Link to="/contact">Contact</Link></li>
             </ul>
           </nav>
           
           <nav className="footer-links" aria-label="Legal navigation">
             <h4>Legal</h4>
             <ul>
-              <li><a href="#privacy">Privacy Policy</a></li>
-              <li><a href="#terms">Terms of Service</a></li>
+              <li><Link to="/#privacy">Privacy Policy</Link></li>
+              <li><Link to="/#terms">Terms of Service</Link></li>
             </ul>
           </nav>
         </div>

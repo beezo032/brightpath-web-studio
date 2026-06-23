@@ -50,6 +50,11 @@
   color: var(--color-accent-blue);
 }
 
+.nav-links a.active-link {
+  color: var(--color-accent-blue);
+  font-weight: 700;
+}
+
 .nav-links a.btn {
   color: white;
 }
