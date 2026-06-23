@@ -43,7 +43,7 @@ const Hero = () => {
                 {'★★★★★'}
               </div>
               <span style={{fontSize: '0.875rem', color: 'var(--color-text-muted)', fontWeight: '500'}}>
-                Trusted by 50+ Local Businesses
+                Built for Local Business Growth
               </span>
             </div>
           </div>

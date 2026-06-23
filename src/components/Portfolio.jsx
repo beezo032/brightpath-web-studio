@@ -9,7 +9,7 @@ const projects = [
     description: "A high-converting lead generation website designed to capture seasonal lawn care contracts and large landscaping quotes.",
     services: ["Web Design", "Local SEO", "Copywriting"],
     technologies: ["React", "Vite", "CSS3"],
-    results: "+45% Quote Requests",
+    results: "Conversion Optimized",
   },
   {
     title: "Premium Barbershop Demo",
@@ -17,7 +17,7 @@ const projects = [
     description: "A sleek, dark-themed website with integrated booking to help a local barbershop manage their growing clientele.",
     services: ["Redesign", "Booking Integration"],
     technologies: ["React", "Custom CSS"],
-    results: "Fully Booked Schedule",
+    results: "Automated Booking Flow",
   },
   {
     title: "Elite Pressure Washing Demo",
@@ -25,7 +25,7 @@ const projects = [
     description: "A visually striking site highlighting dramatic before-and-after transformations to build immediate customer trust.",
     services: ["Web Design", "SEO Setup"],
     technologies: ["React", "Animations"],
-    results: "Top 3 Local Maps Ranking",
+    results: "High Local Visibility",
   }
 ];
 

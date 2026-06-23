@@ -17,15 +17,15 @@ const AboutFounder = () => {
             <div className="floating-badge badge-1">
               <Award className="badge-icon" aria-hidden="true" />
               <div>
-                <span className="badge-value">5+</span>
-                <span className="badge-label">Years Experience</span>
+                <span className="badge-value">100%</span>
+                <span className="badge-label">Custom Built</span>
               </div>
             </div>
             <div className="floating-badge badge-2">
               <Briefcase className="badge-icon" aria-hidden="true" />
               <div>
-                <span className="badge-value">50+</span>
-                <span className="badge-label">Sites Launched</span>
+                <span className="badge-value">SEO</span>
+                <span className="badge-label">Optimized</span>
               </div>
             </div>
           </div>
