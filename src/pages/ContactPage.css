@@ -33,8 +33,53 @@
   border: 1px solid var(--color-border);
 }
 
-.form-header {
+/* Wizard Header */
+.wizard-header {
   margin-bottom: 2.5rem;
+}
+
+.wizard-progress-bar {
+  width: 100%;
+  height: 6px;
+  background-color: var(--color-bg-gray);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+}
+
+.wizard-progress-fill {
+  height: 100%;
+  background-color: var(--color-accent-blue);
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.wizard-step-indicator {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-align: right;
+}
+
+/* Wizard Steps */
+.wizard-step {
+  animation: fadeInRight 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.form-header {
+  margin-bottom: 2rem;
 }
 
 .form-header h2 {
@@ -107,11 +152,65 @@
   font-weight: 500;
 }
 
-.premium-contact-form .submit-btn {
-  width: 100%;
-  padding: 1rem;
-  font-size: 1.125rem;
-  margin-top: 1rem;
+/* Interactive Selectors */
+.selection-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.selection-grid.vertical {
+  flex-direction: column;
+}
+
+.selection-pill {
+  background: #f8fafc;
+  border: 1px solid var(--color-border);
+  padding: 0.75rem 1.25rem;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-text-dark);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.selection-grid.vertical .selection-pill {
+  border-radius: var(--border-radius);
+  padding: 1rem 1.25rem;
+}
+
+.selection-pill:hover {
+  border-color: var(--color-accent-blue);
+  background: #eff6ff;
+}
+
+.selection-pill.selected {
+  background: var(--color-accent-blue);
+  color: white;
+  border-color: var(--color-accent-blue);
+  box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+}
+
+/* Wizard Controls */
+.wizard-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.mt-4 {
+  margin-top: 1.5rem;
+}
+
+.submit-btn {
+  margin-top: 0 !important;
+  width: auto !important;
 }
 
 .contact-success-state {
@@ -286,5 +385,23 @@
   }
   .contact-form-wrapper {
     padding: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .wizard-controls {
+    flex-direction: column-reverse;
+    gap: 1rem;
+  }
+  .wizard-controls button {
+    width: 100%;
+    justify-content: center;
+  }
+  .selection-grid {
+    flex-direction: column;
+  }
+  .selection-pill {
+    border-radius: var(--border-radius);
+    text-align: center;
   }
 }

@@ -1,16 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import { Mail, Clock, ShieldCheck, CheckCircle2, ChevronDown, ChevronUp } from 'lucide-react';
+import { Mail, Clock, ShieldCheck, CheckCircle2, ChevronDown, ChevronUp, ArrowRight, ArrowLeft } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import './ContactPage.css';
 
 const ContactPage = () => {
+  const [step, setStep] = useState(1);
+  const totalSteps = 3;
+  
   const [formState, setFormState] = useState({
     name: '',
     businessName: '',
     email: '',
     phone: '',
+    businessType: '',
     website: '',
-    industry: '',
+    websiteStatus: '',
+    primaryGoal: '',
     budget: '',
     timeline: '',
     message: ''
@@ -30,6 +35,15 @@ const ContactPage = () => {
     { q: "Will I own the website?", a: "Absolutely. Once the final payment is made, you own 100% of the website and all its assets." }
   ];
 
+  const goals = ["More leads", "More calls", "New website", "Website redesign", "SEO help"];
+  const budgets = ["Under $1,000", "$1,000-$2,500", "$2,500-$5,000", "$5,000+"];
+  const websiteStatuses = [
+    "I don't have a website yet",
+    "I have one, but it's outdated",
+    "I have one, but it doesn't generate leads",
+    "I have one, just need minor changes"
+  ];
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormState(prev => ({ ...prev, [name]: value }));
@@ -38,18 +52,45 @@ const ContactPage = () => {
     }
   };
 
-  const validate = () => {
+  const handleSelection = (name, value) => {
+    setFormState(prev => ({ ...prev, [name]: value }));
+    if (errors[name]) {
+      setErrors(prev => ({ ...prev, [name]: null }));
+    }
+  };
+
+  const validateStep = (currentStep) => {
     const newErrors = {};
-    if (!formState.name.trim()) newErrors.name = "Please enter your name.";
-    if (!formState.businessName.trim()) newErrors.businessName = "Please enter your business name.";
-    if (!formState.email.trim() || !/^\S+@\S+\.\S+$/.test(formState.email)) newErrors.email = "Please enter a valid email address.";
-    if (!formState.message.trim()) newErrors.message = "Please tell us a bit about your project.";
+    if (currentStep === 1) {
+      if (!formState.name.trim()) newErrors.name = "Please enter your name.";
+      if (!formState.businessName.trim()) newErrors.businessName = "Please enter your business name.";
+      if (!formState.email.trim() || !/^\S+@\S+\.\S+$/.test(formState.email)) newErrors.email = "Please enter a valid email address.";
+    } else if (currentStep === 2) {
+      if (!formState.businessType.trim()) newErrors.businessType = "Please enter your type of business.";
+      if (!formState.websiteStatus) newErrors.websiteStatus = "Please select your website status.";
+    } else if (currentStep === 3) {
+      if (!formState.primaryGoal) newErrors.primaryGoal = "Please select a primary goal.";
+      if (!formState.budget) newErrors.budget = "Please select an estimated budget.";
+    }
     return newErrors;
+  };
+
+  const nextStep = () => {
+    const validationErrors = validateStep(step);
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+    setStep(prev => Math.min(prev + 1, totalSteps));
+  };
+
+  const prevStep = () => {
+    setStep(prev => Math.max(prev - 1, 1));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const validationErrors = validate();
+    const validationErrors = validateStep(step);
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
       return;
@@ -60,25 +101,28 @@ const ContactPage = () => {
     setTimeout(() => {
       setStatus('success');
       setFormState({
-        name: '', businessName: '', email: '', phone: '', website: '', industry: '', budget: '', timeline: '', message: ''
+        name: '', businessName: '', email: '', phone: '', businessType: '', website: '', websiteStatus: '', primaryGoal: '', budget: '', timeline: '', message: ''
       });
+      setStep(1);
     }, 1500);
   };
+
+  const progressPercent = ((step) / totalSteps) * 100;
 
   return (
     <main className="contact-page">
       <Helmet>
-        <title>Contact Us | Brightpath Web Studio</title>
-        <meta name="description" content="Get your free website review today. Fill out our contact form and we'll get back to you within 24 hours to discuss your web design project." />
-        <meta property="og:title" content="Contact Us | Brightpath Web Studio" />
-        <meta property="og:description" content="Get your free website review today. Fill out our contact form and we'll get back to you within 24 hours to discuss your web design project." />
+        <title>Get a Quote | Brightpath Web Studio</title>
+        <meta name="description" content="Get your free website review today. Fill out our project inquiry form and we'll get back to you within 24 hours to discuss your web design project." />
+        <meta property="og:title" content="Get a Quote | Brightpath Web Studio" />
+        <meta property="og:description" content="Get your free website review today. Fill out our project inquiry form and we'll get back to you within 24 hours to discuss your web design project." />
       </Helmet>
 
       <section className="contact-hero section-dark text-center">
         <div className="container reveal">
           <h1>Let's Talk About Your Website</h1>
           <p className="subtitle" style={{maxWidth: '700px', margin: '0 auto'}}>
-            Ready to grow your business online? Let's discuss your project.
+            Ready to grow your business online? Answer a few quick questions to help us understand your project.
           </p>
         </div>
       </section>
@@ -88,13 +132,9 @@ const ContactPage = () => {
           <div className="contact-grid">
             
             <div className="contact-form-wrapper reveal">
-              <div className="form-header">
-                <h2>Project Inquiry</h2>
-                <p>Fill out the form below and we'll get back to you with next steps.</p>
-              </div>
               
               {status === 'success' ? (
-                <div className="contact-success-state">
+                <div className="contact-success-state animate-fade-in">
                   <div className="success-icon-wrapper" aria-hidden="true">
                     <CheckCircle2 size={48} />
                   </div>
@@ -103,83 +143,179 @@ const ContactPage = () => {
                   <button onClick={() => setStatus('idle')} className="btn btn-outline mt-4">Send Another Message</button>
                 </div>
               ) : (
-                <form className="premium-contact-form" onSubmit={handleSubmit} noValidate>
-                  <div className="form-row">
-                    <div className="form-group">
-                      <label htmlFor="name">Full Name *</label>
-                      <input type="text" id="name" name="name" value={formState.name} onChange={handleChange} className={errors.name ? 'error-input' : ''} placeholder="John Doe" />
-                      {errors.name && <span className="error-text">{errors.name}</span>}
+                <div className="form-wizard-container">
+                  <div className="wizard-header">
+                    <div className="wizard-progress-bar">
+                      <div className="wizard-progress-fill" style={{width: `${progressPercent}%`}}></div>
                     </div>
-                    <div className="form-group">
-                      <label htmlFor="businessName">Business Name *</label>
-                      <input type="text" id="businessName" name="businessName" value={formState.businessName} onChange={handleChange} className={errors.businessName ? 'error-input' : ''} placeholder="Acme Corp" />
-                      {errors.businessName && <span className="error-text">{errors.businessName}</span>}
-                    </div>
+                    <div className="wizard-step-indicator">Step {step} of {totalSteps}</div>
                   </div>
-                  
-                  <div className="form-row">
-                    <div className="form-group">
-                      <label htmlFor="email">Email Address *</label>
-                      <input type="email" id="email" name="email" value={formState.email} onChange={handleChange} className={errors.email ? 'error-input' : ''} placeholder="john@example.com" />
-                      {errors.email && <span className="error-text">{errors.email}</span>}
+
+                  <form className="premium-contact-form" onSubmit={handleSubmit} noValidate>
+                    
+                    {/* STEP 1: Basic Info */}
+                    {step === 1 && (
+                      <div className="wizard-step animate-fade-in">
+                        <div className="form-header">
+                          <h2>Your Information</h2>
+                          <p>Let's start with the basics so we know who we're talking to.</p>
+                        </div>
+                        <div className="form-row">
+                          <div className="form-group">
+                            <label htmlFor="name">Full Name *</label>
+                            <input type="text" id="name" name="name" value={formState.name} onChange={handleChange} className={errors.name ? 'error-input' : ''} placeholder="John Doe" />
+                            {errors.name && <span className="error-text">{errors.name}</span>}
+                          </div>
+                          <div className="form-group">
+                            <label htmlFor="businessName">Business Name *</label>
+                            <input type="text" id="businessName" name="businessName" value={formState.businessName} onChange={handleChange} className={errors.businessName ? 'error-input' : ''} placeholder="Acme Corp" />
+                            {errors.businessName && <span className="error-text">{errors.businessName}</span>}
+                          </div>
+                        </div>
+                        
+                        <div className="form-row">
+                          <div className="form-group">
+                            <label htmlFor="email">Email Address *</label>
+                            <input type="email" id="email" name="email" value={formState.email} onChange={handleChange} className={errors.email ? 'error-input' : ''} placeholder="john@example.com" />
+                            {errors.email && <span className="error-text">{errors.email}</span>}
+                          </div>
+                          <div className="form-group">
+                            <label htmlFor="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" value={formState.phone} onChange={handleChange} placeholder="(555) 123-4567" />
+                          </div>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* STEP 2: Business Profile */}
+                    {step === 2 && (
+                      <div className="wizard-step animate-fade-in">
+                        <div className="form-header">
+                          <h2>Business Profile</h2>
+                          <p>Tell us a little bit about your current digital presence.</p>
+                        </div>
+                        
+                        <div className="form-row">
+                          <div className="form-group">
+                            <label htmlFor="businessType">Type of Business *</label>
+                            <input type="text" id="businessType" name="businessType" value={formState.businessType} onChange={handleChange} className={errors.businessType ? 'error-input' : ''} placeholder="e.g. Landscaping, Plumber, Accountant" />
+                            {errors.businessType && <span className="error-text">{errors.businessType}</span>}
+                          </div>
+                          <div className="form-group">
+                            <label htmlFor="website">Current Website URL</label>
+                            <input type="url" id="website" name="website" value={formState.website} onChange={handleChange} placeholder="https://example.com" />
+                          </div>
+                        </div>
+
+                        <div className="form-group mt-4">
+                          <label>Current Website Status *</label>
+                          <div className="selection-grid vertical">
+                            {websiteStatuses.map((statusOption) => (
+                              <button 
+                                type="button" 
+                                key={statusOption}
+                                className={`selection-pill ${formState.websiteStatus === statusOption ? 'selected' : ''}`}
+                                onClick={() => handleSelection('websiteStatus', statusOption)}
+                              >
+                                {statusOption}
+                              </button>
+                            ))}
+                          </div>
+                          {errors.websiteStatus && <span className="error-text">{errors.websiteStatus}</span>}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* STEP 3: Goals & Budget */}
+                    {step === 3 && (
+                      <div className="wizard-step animate-fade-in">
+                        <div className="form-header">
+                          <h2>Goals & Scope</h2>
+                          <p>Help us understand what you want to achieve.</p>
+                        </div>
+                        
+                        <div className="form-group">
+                          <label>Primary Goal *</label>
+                          <div className="selection-grid">
+                            {goals.map((goal) => (
+                              <button 
+                                type="button" 
+                                key={goal}
+                                className={`selection-pill ${formState.primaryGoal === goal ? 'selected' : ''}`}
+                                onClick={() => handleSelection('primaryGoal', goal)}
+                              >
+                                {goal}
+                              </button>
+                            ))}
+                          </div>
+                          {errors.primaryGoal && <span className="error-text">{errors.primaryGoal}</span>}
+                        </div>
+
+                        <div className="form-group mt-4">
+                          <label>Estimated Budget *</label>
+                          <div className="selection-grid">
+                            {budgets.map((budget) => (
+                              <button 
+                                type="button" 
+                                key={budget}
+                                className={`selection-pill ${formState.budget === budget ? 'selected' : ''}`}
+                                onClick={() => handleSelection('budget', budget)}
+                              >
+                                {budget}
+                              </button>
+                            ))}
+                          </div>
+                          {errors.budget && <span className="error-text">{errors.budget}</span>}
+                        </div>
+
+                        <div className="form-group mt-4">
+                          <label htmlFor="timeline">Desired Launch Timeline</label>
+                          <select id="timeline" name="timeline" value={formState.timeline} onChange={handleChange}>
+                            <option value="">Select a timeline</option>
+                            <option value="asap">ASAP</option>
+                            <option value="1-month">Within 1 month</option>
+                            <option value="2-3-months">2-3 months</option>
+                            <option value="flexible">Flexible</option>
+                          </select>
+                        </div>
+                        
+                        <div className="form-group">
+                          <label htmlFor="message">Additional Project Details</label>
+                          <textarea id="message" name="message" value={formState.message} onChange={handleChange} rows="4" placeholder="Anything else we should know?"></textarea>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Wizard Controls */}
+                    <div className="wizard-controls">
+                      {step > 1 ? (
+                        <button type="button" className="btn btn-secondary" onClick={prevStep}>
+                          <ArrowLeft size={18} /> Back
+                        </button>
+                      ) : (
+                        <div></div>
+                      )}
+                      
+                      {step < totalSteps ? (
+                        <button type="button" className="btn btn-primary" onClick={nextStep}>
+                          Next Step <ArrowRight size={18} />
+                        </button>
+                      ) : (
+                        <button type="submit" className={`btn btn-primary submit-btn pulse-cta ${status === 'loading' ? 'loading' : ''}`} disabled={status === 'loading'}>
+                          {status === 'loading' ? 'Submitting...' : 'Submit Request'}
+                        </button>
+                      )}
                     </div>
-                    <div className="form-group">
-                      <label htmlFor="phone">Phone Number</label>
-                      <input type="tel" id="phone" name="phone" value={formState.phone} onChange={handleChange} placeholder="(555) 123-4567" />
-                    </div>
-                  </div>
-                  
-                  <div className="form-row">
-                    <div className="form-group">
-                      <label htmlFor="website">Current Website URL</label>
-                      <input type="url" id="website" name="website" value={formState.website} onChange={handleChange} placeholder="https://example.com" />
-                    </div>
-                    <div className="form-group">
-                      <label htmlFor="industry">Industry</label>
-                      <input type="text" id="industry" name="industry" value={formState.industry} onChange={handleChange} placeholder="Landscaping, Roofing, etc." />
-                    </div>
-                  </div>
-                  
-                  <div className="form-row">
-                    <div className="form-group">
-                      <label htmlFor="budget">Budget Range</label>
-                      <select id="budget" name="budget" value={formState.budget} onChange={handleChange}>
-                        <option value="">Select a range</option>
-                        <option value="under-1k">Under $1,000</option>
-                        <option value="1k-3k">$1,000 - $3,000</option>
-                        <option value="3k-5k">$3,000 - $5,000</option>
-                        <option value="5k-plus">$5,000+</option>
-                      </select>
-                    </div>
-                    <div className="form-group">
-                      <label htmlFor="timeline">Desired Timeline</label>
-                      <select id="timeline" name="timeline" value={formState.timeline} onChange={handleChange}>
-                        <option value="">Select a timeline</option>
-                        <option value="asap">ASAP</option>
-                        <option value="1-month">Within 1 month</option>
-                        <option value="2-3-months">2-3 months</option>
-                        <option value="flexible">Flexible</option>
-                      </select>
-                    </div>
-                  </div>
-                  
-                  <div className="form-group">
-                    <label htmlFor="message">Project Details *</label>
-                    <textarea id="message" name="message" value={formState.message} onChange={handleChange} className={errors.message ? 'error-input' : ''} rows="5" placeholder="Tell us about your business goals and what you need help with..."></textarea>
-                    {errors.message && <span className="error-text">{errors.message}</span>}
-                  </div>
-                  
-                  <button type="submit" className={`btn btn-primary submit-btn pulse-cta ${status === 'loading' ? 'loading' : ''}`} disabled={status === 'loading'}>
-                    {status === 'loading' ? 'Sending...' : 'Get Your Free Website Review'}
-                  </button>
-                  
-                  <p className="contact-trust-note text-center" style={{marginTop: '1.5rem'}}>
-                    <strong style={{color: 'var(--color-primary)'}}><ShieldCheck size={16} style={{display: 'inline', marginBottom: '-3px'}} aria-hidden="true" /> 100% Privacy Guaranteed. No spam.</strong>
-                  </p>
-                </form>
+                    
+                    <p className="contact-trust-note text-center" style={{marginTop: '1.5rem'}}>
+                      <strong style={{color: 'var(--color-primary)'}}><ShieldCheck size={16} style={{display: 'inline', marginBottom: '-3px'}} aria-hidden="true" /> 100% Privacy Guaranteed. No spam.</strong>
+                    </p>
+                  </form>
+                </div>
               )}
             </div>
             
+            {/* Sidebar Info */}
             <div className="contact-sidebar reveal reveal-delay-1">
               <div className="sidebar-card info-card">
                 <h3>Direct Contact</h3>
