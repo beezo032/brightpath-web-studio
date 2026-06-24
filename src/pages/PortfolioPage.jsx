@@ -6,40 +6,43 @@ import './PortfolioPage.css';
 const allProjects = [
   {
     id: 1,
-    title: "We Can Do It! Lawn & Landscape",
+    title: "We Can Do It Landscaping",
     category: "Landscaping",
     description: "Modern redesign for a local landscaping company focused on generating more quote requests and showcasing services.",
     services: ["Website Design", "Mobile Optimization", "Local SEO", "Lead Generation"],
     technologies: ["React", "Vite", "CSS"],
     results: "+45% Quote Requests",
     demoUrl: "#",
-    githubUrl: "#"
+    githubUrl: "#",
+    image: "https://images.unsplash.com/photo-1558904541-efa843a96f0f?q=80&w=800&auto=format&fit=crop"
   },
   {
     id: 2,
-    title: "Modern Barbershop Website",
+    title: "Razorcut Barbershop",
     category: "Grooming",
     description: "Sleek, dark-themed website with integrated booking to help a local barbershop manage their growing clientele.",
     services: ["Web Design", "Booking Integration", "Local SEO"],
     technologies: ["React", "Animations", "Tailwind"],
     results: "Automated Booking Flow",
     demoUrl: "#",
-    githubUrl: "#"
+    githubUrl: "#",
+    image: "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=800&auto=format&fit=crop"
   },
   {
     id: 3,
-    title: "Elite Pressure Washing Website",
-    category: "Home Services",
-    description: "Visually striking site highlighting dramatic before-and-after transformations to build immediate customer trust.",
+    title: "The Atma Corner",
+    category: "Health & Wellness",
+    description: "Visually striking site highlighting holistic wellness services to build immediate customer trust.",
     services: ["Web Design", "SEO Setup", "Speed Optimization"],
     technologies: ["React", "Vite", "CSS3"],
     results: "Top 3 Local Maps Ranking",
     demoUrl: "#",
-    githubUrl: "#"
+    githubUrl: "#",
+    image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800&auto=format&fit=crop"
   }
 ];
 
-const categories = ["All", "Landscaping", "Grooming", "Home Services"];
+const categories = ["All", "Landscaping", "Grooming", "Health & Wellness"];
 
 const PortfolioPage = () => {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -95,9 +98,7 @@ const PortfolioPage = () => {
             {filteredProjects.map((project, index) => (
               <div key={project.id} className="portfolio-detail-card reveal">
                 <div className="portfolio-image-container">
-                  <div className="portfolio-image-placeholder">
-                    <span>{project.title} Screenshot</span>
-                  </div>
+                  <img src={project.image} alt={project.title} style={{width: '100%', height: '300px', objectFit: 'cover', borderTopLeftRadius: '16px', borderTopRightRadius: '16px'}} />
                   <div className="portfolio-category-badge">{project.category}</div>
                 </div>
                 
@@ -125,12 +126,18 @@ const PortfolioPage = () => {
                   </div>
                   
                   <div className="portfolio-card-actions">
-                    <a href={project.demoUrl} className="btn btn-primary" style={{flex: 1}}>
-                      Live Demo <ExternalLink size={18} style={{marginLeft: '0.5rem'}} />
+                    <a href={project.demoUrl} target="_blank" rel="noreferrer" className="btn btn-primary" style={{flex: 1}}>
+                      View Demo <ExternalLink size={18} style={{marginLeft: '0.5rem'}} />
                     </a>
-                    <a href={project.githubUrl} className="btn btn-outline" style={{flex: 1, display: 'inline-flex', alignItems: 'center', justifyContent: 'center'}}>
-                      <Code size={16} aria-hidden="true" /> View Code
-                    </a>
+                    {project.caseStudyUrl ? (
+                      <a href={project.caseStudyUrl} className="btn btn-outline" style={{flex: 1, display: 'inline-flex', alignItems: 'center', justifyContent: 'center'}}>
+                        View Case Study
+                      </a>
+                    ) : (
+                      <a href={project.githubUrl} className="btn btn-outline" style={{flex: 1, display: 'inline-flex', alignItems: 'center', justifyContent: 'center'}}>
+                        <Code size={16} aria-hidden="true" /> View Code
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>

@@ -4,28 +4,31 @@ import './Portfolio.css';
 
 const projects = [
   {
-    title: "We Can Do It! Lawn & Landscape",
+    title: "We Can Do It Landscaping",
     category: "Landscaping",
     description: "A high-converting lead generation website designed to capture seasonal lawn care contracts and large landscaping quotes.",
     services: ["Web Design", "Local SEO", "Copywriting"],
     technologies: ["React", "Vite", "CSS3"],
     results: "Conversion Optimized",
+    image: "https://images.unsplash.com/photo-1558904541-efa843a96f0f?q=80&w=800&auto=format&fit=crop"
   },
   {
-    title: "Premium Barbershop Demo",
+    title: "Razorcut Barbershop",
     category: "Grooming",
     description: "A sleek, dark-themed website with integrated booking to help a local barbershop manage their growing clientele.",
     services: ["Redesign", "Booking Integration"],
     technologies: ["React", "Custom CSS"],
     results: "Automated Booking Flow",
+    image: "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=800&auto=format&fit=crop"
   },
   {
-    title: "Elite Pressure Washing Demo",
-    category: "Home Services",
-    description: "A visually striking site highlighting dramatic before-and-after transformations to build immediate customer trust.",
+    title: "The Atma Corner",
+    category: "Health & Wellness",
+    description: "A visually striking, modern site highlighting holistic services to build immediate customer trust and local presence.",
     services: ["Web Design", "SEO Setup"],
     technologies: ["React", "Animations"],
     results: "High Local Visibility",
+    image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800&auto=format&fit=crop"
   }
 ];
 
@@ -45,10 +48,7 @@ const Portfolio = () => {
             <div key={index} className={`project-card reveal reveal-delay-${(index % 3) + 1}`}>
               <div className="project-image-wrapper">
                 <div className="project-category">{project.category}</div>
-                {/* Placeholder for screenshot */}
-                <div className="project-image-placeholder">
-                  <span>Screenshot Coming Soon</span>
-                </div>
+                <img src={project.image} alt={project.title} style={{width: '100%', height: '240px', objectFit: 'cover', borderRadius: '12px'}} />
               </div>
               
               <div className="project-content">

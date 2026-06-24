@@ -16,6 +16,7 @@ import ContactPage from './pages/ContactPage';
 import BlogPage from './pages/BlogPage';
 import NotFoundPage from './pages/NotFoundPage';
 import LoginPage from './pages/LoginPage';
+import RazorCutsDemoPage from './pages/RazorCutsDemoPage';
 
 // Dashboard Pages
 import DashboardOverview from './dashboard/pages/DashboardOverview';
@@ -48,6 +49,7 @@ function App() {
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/login" element={<LoginPage />} />
+            <Route path="/portfolio/razor-cuts-demo" element={<RazorCutsDemoPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Route>
 
