@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Search, MapPin, Phone, Globe, Star, CheckCircle, AlertTriangle } from 'lucide-react';
+import { Search, MapPin, Phone, Globe, Star, CheckCircle, AlertTriangle, Plus } from 'lucide-react';
 import './ProspectorPage.css';
 
 const ProspectorPage = () => {
