@@ -1,6 +1,5 @@
-import app, { connectDB } from '../server/server.js';
+import app from '../server/server.js';
 
-export default async function (req, res) {
-  await connectDB();
+export default function (req, res) {
   return app(req, res);
 }
