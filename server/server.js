@@ -46,8 +46,12 @@ app.post('/api/auth/login', (req, res) => {
   return res.status(401).json({ error: 'Invalid credentials' });
 });
 
-// API Routes
-app.use(async (req, res, next) => {
+app.get('/api/auth/verify', authenticateToken, (req, res) => {
+  res.json({ valid: true, user: req.user });
+});
+
+// Database connection middleware (only for routes that need the database)
+const requireDB = async (req, res, next) => {
   if (process.env.VERCEL) {
     try {
       await connectDB();
@@ -56,15 +60,11 @@ app.use(async (req, res, next) => {
     }
   }
   next();
-});
+};
 
-app.use('/api/leads', leadsRoutes);
-app.use('/api/templates', templatesRoutes);
+app.use('/api/leads', requireDB, leadsRoutes);
+app.use('/api/templates', requireDB, templatesRoutes);
 app.use('/api/prospector', prospectorRoutes);
-
-app.get('/api/auth/verify', authenticateToken, (req, res) => {
-  res.json({ valid: true, user: req.user });
-});
 
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/brightpath';
 
