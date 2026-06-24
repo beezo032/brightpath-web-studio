@@ -1,4 +1,5 @@
 import express from 'express';
+import fetch from 'node-fetch';
 import { authenticateToken } from '../middleware/auth.js';
 
 const router = express.Router();
@@ -7,7 +8,7 @@ router.use(authenticateToken);
 
 router.post('/search', async (req, res) => {
   const { industry, location } = req.body;
-  const apiKey = process.env.GOOGLE_PLACES_API_KEY;
+  const apiKey = process.env.YELP_API_KEY;
 
   if (!industry || !location) {
     return res.status(400).json({ error: 'Industry and Location are required' });
@@ -15,7 +16,7 @@ router.post('/search', async (req, res) => {
 
   // If no API key is provided, return rich mock data so the user can test the UI
   if (!apiKey) {
-    console.log('No GOOGLE_PLACES_API_KEY found. Returning mock data.');
+    console.log('No YELP_API_KEY found. Returning mock data.');
     
     // Simulate API delay
     await new Promise(resolve => setTimeout(resolve, 1500));
@@ -79,45 +80,45 @@ router.post('/search', async (req, res) => {
 
     return res.json({ 
       mockData: true, 
-      message: 'Using mock data because GOOGLE_PLACES_API_KEY is not set in environment.',
+      message: 'Using mock data because YELP_API_KEY is not set in environment.',
       results: mockResults 
     });
   }
 
-  // Real Google Places API integration (Text Search)
+  // Real Yelp Fusion API integration
   try {
-    const query = `${industry} in ${location}`;
-    const searchUrl = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${encodeURIComponent(query)}&key=${apiKey}`;
+    const searchUrl = `https://api.yelp.com/v3/businesses/search?term=${encodeURIComponent(industry)}&location=${encodeURIComponent(location)}&limit=15`;
     
-    const searchRes = await fetch(searchUrl);
+    const searchRes = await fetch(searchUrl, {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${apiKey}`,
+        'accept': 'application/json'
+      }
+    });
+    
     const searchData = await searchRes.json();
 
-    if (searchData.status !== 'OK') {
-      return res.status(400).json({ error: `Google API Error: ${searchData.status}` });
+    if (!searchRes.ok) {
+      return res.status(400).json({ error: `Yelp API Error: ${searchData.error?.description || searchData.error?.code || 'Unknown Error'}` });
     }
 
-    // Google Text Search doesn't always return website/phone. We need to do a Place Details call for each.
-    // To save time/cost, we will only fetch details for the top 10 results.
-    const topResults = searchData.results.slice(0, 10);
-    
-    const detailedResults = await Promise.all(topResults.map(async (place) => {
-      const detailsUrl = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${place.place_id}&fields=name,formatted_address,formatted_phone_number,website,rating,user_ratings_total&key=${apiKey}`;
-      const detailsRes = await fetch(detailsUrl);
-      const detailsData = await detailsRes.json();
-      
-      if (detailsData.status === 'OK') {
-        return {
-          place_id: place.place_id,
-          ...detailsData.result
-        };
-      }
-      return place; // Fallback to basic info if details fail
+    // Map Yelp data to our expected format
+    const mappedResults = (searchData.businesses || []).map(business => ({
+      place_id: business.id,
+      name: business.name,
+      formatted_address: business.location?.display_address?.join(', ') || 'No address provided',
+      formatted_phone_number: business.display_phone || '',
+      website: business.url || '', // Yelp search API only returns the Yelp page URL
+      rating: business.rating || null,
+      user_ratings_total: business.review_count || 0
     }));
 
-    res.json({ results: detailedResults });
+    res.json({ results: mappedResults, mockData: false });
+
   } catch (error) {
     console.error('Prospector API Error:', error);
-    res.status(500).json({ error: 'Failed to fetch prospects from Google API.' });
+    res.status(500).json({ error: 'Failed to fetch prospects from Yelp API.' });
   }
 });
 
