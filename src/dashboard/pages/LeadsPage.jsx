@@ -19,8 +19,9 @@ const LeadsPage = () => {
   
   // Form State
   const [formData, setFormData] = useState({
-    businessName: '', email: '', phone: '', industry: '', 
-    city: '', state: '', websiteUrl: '', contactStatus: 'New', notes: ''
+    businessName: '', email: '', phone: '',    websiteScore: '',
+    estimatedValue: '',
+    notes: '', state: '', websiteUrl: '', contactStatus: 'New'
   });
 
   const fetchLeads = async () => {
@@ -51,7 +52,9 @@ const LeadsPage = () => {
       setCurrentLead(null);
       setFormData({
         businessName: '', email: '', phone: '', industry: '', 
-        city: '', state: '', websiteUrl: '', contactStatus: 'New', notes: ''
+        websiteScore: '',
+        estimatedValue: '',
+        notes: '',
       });
     }
     setIsModalOpen(true);
@@ -215,6 +218,28 @@ const LeadsPage = () => {
               <button className="modal-close" onClick={() => setIsModalOpen(false)}><X size={24} /></button>
             </div>
             <form className="lead-form" onSubmit={handleSaveLead}>
+              <div className="form-row">
+                <div className="form-group">
+                  <label>Website Score (0-100)</label>
+                  <input 
+                    type="number" 
+                    className="form-control" 
+                    value={formData.websiteScore} 
+                    onChange={e => setFormData({...formData, websiteScore: e.target.value})} 
+                    min="0" max="100"
+                  />
+                </div>
+                <div className="form-group">
+                  <label>Estimated Value ($)</label>
+                  <input 
+                    type="number" 
+                    className="form-control" 
+                    value={formData.estimatedValue} 
+                    onChange={e => setFormData({...formData, estimatedValue: e.target.value})} 
+                  />
+                </div>
+              </div>
+              
               <div>
                 <label>Business Name *</label>
                 <input required type="text" value={formData.businessName} onChange={e => setFormData({...formData, businessName: e.target.value})} />

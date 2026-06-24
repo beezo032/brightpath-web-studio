@@ -9,6 +9,7 @@ const leadSchema = new mongoose.Schema({
   email: { type: String },
   phone: { type: String },
   websiteScore: { type: Number, min: 0, max: 100 },
+  estimatedValue: { type: Number, default: 0 },
   notes: { type: String },
   contactStatus: { 
     type: String, 
