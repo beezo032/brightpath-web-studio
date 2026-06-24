@@ -48,22 +48,9 @@ const Hero = () => {
             </div>
           </div>
           <div className="hero-image reveal reveal-delay-2">
-            <div className="hero-image-placeholder" aria-label="Mockup of a local business website on desktop and mobile">
-              <div className="mockup-window">
-                <div className="mockup-header">
-                  <span className="dot"></span>
-                  <span className="dot"></span>
-                  <span className="dot"></span>
-                </div>
-                <div className="mockup-body">
-                  <div className="mockup-hero"></div>
-                  <div className="mockup-cards">
-                    <div className="mockup-card"></div>
-                    <div className="mockup-card"></div>
-                  </div>
-                </div>
-              </div>
-              <div className="floating-card lead-card" aria-hidden="true">
+            <div className="hero-image-wrapper" aria-label="Mockup of a local business website on desktop and mobile">
+              <img src="/hero_mockup.png" alt="Modern Local Business Website Design" className="hero-mockup-img" style={{ width: '100%', height: 'auto', borderRadius: '12px', boxShadow: '0 20px 40px rgba(0,0,0,0.2)' }} />
+              <div className="floating-card lead-card" aria-hidden="true" style={{ bottom: '-20px', left: '-20px' }}>
                 <div className="lead-icon">🎉</div>
                 <div className="lead-text">
                   <p className="lead-title">New Lead</p>

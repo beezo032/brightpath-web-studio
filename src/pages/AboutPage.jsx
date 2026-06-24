@@ -35,39 +35,6 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Founder Story & Mission */}
-      <section className="about-story section section-light">
-        <div className="container">
-          <div className="story-grid">
-            <div className="story-content reveal">
-              <h2>Meet the Founder</h2>
-              <div className="story-text">
-                <p>Hi, I'm Brandon, founder of Brightpath Web Studio.</p>
-                <p>I started Brightpath with one mission: to help local businesses compete online through modern, high-performing websites.</p>
-                <p>Too often, local business owners get stuck with outdated templates that don't reflect the quality of their services, or they get overcharged by agencies that disappear after launch. I wanted to build a different kind of agency—one focused on transparency, real partnerships, and tangible results.</p>
-              </div>
-              
-              <div className="mission-box mt-4">
-                <h3>Our Mission</h3>
-                <p className="mission-text">"Our mission is to create websites that not only look great but also help businesses generate more customers."</p>
-              </div>
-            </div>
-            
-            <div className="story-image-wrapper reveal reveal-delay-1">
-              <div className="founder-placeholder">
-                <div className="founder-placeholder-inner">
-                  <span>Photo Placeholder</span>
-                  <span className="founder-name">Brandon Johnson</span>
-                </div>
-              </div>
-              <div className="experience-badge">
-                <span className="badge-number">100%</span>
-                <span className="badge-text">Dedicated to Local Business</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Core Values */}
       <section className="about-values section bg-gray">
