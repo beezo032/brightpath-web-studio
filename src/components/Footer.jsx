@@ -11,7 +11,7 @@ const Footer = () => {
         <div className="footer-grid">
           <div className="footer-brand">
             <Link to="/" className="logo">
-              <span className="logo-accent">Bright</span>path
+              <span className="logo-accent">Ascend</span> Digital Co
             </Link>
             <p className="footer-desc">
               Building high-converting, premium websites for local service businesses. We help you turn visitors into paying customers.

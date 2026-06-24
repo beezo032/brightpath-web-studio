@@ -33,7 +33,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
       <aside className={`dashboard-sidebar ${isOpen ? 'open' : ''}`}>
         <div className="sidebar-header">
           <div className="sidebar-logo">
-            <span className="logo-accent">Bright</span>path<span className="crm-badge">CRM</span>
+            <span className="logo-accent">Ascend</span> Digital Co<span className="crm-badge">CRM</span>
           </div>
           <button className="sidebar-close" onClick={() => setIsOpen(false)}>
             <X size={24} />
