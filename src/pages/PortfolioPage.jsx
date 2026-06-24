@@ -14,7 +14,7 @@ const allProjects = [
     results: "+45% Quote Requests",
     demoUrl: "#",
     githubUrl: "#",
-    image: "https://images.unsplash.com/photo-1558904541-efa843a96f0f?q=80&w=800&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1558661091-5cc1b64d0dc5?q=80&w=800&auto=format&fit=crop"
   },
   {
     id: 2,
