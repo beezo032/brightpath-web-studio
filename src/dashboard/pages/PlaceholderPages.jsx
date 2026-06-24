@@ -18,8 +18,8 @@ const PlaceholderPage = ({ title }) => (
   </div>
 );
 
+export const DashboardOverview = () => <PlaceholderPage title="Dashboard Overview" />;
 export const LeadDetailPage = () => <PlaceholderPage title="Lead Details" />;
-export const AnalyzerPage = () => <PlaceholderPage title="Website Analyzer" />;
 export const FollowupsPage = () => <PlaceholderPage title="Follow-up Tracking" />;
 export const TemplatesPage = () => <PlaceholderPage title="Email Templates" />;
 export const SettingsPage = () => <PlaceholderPage title="CRM Settings" />;

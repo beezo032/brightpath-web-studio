@@ -21,9 +21,9 @@ import LoginPage from './pages/LoginPage';
 import DashboardOverview from './dashboard/pages/DashboardOverview';
 import LeadsPage from './dashboard/pages/LeadsPage';
 import PipelinePage from './dashboard/pages/PipelinePage';
+import AnalyzerPage from './dashboard/pages/AnalyzerPage';
 import { 
   LeadDetailPage, 
-  AnalyzerPage, 
   FollowupsPage, 
   TemplatesPage, 
   SettingsPage 
