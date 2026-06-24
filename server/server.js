@@ -47,6 +47,13 @@ app.post('/api/auth/login', (req, res) => {
 });
 
 // API Routes
+app.use(async (req, res, next) => {
+  if (process.env.VERCEL) {
+    await connectDB();
+  }
+  next();
+});
+
 app.use('/api/leads', leadsRoutes);
 app.use('/api/templates', templatesRoutes);
 app.use('/api/prospector', prospectorRoutes);
