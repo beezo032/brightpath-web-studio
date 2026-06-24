@@ -70,14 +70,16 @@ const ProspectorPage = () => {
         body: JSON.stringify(newLead)
       });
 
+      const data = await res.json().catch(() => null);
+
       if (res.ok) {
         setImportedIds(new Set([...importedIds, prospect.place_id]));
       } else {
-        throw new Error('Failed to import lead');
+        throw new Error(data?.error || `Server returned ${res.status}`);
       }
     } catch (err) {
       console.error(err);
-      alert('Error importing lead to CRM.');
+      alert(`Error importing lead: ${err.message}`);
     }
   };
 
