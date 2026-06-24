@@ -25,10 +25,8 @@ import AnalyzerPage from './dashboard/pages/AnalyzerPage';
 import TemplatesPage from './dashboard/pages/TemplatesPage';
 import FollowupsPage from './dashboard/pages/FollowupsPage';
 import ProspectorPage from './dashboard/pages/ProspectorPage';
-import { 
-  LeadDetailPage, 
-  SettingsPage 
-} from './dashboard/pages/PlaceholderPages';
+import LeadDetailPage from './dashboard/pages/LeadDetailPage';
+import { SettingsPage } from './dashboard/pages/PlaceholderPages';
 
 import ScrollToHash from './components/ScrollToHash';
 import { useScrollReveal } from './hooks/useScrollReveal';

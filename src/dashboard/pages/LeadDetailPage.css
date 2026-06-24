@@ -1,0 +1,135 @@
+.lead-detail-page {
+  padding-bottom: 3rem;
+}
+
+.lead-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+
+.lead-header h1 {
+  font-size: 1.75rem;
+  color: var(--color-text);
+  margin-bottom: 0.5rem;
+}
+
+.lead-header .lead-industry {
+  display: inline-flex;
+  align-items: center;
+  background: var(--color-bg-alt);
+  color: var(--color-text-muted);
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.header-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.lead-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 1024px) {
+  .lead-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.status-selector {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.status-pill {
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+  color: var(--color-text-muted);
+  font-weight: 500;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.status-pill:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.status-pill.active {
+  background: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+}
+
+.danger-zone {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.danger-zone h3 {
+  color: #ef4444;
+  margin-bottom: 0.5rem;
+}
+
+.danger-zone p {
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.btn-danger {
+  background: transparent;
+  color: #ef4444;
+  border: 1px solid #ef4444;
+}
+
+.btn-danger:hover {
+  background: #ef4444;
+  color: white;
+}

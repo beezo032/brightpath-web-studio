@@ -61,6 +61,16 @@ router.post('/', async (req, res) => {
   }
 });
 
+router.get('/:id', async (req, res) => {
+  try {
+    const lead = await Lead.findById(req.params.id);
+    if (!lead) return res.status(404).json({ error: 'Lead not found' });
+    res.json(lead);
+  } catch (error) {
+    res.status(500).json({ error: 'Server Error' });
+  }
+});
+
 router.put('/:id', async (req, res) => {
   try {
     const updatedLead = await Lead.findByIdAndUpdate(
