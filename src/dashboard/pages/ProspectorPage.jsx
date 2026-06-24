@@ -9,7 +9,6 @@ const ProspectorPage = () => {
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const [isMockData, setIsMockData] = useState(false);
   const [importedIds, setImportedIds] = useState(new Set());
 
   const handleSearch = async (e) => {
@@ -19,7 +18,6 @@ const ProspectorPage = () => {
     setLoading(true);
     setError('');
     setResults([]);
-    setIsMockData(false);
 
     try {
       const token = localStorage.getItem('brightpath_jwt');
@@ -39,9 +37,6 @@ const ProspectorPage = () => {
       }
 
       setResults(data.results || []);
-      if (data.mockData) {
-        setIsMockData(true);
-      }
     } catch (err) {
       setError(err.message);
     } finally {
@@ -61,7 +56,7 @@ const ProspectorPage = () => {
         phone: prospect.formatted_phone_number || '',
         websiteUrl: prospect.website || '',
         contactStatus: 'New',
-        notes: `Imported via Lead Prospector.\nAddress: ${prospect.formatted_address}\nYelp Rating: ${prospect.rating} (${prospect.user_ratings_total} reviews)`,
+        notes: `Imported via OpenStreetMap Lead Prospector.\nAddress: ${prospect.formatted_address}`,
         // Set a default follow-up date for today
         followUpDate: new Date().toISOString()
       };
@@ -127,19 +122,6 @@ const ProspectorPage = () => {
 
         {error && <div style={{color: '#ef4444', fontWeight: 500}}>{error}</div>}
       </div>
-
-      {isMockData && !loading && results.length > 0 && (
-        <div className="mock-warning">
-          <AlertTriangle size={24} style={{flexShrink: 0}} />
-          <div>
-            <strong>Using Mock Data!</strong> 
-            <p style={{margin: '0.25rem 0 0', fontSize: '0.95rem'}}>
-              The <code>YELP_API_KEY</code> environment variable is not set. 
-              The system is returning simulated data so you can test the UI. To pull real businesses, create a free Developer app at <a href="https://www.yelp.com/developers/v3/manage_app" target="_blank" rel="noreferrer" style={{color: 'inherit', textDecoration: 'underline'}}>Yelp Fusion</a> and add your API Key to Vercel.
-            </p>
-          </div>
-        </div>
-      )}
 
       {loading && (
         <div className="loading-state">
