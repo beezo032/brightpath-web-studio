@@ -19,7 +19,7 @@ const PipelinePage = () => {
 
   const fetchLeads = async () => {
     try {
-      const token = localStorage.getItem('brightpath_jwt');
+      const token = localStorage.getItem('ascenddigitalco_jwt');
       // Fetch all leads (high limit for Kanban board)
       const res = await fetch('/api/leads?limit=500', {
         headers: { 'Authorization': `Bearer ${token}` }
@@ -93,7 +93,7 @@ const PipelinePage = () => {
 
     // Sync with backend
     try {
-      const token = localStorage.getItem('brightpath_jwt');
+      const token = localStorage.getItem('ascenddigitalco_jwt');
       await fetch(`/api/leads/${draggedLeadId}`, {
         method: 'PUT',
         headers: { 

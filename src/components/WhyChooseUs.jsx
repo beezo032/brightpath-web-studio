@@ -18,7 +18,7 @@ const WhyChooseUs = () => {
       
       <div className="container relative">
         <div className="section-header text-center reveal">
-          <h2>Why Businesses Trust Brightpath</h2>
+          <h2>Why Businesses Trust Ascend Digital Co</h2>
           <p className="subtitle">
             We combine high-end design with proven growth strategies to deliver reliable results.
           </p>
@@ -62,7 +62,7 @@ const WhyChooseUs = () => {
         
         <div className="section-cta text-center reveal reveal-delay-2" style={{marginTop: '4rem'}}>
           <a href="#contact" className="btn btn-primary pulse-cta" style={{display: 'inline-flex', alignItems: 'center'}}>
-            Experience the Brightpath Difference <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{marginLeft: '0.5rem'}}><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            Experience the Ascend Digital Co Difference <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{marginLeft: '0.5rem'}}><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
           </a>
         </div>
       </div>

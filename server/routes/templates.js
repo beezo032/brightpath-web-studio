@@ -72,17 +72,17 @@ router.post('/seed', async (req, res) => {
         {
           title: "Initial Outreach (Cold)",
           subject: "Ideas for {{BusinessName}}'s online presence",
-          body: "Hi {{FirstName}},\n\nI came across {{BusinessName}} while searching for local businesses in your industry. I noticed a few areas where your website could be optimized to bring in more leads.\n\nI'd love to share a quick 5-minute audit I ran on your site. Are you free for a brief chat later this week?\n\nBest,\nBrightpath Team"
+          body: "Hi {{FirstName}},\n\nI came across {{BusinessName}} while searching for local businesses in your industry. I noticed a few areas where your website could be optimized to bring in more leads.\n\nI'd love to share a quick 5-minute audit I ran on your site. Are you free for a brief chat later this week?\n\nBest,\nAscend Digital Co Team"
         },
         {
           title: "Audit Follow-up",
           subject: "Following up: {{BusinessName}} Website Audit",
-          body: "Hi {{FirstName}},\n\nJust floating this to the top of your inbox. Did you get a chance to review the audit findings I sent over?\n\nI'm happy to walk you through it and answer any questions you might have.\n\nBest,\nBrightpath Team"
+          body: "Hi {{FirstName}},\n\nJust floating this to the top of your inbox. Did you get a chance to review the audit findings I sent over?\n\nI'm happy to walk you through it and answer any questions you might have.\n\nBest,\nAscend Digital Co Team"
         },
         {
           title: "Proposal Sent",
           subject: "Proposal attached for {{BusinessName}}",
-          body: "Hi {{FirstName}},\n\nIt was great speaking with you earlier! I've attached the detailed proposal and pricing breakdown for the project we discussed.\n\nPlease let me know if you have any questions or need adjustments before we move forward.\n\nBest,\nBrightpath Team"
+          body: "Hi {{FirstName}},\n\nIt was great speaking with you earlier! I've attached the detailed proposal and pricing breakdown for the project we discussed.\n\nPlease let me know if you have any questions or need adjustments before we move forward.\n\nBest,\nAscend Digital Co Team"
         }
       ];
       await Template.insertMany(defaults);

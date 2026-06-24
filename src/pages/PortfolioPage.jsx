@@ -63,9 +63,9 @@ const PortfolioPage = () => {
   return (
     <main className="portfolio-page">
       <Helmet>
-        <title>Our Work & Portfolio | Brightpath Web Studio</title>
+        <title>Our Work & Portfolio | Ascend Digital Co</title>
         <meta name="description" content="Explore our portfolio of high-converting websites designed specifically for landscaping, grooming, and local service businesses." />
-        <meta property="og:title" content="Our Work & Portfolio | Brightpath Web Studio" />
+        <meta property="og:title" content="Our Work & Portfolio | Ascend Digital Co" />
         <meta property="og:description" content="Explore our portfolio of high-converting websites designed specifically for landscaping, grooming, and local service businesses." />
       </Helmet>
 

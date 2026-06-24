@@ -79,9 +79,9 @@ const BlogPage = () => {
   return (
     <main className="blog-page">
       <Helmet>
-        <title>Digital Growth Blog | Brightpath Web Studio</title>
+        <title>Digital Growth Blog | Ascend Digital Co</title>
         <meta name="description" content="Actionable web design and digital marketing advice to help local service businesses dominate their market and acquire more customers online." />
-        <meta property="og:title" content="Digital Growth Blog | Brightpath Web Studio" />
+        <meta property="og:title" content="Digital Growth Blog | Ascend Digital Co" />
         <meta property="og:description" content="Actionable web design and digital marketing advice to help local service businesses dominate their market and acquire more customers online." />
       </Helmet>
 

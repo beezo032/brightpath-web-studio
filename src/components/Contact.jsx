@@ -83,7 +83,7 @@ const Contact = () => {
                 <div className="method-icon"><Mail size={20} /></div>
                 <div>
                   <h4>Email Us</h4>
-                  <p>hello@brightpathweb.com</p>
+                  <p>hello@ascenddigitalcoweb.com</p>
                 </div>
               </div>
               <div className="contact-method">

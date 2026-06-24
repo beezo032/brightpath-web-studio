@@ -7,7 +7,7 @@ const RazorCutsDemoPage = () => {
   return (
     <main className="portfolio-detail-page" style={{paddingTop: '100px', minHeight: '100vh', backgroundColor: '#f9fafb'}}>
       <Helmet>
-        <title>Razor Cuts Barbershop Demo | Brightpath Web Studio</title>
+        <title>Razor Cuts Barbershop Demo | Ascend Digital Co</title>
         <meta name="description" content="Case study for Razor Cuts Barbershop Demo." />
       </Helmet>
 

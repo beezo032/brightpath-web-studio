@@ -6,7 +6,7 @@ const reviews = [
   {
     name: "Michael R.",
     business: "Elite Pressure Washing",
-    review: "Brightpath completely transformed our online presence. We went from getting 1-2 calls a week to 3-5 a day. The site paid for itself in the first month."
+    review: "Ascend Digital Co completely transformed our online presence. We went from getting 1-2 calls a week to 3-5 a day. The site paid for itself in the first month."
   },
   {
     name: "Sarah J.",
@@ -16,7 +16,7 @@ const reviews = [
   {
     name: "David T.",
     business: "Tanner Contracting",
-    review: "Fast, professional, and responsive. I've worked with other agencies before, but Brightpath delivered a better product for a fraction of the price. Highly recommend."
+    review: "Fast, professional, and responsive. I've worked with other agencies before, but Ascend Digital Co delivered a better product for a fraction of the price. Highly recommend."
   }
 ];
 

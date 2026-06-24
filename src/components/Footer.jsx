@@ -49,7 +49,7 @@ const Footer = () => {
         </div>
         
         <div className="footer-bottom">
-          <p>&copy; {currentYear} Brightpath Web Studio. All rights reserved.</p>
+          <p>&copy; {currentYear} Ascend Digital Co. All rights reserved.</p>
         </div>
       </div>
     </footer>

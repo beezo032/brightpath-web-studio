@@ -19,7 +19,7 @@ const TemplatesPage = () => {
   const fetchTemplates = async () => {
     setLoading(true);
     try {
-      const token = localStorage.getItem('brightpath_jwt');
+      const token = localStorage.getItem('ascenddigitalco_jwt');
       const res = await fetch('/api/templates', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
@@ -39,7 +39,7 @@ const TemplatesPage = () => {
 
   const seedTemplates = async () => {
     try {
-      const token = localStorage.getItem('brightpath_jwt');
+      const token = localStorage.getItem('ascenddigitalco_jwt');
       const res = await fetch('/api/templates/seed', {
         method: 'POST',
         headers: { 'Authorization': `Bearer ${token}` }
@@ -72,7 +72,7 @@ const TemplatesPage = () => {
 
   const handleSave = async (e) => {
     e.preventDefault();
-    const token = localStorage.getItem('brightpath_jwt');
+    const token = localStorage.getItem('ascenddigitalco_jwt');
     const method = currentTemplate ? 'PUT' : 'POST';
     const url = currentTemplate ? `/api/templates/${currentTemplate._id}` : '/api/templates';
 
@@ -94,7 +94,7 @@ const TemplatesPage = () => {
 
   const handleDelete = async (id) => {
     if (!window.confirm('Are you sure you want to delete this template?')) return;
-    const token = localStorage.getItem('brightpath_jwt');
+    const token = localStorage.getItem('ascenddigitalco_jwt');
     try {
       await fetch(`/api/templates/${id}`, {
         method: 'DELETE',

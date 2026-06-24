@@ -36,7 +36,7 @@ const LoginPage = () => {
               <Lock size={32} />
             </div>
             <h1>Agency Login</h1>
-            <p>Access the Brightpath CRM Dashboard.</p>
+            <p>Access the Ascend Digital Co CRM Dashboard.</p>
           </div>
           
           <form onSubmit={handleSubmit} className="login-form">
@@ -47,7 +47,7 @@ const LoginPage = () => {
                 id="email" 
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="admin@brightpath.local"
+                placeholder="admin@ascenddigitalco.local"
                 required
               />
             </div>

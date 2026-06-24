@@ -16,9 +16,9 @@ const Home = () => {
   return (
     <main className="home-page">
       <Helmet>
-        <title>Brightpath Web Studio | High-Converting Web Design for Local Businesses</title>
+        <title>Ascend Digital Co | High-Converting Web Design for Local Businesses</title>
         <meta name="description" content="We build custom, fast-loading, mobile-friendly websites that help local service businesses get more calls and quote requests." />
-        <meta property="og:title" content="Brightpath Web Studio | High-Converting Web Design for Local Businesses" />
+        <meta property="og:title" content="Ascend Digital Co | High-Converting Web Design for Local Businesses" />
         <meta property="og:description" content="We build custom, fast-loading, mobile-friendly websites that help local service businesses get more calls and quote requests." />
       </Helmet>
       

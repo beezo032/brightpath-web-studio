@@ -112,9 +112,9 @@ const ContactPage = () => {
   return (
     <main className="contact-page">
       <Helmet>
-        <title>Get a Quote | Brightpath Web Studio</title>
+        <title>Get a Quote | Ascend Digital Co</title>
         <meta name="description" content="Get your free website review today. Fill out our project inquiry form and we'll get back to you within 24 hours to discuss your web design project." />
-        <meta property="og:title" content="Get a Quote | Brightpath Web Studio" />
+        <meta property="og:title" content="Get a Quote | Ascend Digital Co" />
         <meta property="og:description" content="Get your free website review today. Fill out our project inquiry form and we'll get back to you within 24 hours to discuss your web design project." />
       </Helmet>
 
@@ -323,7 +323,7 @@ const ContactPage = () => {
                   <Mail className="info-icon" aria-hidden="true" />
                   <div>
                     <span className="info-label">Email Us</span>
-                    <a href="mailto:hello@brightpathwebstudio.com" className="info-value">hello@brightpathwebstudio.com</a>
+                    <a href="mailto:hello@ascenddigitalcowebstudio.com" className="info-value">hello@ascenddigitalcowebstudio.com</a>
                   </div>
                 </div>
                 <div className="info-item">
@@ -354,7 +354,7 @@ const ContactPage = () => {
               
               <div className="sidebar-trust">
                 <div className="trust-stars" aria-hidden="true">★★★★★</div>
-                <p>"Brightpath completely transformed our online presence. Our lead volume has tripled since launching the new site."</p>
+                <p>"Ascend Digital Co completely transformed our online presence. Our lead volume has tripled since launching the new site."</p>
               </div>
             </div>
             

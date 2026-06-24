@@ -1,6 +1,6 @@
-# Brightpath Web Studio
+# Ascend Digital Co
 
-Brightpath Web Studio is a modern web design agency focused on helping local businesses generate more leads, calls, and customers through fast, mobile-friendly websites.
+Ascend Digital Co is a modern web design agency focused on helping local businesses generate more leads, calls, and customers through fast, mobile-friendly websites.
 
 ## Services
 
@@ -29,7 +29,7 @@ Brightpath Web Studio is a modern web design agency focused on helping local bus
 
 ## Featured Project Goals
 
-Brightpath Web Studio was created to showcase premium websites for local service businesses including landscapers, pressure washers, barbershops, churches, and contractors.
+Ascend Digital Co was created to showcase premium websites for local service businesses including landscapers, pressure washers, barbershops, churches, and contractors.
 
 ## Future Improvements
 
