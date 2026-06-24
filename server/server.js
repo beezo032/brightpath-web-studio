@@ -49,7 +49,11 @@ app.post('/api/auth/login', (req, res) => {
 // API Routes
 app.use(async (req, res, next) => {
   if (process.env.VERCEL) {
-    await connectDB();
+    try {
+      await connectDB();
+    } catch (err) {
+      return res.status(500).json({ error: err.message });
+    }
   }
   next();
 });
@@ -85,14 +89,15 @@ export const connectDB = async () => {
   } else {
     // Vercel Serverless Connection
     if (!process.env.MONGODB_URI) {
-      console.warn('WARNING: MONGODB_URI is not set in Vercel. Database features will fail.');
-      return;
+      throw new Error('CRITICAL ERROR: MONGODB_URI environment variable is completely missing or not checked for Production in Vercel.');
     }
     try {
-      await mongoose.connect(process.env.MONGODB_URI);
+      await mongoose.connect(process.env.MONGODB_URI, {
+        serverSelectionTimeoutMS: 5000 // fail fast in 5 seconds instead of 30
+      });
       console.log('Connected to Vercel MongoDB Atlas');
     } catch (err) {
-      console.error('Failed to connect to Vercel MongoDB Atlas:', err);
+      throw new Error(`Failed to connect to MongoDB Atlas. Check your username/password and IP settings. Exact Error: ${err.message}`);
     }
   }
 };
