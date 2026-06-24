@@ -24,6 +24,7 @@ import PipelinePage from './dashboard/pages/PipelinePage';
 import AnalyzerPage from './dashboard/pages/AnalyzerPage';
 import TemplatesPage from './dashboard/pages/TemplatesPage';
 import FollowupsPage from './dashboard/pages/FollowupsPage';
+import ProspectorPage from './dashboard/pages/ProspectorPage';
 import { 
   LeadDetailPage, 
   SettingsPage 
@@ -57,6 +58,7 @@ function App() {
             <Route path="/dashboard" element={<DashboardOverview />} />
             <Route path="/dashboard/leads" element={<LeadsPage />} />
             <Route path="/dashboard/leads/:id" element={<LeadDetailPage />} />
+            <Route path="/dashboard/prospector" element={<ProspectorPage />} />
             <Route path="/dashboard/pipeline" element={<PipelinePage />} />
             <Route path="/dashboard/analyzer" element={<AnalyzerPage />} />
             <Route path="/dashboard/followups" element={<FollowupsPage />} />

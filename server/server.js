@@ -13,6 +13,7 @@ dotenv.config({ path: path.join(__dirname, '../.env') });
 
 import leadsRoutes from './routes/leads.js';
 import templatesRoutes from './routes/templates.js';
+import prospectorRoutes from './routes/prospector.js';
 import { authenticateToken } from './middleware/auth.js';
 
 export const app = express();
@@ -48,6 +49,7 @@ app.post('/api/auth/login', (req, res) => {
 // API Routes
 app.use('/api/leads', leadsRoutes);
 app.use('/api/templates', templatesRoutes);
+app.use('/api/prospector', prospectorRoutes);
 
 app.get('/api/auth/verify', authenticateToken, (req, res) => {
   res.json({ valid: true, user: req.user });

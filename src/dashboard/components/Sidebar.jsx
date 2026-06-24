@@ -7,6 +7,7 @@ import {
   MailCheck, 
   LayoutTemplate, 
   KanbanSquare, 
+  Radar,
   Settings,
   X 
 } from 'lucide-react';
@@ -16,6 +17,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
   const navItems = [
     { name: 'Overview', path: '/dashboard', icon: <LayoutDashboard size={20} />, exact: true },
     { name: 'Leads', path: '/dashboard/leads', icon: <Users size={20} /> },
+    { name: 'Prospector', path: '/dashboard/prospector', icon: <Radar size={20} /> },
     { name: 'Pipeline', path: '/dashboard/pipeline', icon: <KanbanSquare size={20} /> },
     { name: 'Follow-ups', path: '/dashboard/followups', icon: <MailCheck size={20} /> },
     { name: 'Analyzer', path: '/dashboard/analyzer', icon: <LineChart size={20} /> },
