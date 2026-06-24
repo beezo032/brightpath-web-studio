@@ -21,7 +21,7 @@ const LeadsPage = () => {
   const [formData, setFormData] = useState({
     businessName: '', email: '', phone: '', industry: '', 
     city: '', state: '', websiteUrl: '', contactStatus: 'New', 
-    websiteScore: '', estimatedValue: '', notes: ''
+    websiteScore: '', estimatedValue: '', notes: '', followUpDate: ''
   });
 
   const fetchLeads = async () => {
@@ -53,7 +53,7 @@ const LeadsPage = () => {
       setFormData({
         businessName: '', email: '', phone: '', industry: '', 
         city: '', state: '', websiteUrl: '', contactStatus: 'New', 
-        websiteScore: '', estimatedValue: '', notes: ''
+        websiteScore: '', estimatedValue: '', notes: '', followUpDate: ''
       });
     }
     setIsModalOpen(true);
@@ -255,16 +255,27 @@ const LeadsPage = () => {
                 <label>Phone</label>
                 <input type="tel" value={formData.phone} onChange={e => setFormData({...formData, phone: e.target.value})} />
               </div>
-              <div>
-                <label>Status</label>
-                <select value={formData.contactStatus} onChange={e => setFormData({...formData, contactStatus: e.target.value})}>
-                  <option value="New">New</option>
-                  <option value="Contacted">Contacted</option>
-                  <option value="Meeting Scheduled">Meeting Scheduled</option>
-                  <option value="Proposal Sent">Proposal Sent</option>
-                  <option value="Won">Won</option>
-                  <option value="Lost">Lost</option>
-                </select>
+              <div className="form-row">
+                <div className="form-group">
+                  <label>Status</label>
+                  <select value={formData.contactStatus} onChange={e => setFormData({...formData, contactStatus: e.target.value})}>
+                    <option value="New">New</option>
+                    <option value="Contacted">Contacted</option>
+                    <option value="Meeting Scheduled">Meeting Scheduled</option>
+                    <option value="Proposal Sent">Proposal Sent</option>
+                    <option value="Won">Won</option>
+                    <option value="Lost">Lost</option>
+                  </select>
+                </div>
+                <div className="form-group">
+                  <label>Follow-up Date</label>
+                  <input 
+                    type="date" 
+                    className="form-control"
+                    value={formData.followUpDate ? formData.followUpDate.split('T')[0] : ''} 
+                    onChange={e => setFormData({...formData, followUpDate: e.target.value})} 
+                  />
+                </div>
               </div>
               <div>
                 <label>Website URL</label>
