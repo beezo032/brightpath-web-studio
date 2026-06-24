@@ -12,6 +12,7 @@ const __dirname = path.dirname(__filename);
 dotenv.config({ path: path.join(__dirname, '../.env') });
 
 import leadsRoutes from './routes/leads.js';
+import templatesRoutes from './routes/templates.js';
 import { authenticateToken } from './middleware/auth.js';
 
 export const app = express();
@@ -44,7 +45,9 @@ app.post('/api/auth/login', (req, res) => {
   return res.status(401).json({ error: 'Invalid credentials' });
 });
 
+// API Routes
 app.use('/api/leads', leadsRoutes);
+app.use('/api/templates', templatesRoutes);
 
 app.get('/api/auth/verify', authenticateToken, (req, res) => {
   res.json({ valid: true, user: req.user });

@@ -22,10 +22,10 @@ import DashboardOverview from './dashboard/pages/DashboardOverview';
 import LeadsPage from './dashboard/pages/LeadsPage';
 import PipelinePage from './dashboard/pages/PipelinePage';
 import AnalyzerPage from './dashboard/pages/AnalyzerPage';
+import TemplatesPage from './dashboard/pages/TemplatesPage';
 import { 
   LeadDetailPage, 
   FollowupsPage, 
-  TemplatesPage, 
   SettingsPage 
 } from './dashboard/pages/PlaceholderPages';
 

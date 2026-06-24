@@ -21,5 +21,4 @@ const PlaceholderPage = ({ title }) => (
 export const DashboardOverview = () => <PlaceholderPage title="Dashboard Overview" />;
 export const LeadDetailPage = () => <PlaceholderPage title="Lead Details" />;
 export const FollowupsPage = () => <PlaceholderPage title="Follow-up Tracking" />;
-export const TemplatesPage = () => <PlaceholderPage title="Email Templates" />;
 export const SettingsPage = () => <PlaceholderPage title="CRM Settings" />;
