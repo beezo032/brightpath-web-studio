@@ -251,10 +251,10 @@ const TemplatesPage = () => {
                 <strong>Smart Variables</strong>
                 <p style={{margin: '0 0 0.5rem 0'}}>Click a variable to insert it into your email body. It will be highlighted in the preview.</p>
                 <div className="variable-badges">
-                  <span className="var-badge" onClick={() => insertVariable('{{BusinessName}}')}>{{'{BusinessName}'}}</span>
-                  <span className="var-badge" onClick={() => insertVariable('{{FirstName}}')}>{{'{FirstName}'}}</span>
-                  <span className="var-badge" onClick={() => insertVariable('{{Industry}}')}>{{'{Industry}'}}</span>
-                  <span className="var-badge" onClick={() => insertVariable('{{MyName}}')}>{{'{MyName}'}}</span>
+                  <span className="var-badge" onClick={() => insertVariable('{{BusinessName}}')}>{"{{BusinessName}}"}</span>
+                  <span className="var-badge" onClick={() => insertVariable('{{FirstName}}')}>{"{{FirstName}}"}</span>
+                  <span className="var-badge" onClick={() => insertVariable('{{Industry}}')}>{"{{Industry}}"}</span>
+                  <span className="var-badge" onClick={() => insertVariable('{{MyName}}')}>{"{{MyName}}"}</span>
                 </div>
               </div>
 
