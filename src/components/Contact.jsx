@@ -38,27 +38,49 @@ const Contact = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const validationErrors = validate();
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
-      // Scroll to the first error
       const firstError = document.getElementById(Object.keys(validationErrors)[0]);
       if (firstError) firstError.focus();
       return;
     }
     
     setFormState('submitting');
-    console.log("Form Submitted (No backend connected yet):", formData);
     
-    // Simulate API call
-    setTimeout(() => {
+    try {
+      const estimatedValue = formData.budget === 'premium' ? 1999 : (formData.budget === 'growth' ? 999 : 499);
+      
+      const payload = {
+        businessName: formData.business,
+        industry: formData.type || 'Unknown',
+        websiteUrl: formData.url,
+        email: formData.email,
+        phone: formData.phone,
+        estimatedValue,
+        notes: `Contact Name: ${formData.name}\nHelp With: ${formData.help}\nTimeline: ${formData.timeline}\nMessage: ${formData.message}`,
+        contactStatus: 'New'
+      };
+
+      const response = await fetch('/api/leads', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      if (!response.ok) throw new Error('Failed to submit');
+
       setFormState('success');
       setFormData({
         name: '', business: '', email: '', phone: '', url: '', type: '', help: '', budget: '', timeline: '', message: ''
       });
-    }, 1500);
+    } catch (error) {
+      console.error(error);
+      setErrors({ message: 'Something went wrong. Please try again.' });
+      setFormState('idle');
+    }
   };
 
   return (
@@ -210,9 +232,9 @@ const Contact = () => {
                       className={errors.budget ? 'error-input' : ''}
                     >
                       <option value="">Select your budget</option>
-                      <option value="starter">$750 - $1,500</option>
-                      <option value="growth">$1,500 - $2,500</option>
-                      <option value="premium">$2,500+</option>
+                      <option value="starter">$499 - $999</option>
+                      <option value="growth">$999 - $1,999</option>
+                      <option value="premium">$1,999+</option>
                       <option value="unsure">Not sure yet</option>
                     </select>
                     {errors.budget && <span className="error-text"><AlertCircle size={14} /> {errors.budget}</span>}
