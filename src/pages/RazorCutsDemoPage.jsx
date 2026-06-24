@@ -47,8 +47,9 @@ const RazorCutsDemoPage = () => {
           </div>
 
           <div className="text-center">
-            <a href="http://localhost:5173" target="_blank" rel="noreferrer" className="btn btn-primary" style={{display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '1rem 2rem'}}>
-              View Live Demo <ExternalLink size={18} />
+            <p style={{color: '#6b7280', marginBottom: '1.5rem', fontSize: '0.95rem'}}>Interested in a website like this for your business?</p>
+            <a href="/#contact" className="btn btn-primary" style={{display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '1rem 2rem'}}>
+              Get a Free Quote <ExternalLink size={18} />
             </a>
           </div>
         </div>

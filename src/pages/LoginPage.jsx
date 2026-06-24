@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { Lock, ArrowRight } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 import './LoginPage.css';
 
 const LoginPage = () => {
@@ -29,6 +30,10 @@ const LoginPage = () => {
 
   return (
     <main className="login-page">
+      <Helmet>
+        <title>Admin Login | Ascend Digital Co</title>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
       <div className="login-container">
         <div className="login-card">
           <div className="login-header">

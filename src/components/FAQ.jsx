@@ -5,7 +5,7 @@ import './FAQ.css';
 const faqs = [
   {
     question: "How much does a website cost?",
-    answer: "Our Starter Site begins at $750, and our most popular Growth Site is $1,500. Every project is unique, so we'll provide a custom quote after our initial strategy session based on your specific needs."
+    answer: "Our Starter Launch package begins at $499, and our most popular Growth Package is $999. Every project is unique, so we'll provide a custom quote after our initial strategy session based on your specific needs."
   },
   {
     question: "How long does a website project take?",

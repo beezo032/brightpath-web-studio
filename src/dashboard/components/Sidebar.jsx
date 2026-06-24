@@ -35,7 +35,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
           <div className="sidebar-logo">
             <span className="logo-accent">Ascend</span> Digital Co<span className="crm-badge">CRM</span>
           </div>
-          <button className="sidebar-close" onClick={() => setIsOpen(false)}>
+          <button className="sidebar-close" onClick={() => setIsOpen(false)} aria-label="Close sidebar">
             <X size={24} />
           </button>
         </div>

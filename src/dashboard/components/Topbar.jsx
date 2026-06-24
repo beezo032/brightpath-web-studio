@@ -16,26 +16,29 @@ const Topbar = ({ toggleSidebar }) => {
   return (
     <header className="dashboard-topbar">
       <div className="topbar-left">
-        <button className="menu-toggle" onClick={toggleSidebar}>
+        <button className="menu-toggle" onClick={toggleSidebar} aria-label="Toggle sidebar">
           <Menu size={24} />
         </button>
         <div className="topbar-search">
-          <input type="text" placeholder="Search leads..." />
+          <label htmlFor="topbar-search-input" className="sr-only">Search leads</label>
+          <input
+            type="text"
+            id="topbar-search-input"
+            placeholder="Search leads..."
+            aria-label="Search leads"
+            disabled
+            title="Global search coming soon"
+          />
         </div>
       </div>
       
       <div className="topbar-right">
-        <button className="topbar-btn">
-          <Bell size={20} />
-          <span className="notification-badge">3</span>
-        </button>
-        
         <div className="topbar-user">
-          <UserCircle size={24} />
+          <UserCircle size={24} aria-hidden="true" />
           <span className="user-name">Admin</span>
         </div>
         
-        <button className="topbar-btn logout-btn" onClick={handleLogout} title="Logout">
+        <button className="topbar-btn logout-btn" onClick={handleLogout} aria-label="Logout" title="Logout">
           <LogOut size={20} />
         </button>
       </div>

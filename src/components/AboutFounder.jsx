@@ -9,8 +9,8 @@ const AboutFounder = () => {
         <div className="about-grid">
           
           <div className="about-image-wrapper reveal">
-            <div className="founder-photo-placeholder" aria-label="Brandon - Founder of Ascend Digital Co">
-              <span>Photo</span>
+            <div className="founder-photo-placeholder" role="img" aria-label="Brandon - Founder of Ascend Digital Co">
+              <span style={{fontSize: '3.5rem', fontWeight: '800', color: 'white', lineHeight: 1}}>B</span>
             </div>
             
             {/* Floating Badges */}

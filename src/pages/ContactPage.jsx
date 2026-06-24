@@ -36,7 +36,7 @@ const ContactPage = () => {
   ];
 
   const goals = ["More leads", "More calls", "New website", "Website redesign", "SEO help"];
-  const budgets = ["Under $1,000", "$1,000-$2,500", "$2,500-$5,000", "$5,000+"];
+  const budgets = ["Under $499", "$499 - $999", "$999 - $1,999", "$1,999+", "Not sure yet"];
   const websiteStatuses = [
     "I don't have a website yet",
     "I have one, but it's outdated",
@@ -88,7 +88,7 @@ const ContactPage = () => {
     setStep(prev => Math.max(prev - 1, 1));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const validationErrors = validateStep(step);
     if (Object.keys(validationErrors).length > 0) {
@@ -97,14 +97,43 @@ const ContactPage = () => {
     }
     
     setStatus('loading');
-    
-    setTimeout(() => {
+
+    try {
+      const budgetMap = {
+        '$1,999+': 1999,
+        '$999 - $1,999': 999,
+        '$499 - $999': 499,
+      };
+      const estimatedValue = budgetMap[formState.budget] || 0;
+
+      const payload = {
+        businessName: formState.businessName,
+        industry: formState.businessType || 'Unknown',
+        websiteUrl: formState.website,
+        email: formState.email,
+        phone: formState.phone,
+        estimatedValue,
+        notes: `Contact: ${formState.name}\nGoal: ${formState.primaryGoal}\nWebsite Status: ${formState.websiteStatus}\nTimeline: ${formState.timeline}\nMessage: ${formState.message}`,
+        contactStatus: 'New'
+      };
+
+      const response = await fetch('/api/leads', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      if (!response.ok) throw new Error('Failed to submit');
+
       setStatus('success');
       setFormState({
         name: '', businessName: '', email: '', phone: '', businessType: '', website: '', websiteStatus: '', primaryGoal: '', budget: '', timeline: '', message: ''
       });
       setStep(1);
-    }, 1500);
+    } catch (err) {
+      console.error(err);
+      setStatus('error');
+    }
   };
 
   const progressPercent = ((step) / totalSteps) * 100;
@@ -163,7 +192,7 @@ const ContactPage = () => {
                         <div className="form-row">
                           <div className="form-group">
                             <label htmlFor="name">Full Name *</label>
-                            <input type="text" id="name" name="name" value={formState.name} onChange={handleChange} className={errors.name ? 'error-input' : ''} placeholder="John Doe" />
+                            <input type="text" id="name" name="name" value={formState.name} onChange={handleChange} className={errors.name ? 'error-input' : ''} placeholder="Your full name" />
                             {errors.name && <span className="error-text">{errors.name}</span>}
                           </div>
                           <div className="form-group">
@@ -176,12 +205,12 @@ const ContactPage = () => {
                         <div className="form-row">
                           <div className="form-group">
                             <label htmlFor="email">Email Address *</label>
-                            <input type="email" id="email" name="email" value={formState.email} onChange={handleChange} className={errors.email ? 'error-input' : ''} placeholder="john@example.com" />
+                            <input type="email" id="email" name="email" value={formState.email} onChange={handleChange} className={errors.email ? 'error-input' : ''} placeholder="your@email.com" />
                             {errors.email && <span className="error-text">{errors.email}</span>}
                           </div>
                           <div className="form-group">
                             <label htmlFor="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" value={formState.phone} onChange={handleChange} placeholder="(555) 123-4567" />
+                            <input type="tel" id="phone" name="phone" value={formState.phone} onChange={handleChange} placeholder="Your phone number" />
                           </div>
                         </div>
                       </div>
@@ -203,7 +232,7 @@ const ContactPage = () => {
                           </div>
                           <div className="form-group">
                             <label htmlFor="website">Current Website URL</label>
-                            <input type="url" id="website" name="website" value={formState.website} onChange={handleChange} placeholder="https://example.com" />
+                            <input type="url" id="website" name="website" value={formState.website} onChange={handleChange} placeholder="https://yourbusiness.com" />
                           </div>
                         </div>
 
@@ -323,7 +352,7 @@ const ContactPage = () => {
                   <Mail className="info-icon" aria-hidden="true" />
                   <div>
                     <span className="info-label">Email Us</span>
-                    <a href="mailto:hello@ascenddigitalcowebstudio.com" className="info-value">hello@ascenddigitalcowebstudio.com</a>
+                    <a href="mailto:hello@ascenddigitalco.com" className="info-value">hello@ascenddigitalco.com</a>
                   </div>
                 </div>
                 <div className="info-item">
@@ -340,7 +369,11 @@ const ContactPage = () => {
                 <div className="sidebar-accordion">
                   {faqs.map((faq, index) => (
                     <div key={index} className={`sidebar-faq-item ${openFaq === index ? 'open' : ''}`}>
-                      <button className="sidebar-faq-question" onClick={() => setOpenFaq(openFaq === index ? null : index)}>
+                      <button 
+                        className="sidebar-faq-question" 
+                        onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                        aria-expanded={openFaq === index}
+                      >
                         {faq.q}
                         {openFaq === index ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
                       </button>

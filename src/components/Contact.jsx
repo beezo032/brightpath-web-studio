@@ -51,7 +51,7 @@ const Contact = () => {
     setFormState('submitting');
     
     try {
-      const estimatedValue = formData.budget === 'premium' ? 1999 : (formData.budget === 'growth' ? 999 : 499);
+      const estimatedValue = formData.budget === 'premium' ? 1999 : (formData.budget === 'growth' ? 999 : (formData.budget === 'starter' ? 499 : 0));
       
       const payload = {
         businessName: formData.business,
@@ -95,17 +95,10 @@ const Contact = () => {
             
             <div className="contact-methods">
               <div className="contact-method">
-                <div className="method-icon"><Phone size={20} /></div>
-                <div>
-                  <h4>Call Us</h4>
-                  <p>(555) 123-4567</p>
-                </div>
-              </div>
-              <div className="contact-method">
                 <div className="method-icon"><Mail size={20} /></div>
                 <div>
-                  <h4>Email Us</h4>
-                  <p>hello@ascenddigitalcoweb.com</p>
+                  <h4>Message Us</h4>
+                  <p>hello@ascenddigitalco.com</p>
                 </div>
               </div>
               <div className="contact-method">

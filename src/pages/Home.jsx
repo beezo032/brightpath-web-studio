@@ -7,6 +7,7 @@ import Process from '../components/Process';
 import Pricing from '../components/Pricing';
 import WhyChooseUs from '../components/WhyChooseUs';
 import Benefits from '../components/Benefits';
+import Testimonials from '../components/Testimonials';
 import FAQ from '../components/FAQ';
 import Contact from '../components/Contact';
 import FinalCTA from '../components/FinalCTA';
@@ -27,6 +28,7 @@ const Home = () => {
       <Services />
       <Industries />
       <Portfolio />
+      <Testimonials />
       <Process />
       <Pricing />
       <WhyChooseUs />
