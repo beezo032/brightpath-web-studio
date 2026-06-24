@@ -95,7 +95,7 @@ const PortfolioPage = () => {
           </div>
 
           <div className="portfolio-page-grid">
-            {filteredProjects.map((project, index) => (
+            {filteredProjects.map((project) => (
               <div key={project.id} className="portfolio-detail-card reveal">
                 <div className="portfolio-image-container">
                   <img src={project.image} alt={project.title} style={{width: '100%', height: '300px', objectFit: 'cover', borderTopLeftRadius: '16px', borderTopRightRadius: '16px'}} />
