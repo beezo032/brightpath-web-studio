@@ -42,8 +42,8 @@ const Footer = () => {
           <nav className="footer-links" aria-label="Legal navigation">
             <h4>Legal</h4>
             <ul>
-              <li><Link to="/#privacy">Privacy Policy</Link></li>
-              <li><Link to="/#terms">Terms of Service</Link></li>
+              <li><Link to="/privacy">Privacy Policy</Link></li>
+              <li><Link to="/terms">Terms of Service</Link></li>
             </ul>
           </nav>
         </div>

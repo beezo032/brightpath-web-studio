@@ -70,19 +70,44 @@ router.post('/seed', async (req, res) => {
     if (count === 0) {
       const defaults = [
         {
-          title: "Initial Outreach (Cold)",
-          subject: "Ideas for {{BusinessName}}'s online presence",
-          body: "Hi {{FirstName}},\n\nI came across {{BusinessName}} while searching for local businesses in your industry. I noticed a few areas where your website could be optimized to bring in more leads.\n\nI'd love to share a quick 5-minute audit I ran on your site. Are you free for a brief chat later this week?\n\nBest,\nAscend Digital Co Team"
+          title: "Cold Outreach #1 — No Website",
+          subject: "{{BusinessName}} — quick question about your website",
+          body: "Hi {{FirstName}},\n\nI was searching for {{Industry}} businesses in the area and came across {{BusinessName}}. I noticed you don't currently have a website — or at least I couldn't find one.\n\nI build fast, professional websites specifically for local businesses like yours. A well-built site can help you show up on Google, build trust instantly, and turn people searching for your services into actual paying customers.\n\nI'd love to put together a free, no-obligation mockup for {{BusinessName}} so you can see exactly what it could look like before committing to anything.\n\nWould that be of interest? Takes about 5 minutes to discuss.\n\nBest,\nBrandon\nAscend Digital Co\nhello@ascenddigitalco.com"
         },
         {
-          title: "Audit Follow-up",
-          subject: "Following up: {{BusinessName}} Website Audit",
-          body: "Hi {{FirstName}},\n\nJust floating this to the top of your inbox. Did you get a chance to review the audit findings I sent over?\n\nI'm happy to walk you through it and answer any questions you might have.\n\nBest,\nAscend Digital Co Team"
+          title: "Cold Outreach #2 — Outdated Website",
+          subject: "I had some ideas for {{BusinessName}}'s website",
+          body: "Hi {{FirstName}},\n\nI came across {{BusinessName}} online and checked out your current website. You've clearly built a solid business — but I think your website might be holding you back from getting even more customers online.\n\nI specialize in building high-converting websites for local businesses. I recently helped a similar business in your industry update their site and they saw a significant increase in phone calls and quote requests within the first month.\n\nI'd love to do a free, 5-minute website audit for {{BusinessName}} and share a few specific ideas that could make a real difference. No pressure — just genuine value.\n\nWould Tuesday or Wednesday work for a quick call?\n\nBest,\nBrandon\nAscend Digital Co\nhello@ascenddigitalco.com"
         },
         {
-          title: "Proposal Sent",
-          subject: "Proposal attached for {{BusinessName}}",
-          body: "Hi {{FirstName}},\n\nIt was great speaking with you earlier! I've attached the detailed proposal and pricing breakdown for the project we discussed.\n\nPlease let me know if you have any questions or need adjustments before we move forward.\n\nBest,\nAscend Digital Co Team"
+          title: "Follow-Up #1 — After Initial Outreach",
+          subject: "Re: {{BusinessName}} website",
+          body: "Hi {{FirstName}},\n\nI wanted to follow up on my last message about {{BusinessName}}'s website. I know things get busy — totally understand.\n\nI put together a quick list of 3 specific improvements that could help you get more leads from Google. Happy to send it over if you're interested.\n\nEither way, hope things are going well!\n\nBest,\nBrandon\nAscend Digital Co"
+        },
+        {
+          title: "Follow-Up #2 — Final Touch",
+          subject: "Last follow-up — {{BusinessName}}",
+          body: "Hi {{FirstName}},\n\nI'll keep this short — I don't want to keep showing up in your inbox if the timing isn't right.\n\nIf you ever decide you'd like a modern website that helps bring in more business, I'd love to help. No hard sell, just good work at fair prices.\n\nFeel free to check out some of our recent work at ascenddigitalco.com.\n\nWishing you and {{BusinessName}} continued success!\n\nBest,\nBrandon\nAscend Digital Co"
+        },
+        {
+          title: "Post-Meeting — Proposal Coming",
+          subject: "Great talking with you, {{FirstName}} — proposal on the way",
+          body: "Hi {{FirstName}},\n\nThank you for taking the time to chat today! It was great learning more about {{BusinessName}} and what you're trying to accomplish.\n\nBased on our conversation, I'll be putting together a custom proposal that covers:\n\n• The recommended package and deliverables\n• Timeline from kickoff to launch\n• Total investment and payment structure\n• Next steps to get started\n\nYou can expect to receive it within 24–48 hours. In the meantime, feel free to reach out if you think of any questions.\n\nLooking forward to working with you!\n\nBest,\nBrandon\nAscend Digital Co\nhello@ascenddigitalco.com"
+        },
+        {
+          title: "Proposal Follow-Up",
+          subject: "Following up on your proposal — {{BusinessName}}",
+          body: "Hi {{FirstName}},\n\nI wanted to check in on the proposal I sent over for {{BusinessName}}. Did you have a chance to look it over?\n\nI'm happy to answer any questions, adjust the scope, or jump on a quick call to walk through it together.\n\nJust let me know what works best for you!\n\nBest,\nBrandon\nAscend Digital Co"
+        },
+        {
+          title: "Project Kickoff",
+          subject: "We're official! Kickoff details for {{BusinessName}}",
+          body: "Hi {{FirstName}},\n\nThis is exciting — welcome to Ascend Digital Co! I'm looking forward to building something great for {{BusinessName}}.\n\nHere's what happens next:\n\n1. I'll send over a brief questionnaire to collect your brand details, preferences, and any content you have ready\n2. You'll receive a design concept within 5–7 business days\n3. We'll review it together and make any adjustments\n4. Once approved, I'll complete the build and we'll launch!\n\nExpect to hear from me within 24 hours with the onboarding questionnaire. In the meantime, start gathering any logos, photos, or text you'd like to include.\n\nLet's build something great!\n\nBest,\nBrandon\nAscend Digital Co"
+        },
+        {
+          title: "Launch Day Announcement",
+          subject: "🚀 {{BusinessName}}'s new website is LIVE!",
+          body: "Hi {{FirstName}},\n\nThe moment we've been working toward — {{BusinessName}}'s new website is officially live!\n\nYour site is now:\n✅ Live and accessible to the public\n✅ Indexed by Google (full ranking takes 4–6 weeks)\n✅ Mobile-optimized and fast-loading\n✅ Ready to capture leads\n\nHere's what I'd recommend doing today:\n• Share the link on your social media\n• Update your Google Business Profile with the new URL\n• Send the link to past customers and ask for a Google review\n\nIt's been a pleasure working with you. If you ever need updates, have questions, or want to talk about growing your online presence further — I'm just an email away.\n\nCongratulations!\n\nBrandon\nAscend Digital Co\nhello@ascenddigitalco.com"
         }
       ];
       await Template.insertMany(defaults);
