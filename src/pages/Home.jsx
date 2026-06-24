@@ -8,7 +8,6 @@ import Pricing from '../components/Pricing';
 import WhyChooseUs from '../components/WhyChooseUs';
 import Benefits from '../components/Benefits';
 import FAQ from '../components/FAQ';
-import AboutFounder from '../components/AboutFounder';
 import Contact from '../components/Contact';
 import FinalCTA from '../components/FinalCTA';
 import { Helmet } from 'react-helmet-async';
@@ -33,7 +32,6 @@ const Home = () => {
       <WhyChooseUs />
       <Benefits />
       <FAQ />
-      <AboutFounder />
       <Contact />
       <FinalCTA />
     </main>
