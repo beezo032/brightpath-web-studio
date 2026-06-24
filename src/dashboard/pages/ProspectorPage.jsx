@@ -56,7 +56,7 @@ const ProspectorPage = () => {
         phone: prospect.formatted_phone_number || '',
         websiteUrl: prospect.website || '',
         contactStatus: 'New',
-        notes: `Imported via OpenStreetMap Lead Prospector.\nAddress: ${prospect.formatted_address}`,
+        notes: `Imported via Geoapify Lead Prospector.\nAddress: ${prospect.formatted_address}`,
         // Set a default follow-up date for today
         followUpDate: new Date().toISOString()
       };
@@ -89,7 +89,7 @@ const ProspectorPage = () => {
 
       <div className="prospector-header">
         <h1>Lead Prospector</h1>
-        <p>Instantly pull local business data into your CRM.</p>
+        <p>Powered by Geoapify Places API. Pull live business data including phones and websites.</p>
       </div>
 
       <div className="search-panel">
