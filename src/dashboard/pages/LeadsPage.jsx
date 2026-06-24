@@ -19,9 +19,9 @@ const LeadsPage = () => {
   
   // Form State
   const [formData, setFormData] = useState({
-    businessName: '', email: '', phone: '',    websiteScore: '',
-    estimatedValue: '',
-    notes: '', state: '', websiteUrl: '', contactStatus: 'New'
+    businessName: '', email: '', phone: '', industry: '', 
+    city: '', state: '', websiteUrl: '', contactStatus: 'New', 
+    websiteScore: '', estimatedValue: '', notes: ''
   });
 
   const fetchLeads = async () => {
@@ -32,8 +32,8 @@ const LeadsPage = () => {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       const data = await res.json();
-      setLeads(data.leads);
-      setTotalPages(data.totalPages);
+      setLeads(data.leads || []);
+      setTotalPages(data.totalPages || 1);
     } catch (err) {
       console.error('Failed to fetch leads', err);
     }
@@ -52,9 +52,8 @@ const LeadsPage = () => {
       setCurrentLead(null);
       setFormData({
         businessName: '', email: '', phone: '', industry: '', 
-        websiteScore: '',
-        estimatedValue: '',
-        notes: '',
+        city: '', state: '', websiteUrl: '', contactStatus: 'New', 
+        websiteScore: '', estimatedValue: '', notes: ''
       });
     }
     setIsModalOpen(true);
@@ -169,10 +168,10 @@ const LeadsPage = () => {
           <tbody>
             {loading ? (
               <tr><td colSpan="6" style={{textAlign: 'center'}}>Loading leads...</td></tr>
-            ) : leads.length === 0 ? (
+            ) : (leads || []).length === 0 ? (
               <tr><td colSpan="6" style={{textAlign: 'center'}}>No leads found.</td></tr>
             ) : (
-              leads.map(lead => (
+              (leads || []).map(lead => (
                 <tr key={lead._id}>
                   <td><strong>{lead.businessName}</strong></td>
                   <td>
@@ -181,8 +180,8 @@ const LeadsPage = () => {
                   </td>
                   <td>{lead.industry}</td>
                   <td>
-                    <span className={`status-badge status-${lead.contactStatus.split(' ')[0]}`}>
-                      {lead.contactStatus}
+                    <span className={`status-badge status-${(lead.contactStatus || 'New').split(' ')[0]}`}>
+                      {lead.contactStatus || 'New'}
                     </span>
                   </td>
                   <td>{new Date(lead.createdAt).toLocaleDateString()}</td>
