@@ -23,9 +23,9 @@ import LeadsPage from './dashboard/pages/LeadsPage';
 import PipelinePage from './dashboard/pages/PipelinePage';
 import AnalyzerPage from './dashboard/pages/AnalyzerPage';
 import TemplatesPage from './dashboard/pages/TemplatesPage';
+import FollowupsPage from './dashboard/pages/FollowupsPage';
 import { 
   LeadDetailPage, 
-  FollowupsPage, 
   SettingsPage 
 } from './dashboard/pages/PlaceholderPages';
 
