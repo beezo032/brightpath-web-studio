@@ -23,12 +23,12 @@ const projects = [
   },
   {
     title: "The Atma Corner",
-    category: "Health & Wellness",
-    description: "A visually striking, modern site highlighting holistic services to build immediate customer trust and local presence.",
+    category: "Restaurant & Wine Bar",
+    description: "A visually striking, modern site highlighting menus, reservations, and a premium dining experience.",
     services: ["Web Design", "SEO Setup"],
     technologies: ["React", "Animations"],
     results: "High Local Visibility",
-    image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=800&auto=format&fit=crop"
   }
 ];
 

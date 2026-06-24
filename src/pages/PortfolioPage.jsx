@@ -31,18 +31,18 @@ const allProjects = [
   {
     id: 3,
     title: "The Atma Corner",
-    category: "Health & Wellness",
-    description: "Visually striking site highlighting holistic wellness services to build immediate customer trust.",
+    category: "Restaurant & Wine Bar",
+    description: "Visually striking site highlighting menus and reservations to build immediate customer trust.",
     services: ["Web Design", "SEO Setup", "Speed Optimization"],
     technologies: ["React", "Vite", "CSS3"],
     results: "Top 3 Local Maps Ranking",
     demoUrl: "#",
     githubUrl: "#",
-    image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=800&auto=format&fit=crop"
   }
 ];
 
-const categories = ["All", "Landscaping", "Grooming", "Health & Wellness"];
+const categories = ["All", "Landscaping", "Grooming", "Restaurant & Wine Bar"];
 
 const PortfolioPage = () => {
   const [activeCategory, setActiveCategory] = useState("All");
