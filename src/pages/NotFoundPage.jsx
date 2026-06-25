@@ -12,7 +12,7 @@ const NotFoundPage = () => {
   return (
     <main className="not-found-page section-light">
       <Helmet>
-        <title>Page Not Found | Ascend Digital Co</title>
+        <title>Page Not Found | Brightpath Web Studio</title>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
       <div className="container text-center reveal">

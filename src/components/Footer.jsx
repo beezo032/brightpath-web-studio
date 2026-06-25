@@ -10,8 +10,8 @@ const Footer = () => {
       <div className="container">
         <div className="footer-grid">
           <div className="footer-brand">
-            <Link to="/" className="logo">
-              <span className="logo-accent">Ascend</span> Digital Co
+        <Link to="/" className="logo" aria-label="Brightpath Web Studio - Home">
+              <span className="logo-accent">Bright</span>path Web Studio
             </Link>
             <p className="footer-desc">
               Building high-converting, premium websites for local service businesses. We help you turn visitors into paying customers.
@@ -49,7 +49,7 @@ const Footer = () => {
         </div>
         
         <div className="footer-bottom">
-          <p>&copy; {currentYear} Ascend Digital Co. All rights reserved.</p>
+          <p>&copy; {currentYear} Brightpath Web Studio. All rights reserved.</p>
         </div>
       </div>
     </footer>

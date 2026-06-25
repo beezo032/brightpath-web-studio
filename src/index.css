@@ -91,7 +91,7 @@ ul {
   list-style: none;
 }
 
-button, input, textarea {
+button, input, textarea, select {
   font-family: inherit;
 }
 
@@ -159,12 +159,39 @@ button, input, textarea {
 .btn-secondary {
   background-color: transparent;
   color: var(--color-primary);
-  border-color: var(--color-border);
+  border: 2px solid var(--color-border);
 }
 
 .btn-secondary:hover {
   border-color: var(--color-primary);
   background-color: var(--color-bg-gray);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--color-accent-blue);
+  border: 2px solid var(--color-accent-blue);
+}
+
+.btn-outline:hover {
+  background-color: var(--color-accent-blue);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.bg-white-blur {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.bg-white-blur:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  color: white;
+  border-color: rgba(255, 255, 255, 0.6);
 }
 
 .btn-dark {

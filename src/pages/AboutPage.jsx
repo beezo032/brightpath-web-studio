@@ -21,9 +21,9 @@ const AboutPage = () => {
   return (
     <main className="about-page">
       <Helmet>
-        <title>About Us | Ascend Digital Co</title>
+        <title>About Us | Brightpath Web Studio</title>
         <meta name="description" content="Learn about our mission to help local businesses succeed online with premium web design and transparent partnerships." />
-        <meta property="og:title" content="About Us | Ascend Digital Co" />
+        <meta property="og:title" content="About Us | Brightpath Web Studio" />
         <meta property="og:description" content="Learn about our mission to help local businesses succeed online with premium web design and transparent partnerships." />
       </Helmet>
       
@@ -37,7 +37,7 @@ const AboutPage = () => {
 
 
       {/* Core Values */}
-      <section className="about-values section bg-gray">
+      <section className="about-values section section-gray">
         <div className="container">
           <div className="section-header text-center reveal">
             <h2>Our Core Values</h2>

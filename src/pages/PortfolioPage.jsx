@@ -39,10 +39,22 @@ const allProjects = [
     demoUrl: "#",
     githubUrl: "#",
     image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=800&auto=format&fit=crop"
+  },
+  {
+    id: 4,
+    title: "Razor Cuts Barbershop Demo",
+    category: "Barbershop / Beauty Salon",
+    description: "A modern barbershop website concept designed to increase bookings, calls, and local trust.",
+    services: ["Website Design", "Mobile Optimization", "Booking CTA", "Local SEO", "Lead Capture"],
+    technologies: ["React", "Vite", "Vanilla CSS"],
+    results: "Demo Concept",
+    demoUrl: "http://localhost:5173",
+    caseStudyUrl: "/portfolio/razor-cuts-demo",
+    image: "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=800&auto=format&fit=crop"
   }
 ];
 
-const categories = ["All", "Landscaping", "Grooming", "Restaurant & Wine Bar"];
+const categories = ["All", "Landscaping", "Grooming", "Restaurant & Wine Bar", "Barbershop / Beauty Salon"];
 
 const PortfolioPage = () => {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -63,9 +75,9 @@ const PortfolioPage = () => {
   return (
     <main className="portfolio-page">
       <Helmet>
-        <title>Our Work & Portfolio | Ascend Digital Co</title>
+        <title>Our Work & Portfolio | Brightpath Web Studio</title>
         <meta name="description" content="Explore our portfolio of high-converting websites designed specifically for landscaping, grooming, and local service businesses." />
-        <meta property="og:title" content="Our Work & Portfolio | Ascend Digital Co" />
+        <meta property="og:title" content="Our Work & Portfolio | Brightpath Web Studio" />
         <meta property="og:description" content="Explore our portfolio of high-converting websites designed specifically for landscaping, grooming, and local service businesses." />
       </Helmet>
 
@@ -98,7 +110,11 @@ const PortfolioPage = () => {
             {filteredProjects.map((project) => (
               <div key={project.id} className="portfolio-detail-card reveal">
                 <div className="portfolio-image-container">
-                  <img src={project.image} alt={project.title} style={{width: '100%', height: '300px', objectFit: 'cover', borderTopLeftRadius: '16px', borderTopRightRadius: '16px'}} />
+                  <img 
+                    src={project.image} 
+                    alt={`Screenshot of ${project.title} website`} 
+                    style={{width: '100%', height: '300px', objectFit: 'cover', borderTopLeftRadius: '16px', borderTopRightRadius: '16px'}} 
+                  />
                   <div className="portfolio-category-badge">{project.category}</div>
                 </div>
                 

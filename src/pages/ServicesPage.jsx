@@ -66,9 +66,9 @@ const ServicesPage = () => {
   return (
     <main className="services-page">
       <Helmet>
-        <title>Our Services | Ascend Digital Co</title>
+        <title>Our Services | Brightpath Web Studio</title>
         <meta name="description" content="Custom website design, local SEO, and monthly care plans engineered to turn visitors into paying customers." />
-        <meta property="og:title" content="Our Services | Ascend Digital Co" />
+        <meta property="og:title" content="Our Services | Brightpath Web Studio" />
         <meta property="og:description" content="Custom website design, local SEO, and monthly care plans engineered to turn visitors into paying customers." />
       </Helmet>
       
@@ -119,7 +119,7 @@ const ServicesPage = () => {
                 </div>
                 
                 <div className="service-action" style={{marginTop: '2rem'}}>
-                  <Link to="/#contact" className="btn btn-primary pulse-cta" style={{display: 'inline-flex', alignItems: 'center'}}>
+                  <Link to="/contact" className="btn btn-primary pulse-cta" style={{display: 'inline-flex', alignItems: 'center'}}>
                     Get a Quote for this Service <ArrowRight size={18} style={{marginLeft: '0.5rem'}} />
                   </Link>
                 </div>

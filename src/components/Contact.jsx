@@ -51,20 +51,15 @@ const Contact = () => {
     setFormState('submitting');
     
     try {
-      const estimatedValue = formData.budget === 'premium' ? 1999 : (formData.budget === 'growth' ? 999 : (formData.budget === 'starter' ? 499 : 0));
-      
       const payload = {
-        businessName: formData.business,
-        industry: formData.type || 'Unknown',
-        websiteUrl: formData.url,
+        name: formData.name,
         email: formData.email,
         phone: formData.phone,
-        estimatedValue,
-        notes: `Contact Name: ${formData.name}\nHelp With: ${formData.help}\nTimeline: ${formData.timeline}\nMessage: ${formData.message}`,
-        contactStatus: 'New'
+        business: formData.business,
+        message: `Help: ${formData.help} | Budget: ${formData.budget} | Timeline: ${formData.timeline} | Site: ${formData.url} | Type: ${formData.type}\n\n${formData.message}`
       };
 
-      const response = await fetch('/api/leads', {
+      const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
@@ -98,7 +93,7 @@ const Contact = () => {
                 <div className="method-icon"><Mail size={20} /></div>
                 <div>
                   <h4>Message Us</h4>
-                  <p>hello@ascenddigitalco.com</p>
+                  <p>hello@brightpathwebstudio.com</p>
                 </div>
               </div>
               <div className="contact-method">

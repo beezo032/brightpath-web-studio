@@ -79,7 +79,7 @@ const Portfolio = () => {
                   {project.results}
                 </div>
                 
-                <a href="#contact" className="btn btn-outline" style={{width: '100%', textAlign: 'center'}}>
+                <a href="/contact" className="btn btn-outline" style={{width: '100%', textAlign: 'center'}}>
                   View Full Case Study
                 </a>
               </div>
@@ -88,7 +88,7 @@ const Portfolio = () => {
         </div>
         
         <div className="portfolio-actions reveal reveal-delay-2">
-          <a href="#contact" className="btn btn-secondary pulse-cta" style={{display: 'inline-flex', alignItems: 'center'}}>
+          <a href="/contact" className="btn btn-secondary pulse-cta" style={{display: 'inline-flex', alignItems: 'center'}}>
             See How We Can Transform Your Business <ArrowRight size={18} style={{marginLeft: '0.5rem'}} />
           </a>
         </div>
