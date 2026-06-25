@@ -22,7 +22,7 @@ const projects = [
     image: "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=800&auto=format&fit=crop"
   },
   {
-    title: "The Atma Corner",
+    title: "The Amta Corner",
     category: "Restaurant & Wine Bar",
     description: "A visually striking, modern site highlighting menus, reservations, and a premium dining experience.",
     services: ["Web Design", "SEO Setup"],

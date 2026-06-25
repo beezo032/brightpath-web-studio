@@ -21,9 +21,9 @@ const AboutPage = () => {
   return (
     <main className="about-page">
       <Helmet>
-        <title>About Us | Brightpath Web Studio</title>
+        <title>About Us | Ascend Digital Co</title>
         <meta name="description" content="Learn about our mission to help local businesses succeed online with premium web design and transparent partnerships." />
-        <meta property="og:title" content="About Us | Brightpath Web Studio" />
+        <meta property="og:title" content="About Us | Ascend Digital Co" />
         <meta property="og:description" content="Learn about our mission to help local businesses succeed online with premium web design and transparent partnerships." />
       </Helmet>
       

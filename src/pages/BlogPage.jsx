@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import './BlogPage.css';
 
-const blogPosts = [
+export const blogPosts = [
   {
     id: "landscaping-website",
     title: "Why Every Landscaping Company Needs a Website",

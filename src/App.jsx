@@ -19,6 +19,7 @@ import LoginPage from './pages/LoginPage';
 import RazorCutsDemoPage from './pages/RazorCutsDemoPage';
 import PrivacyPage from './pages/PrivacyPage';
 import TermsPage from './pages/TermsPage';
+import BlogPostPage from './pages/BlogPostPage';
 
 
 // Dashboard Pages
@@ -51,6 +52,7 @@ function App() {
             <Route path="/services" element={<ServicesPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/blog" element={<BlogPage />} />
+            <Route path="/blog/:id" element={<BlogPostPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/portfolio/razor-cuts-demo" element={<RazorCutsDemoPage />} />
             <Route path="/privacy" element={<PrivacyPage />} />

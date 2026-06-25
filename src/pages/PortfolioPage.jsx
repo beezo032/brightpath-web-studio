@@ -12,7 +12,7 @@ const allProjects = [
     services: ["Website Design", "Mobile Optimization", "Local SEO", "Lead Generation"],
     technologies: ["React", "Vite", "CSS"],
     results: "+45% Quote Requests",
-    demoUrl: "#",
+    demoUrl: "https://we-can-do-it-lawn-care.vercel.app/",
     githubUrl: "#",
     image: "https://images.unsplash.com/photo-1558661091-5cc1b64d0dc5?q=80&w=800&auto=format&fit=crop"
   },
@@ -24,19 +24,19 @@ const allProjects = [
     services: ["Web Design", "Booking Integration", "Local SEO"],
     technologies: ["React", "Animations", "Tailwind"],
     results: "Automated Booking Flow",
-    demoUrl: "#",
+    demoUrl: "https://razor-cuts.vercel.app/",
     githubUrl: "#",
     image: "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=800&auto=format&fit=crop"
   },
   {
     id: 3,
-    title: "The Atma Corner",
+    title: "The Amta Corner",
     category: "Restaurant & Wine Bar",
     description: "Visually striking site highlighting menus and reservations to build immediate customer trust.",
     services: ["Web Design", "SEO Setup", "Speed Optimization"],
     technologies: ["React", "Vite", "CSS3"],
     results: "Top 3 Local Maps Ranking",
-    demoUrl: "#",
+    demoUrl: "https://amta-corner.vercel.app/",
     githubUrl: "#",
     image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=800&auto=format&fit=crop"
   },
@@ -48,7 +48,7 @@ const allProjects = [
     services: ["Website Design", "Mobile Optimization", "Booking CTA", "Local SEO", "Lead Capture"],
     technologies: ["React", "Vite", "Vanilla CSS"],
     results: "Demo Concept",
-    demoUrl: "https://beezo032.github.io/razor-cuts/",
+    demoUrl: "https://razor-cuts.vercel.app/",
     caseStudyUrl: "/portfolio/razor-cuts-demo",
     image: "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=800&auto=format&fit=crop"
   }
@@ -75,9 +75,9 @@ const PortfolioPage = () => {
   return (
     <main className="portfolio-page">
       <Helmet>
-        <title>Our Work & Portfolio | Brightpath Web Studio</title>
+        <title>Our Work & Portfolio | Ascend Digital Co</title>
         <meta name="description" content="Explore our portfolio of high-converting websites designed specifically for landscaping, grooming, and local service businesses." />
-        <meta property="og:title" content="Our Work & Portfolio | Brightpath Web Studio" />
+        <meta property="og:title" content="Our Work & Portfolio | Ascend Digital Co" />
         <meta property="og:description" content="Explore our portfolio of high-converting websites designed specifically for landscaping, grooming, and local service businesses." />
       </Helmet>
 

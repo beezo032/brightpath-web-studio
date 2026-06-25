@@ -66,9 +66,9 @@ const ServicesPage = () => {
   return (
     <main className="services-page">
       <Helmet>
-        <title>Our Services | Brightpath Web Studio</title>
+        <title>Our Services | Ascend Digital Co</title>
         <meta name="description" content="Custom website design, local SEO, and monthly care plans engineered to turn visitors into paying customers." />
-        <meta property="og:title" content="Our Services | Brightpath Web Studio" />
+        <meta property="og:title" content="Our Services | Ascend Digital Co" />
         <meta property="og:description" content="Custom website design, local SEO, and monthly care plans engineered to turn visitors into paying customers." />
       </Helmet>
       
