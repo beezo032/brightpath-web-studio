@@ -48,7 +48,7 @@ const allProjects = [
     services: ["Website Design", "Mobile Optimization", "Booking CTA", "Local SEO", "Lead Capture"],
     technologies: ["React", "Vite", "Vanilla CSS"],
     results: "Demo Concept",
-    demoUrl: "http://localhost:5173",
+    demoUrl: "https://beezo032.github.io/razor-cuts/",
     caseStudyUrl: "/portfolio/razor-cuts-demo",
     image: "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=800&auto=format&fit=crop"
   }
