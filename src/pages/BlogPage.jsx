@@ -13,7 +13,7 @@ export const blogPosts = [
     date: "June 20, 2026",
     author: "Brandon Johnson",
     featured: true,
-    image: "https://images.unsplash.com/photo-1558904541-efa843a96f0f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+    image: "https://images.unsplash.com/photo-1615671524827-c1fe3973b648?q=80&w=1200&auto=format&fit=crop"
   },
   {
     id: "lose-customers",

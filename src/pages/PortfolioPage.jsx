@@ -14,7 +14,7 @@ const allProjects = [
     results: "+45% Quote Requests",
     demoUrl: "https://we-can-do-it-lawn-care.vercel.app/",
     githubUrl: "#",
-    image: "https://images.unsplash.com/photo-1558904541-efa843a96f0f?q=80&w=800&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1598817368048-c2948b983acf?q=80&w=800&auto=format&fit=crop"
   },
   {
     id: 2,

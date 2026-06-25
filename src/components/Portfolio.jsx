@@ -10,7 +10,7 @@ const projects = [
     services: ["Web Design", "Local SEO", "Copywriting"],
     technologies: ["React", "Vite", "CSS3"],
     results: "Conversion Optimized",
-    image: "https://images.unsplash.com/photo-1558904541-efa843a96f0f?q=80&w=800&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1598817368048-c2948b983acf?q=80&w=800&auto=format&fit=crop"
   },
   {
     title: "Razorcut Barbershop",
