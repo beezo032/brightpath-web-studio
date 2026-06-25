@@ -285,3 +285,18 @@ html {
   white-space: nowrap;
   border-width: 0;
 }
+
+/* Ensure heading text inside dark heroes and dark sections is white for contrast/readability */
+.about-hero h1,
+.services-hero h1,
+.portfolio-hero h1,
+.blog-hero h1,
+.blog-post-hero h1,
+.contact-hero h1,
+.legal-hero h1,
+.section-dark h1,
+.section-dark h2,
+.section-dark h3,
+.section-dark h4 {
+  color: var(--color-bg-white) !important;
+}
