@@ -18,14 +18,14 @@ const allProjects = [
   },
   {
     id: 2,
-    title: "Razorcut Barbershop",
+    title: "Razor Cuts Barbershop",
     category: "Grooming",
     description: "Sleek, dark-themed website with integrated booking to help a local barbershop manage their growing clientele.",
-    services: ["Web Design", "Booking Integration", "Local SEO"],
-    technologies: ["React", "Animations", "Tailwind"],
+    services: ["Website Design", "Mobile Optimization", "Booking CTA", "Local SEO", "Lead Capture"],
+    technologies: ["React", "Vite", "Vanilla CSS"],
     results: "Automated Booking Flow",
     demoUrl: "https://razor-cuts.vercel.app/",
-    githubUrl: "#",
+    caseStudyUrl: "/portfolio/razor-cuts-demo",
     image: "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=800&auto=format&fit=crop"
   },
   {
@@ -39,22 +39,10 @@ const allProjects = [
     demoUrl: "https://amta-corner.vercel.app/",
     githubUrl: "#",
     image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=800&auto=format&fit=crop"
-  },
-  {
-    id: 4,
-    title: "Razor Cuts Barbershop Demo",
-    category: "Barbershop / Beauty Salon",
-    description: "A modern barbershop website concept designed to increase bookings, calls, and local trust.",
-    services: ["Website Design", "Mobile Optimization", "Booking CTA", "Local SEO", "Lead Capture"],
-    technologies: ["React", "Vite", "Vanilla CSS"],
-    results: "Demo Concept",
-    demoUrl: "https://razor-cuts.vercel.app/",
-    caseStudyUrl: "/portfolio/razor-cuts-demo",
-    image: "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=800&auto=format&fit=crop"
   }
 ];
 
-const categories = ["All", "Landscaping", "Grooming", "Restaurant & Wine Bar", "Barbershop / Beauty Salon"];
+const categories = ["All", "Landscaping", "Grooming", "Restaurant & Wine Bar"];
 
 const PortfolioPage = () => {
   const [activeCategory, setActiveCategory] = useState("All");
