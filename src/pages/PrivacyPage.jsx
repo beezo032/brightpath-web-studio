@@ -1,4 +1,4 @@
-﻿import React, { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 
@@ -35,7 +35,7 @@ const PrivacyPage = () => {
 
           <section style={{ marginBottom: '2rem' }}>
             <h2 style={{ fontSize: '1.3rem', marginBottom: '0.75rem' }}>3. Data Storage</h2>
-            <p>Contact form submissions are processed through Formspree and stored securely. We retain records of client communications for the duration of our working relationship and up to 2 years after project completion.</p>
+            <p>Contact form submissions are processed and stored securely on our database. We retain records of client communications for the duration of our working relationship and up to 2 years after project completion.</p>
           </section>
 
           <section style={{ marginBottom: '2rem' }}>

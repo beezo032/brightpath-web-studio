@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, AlertCircle } from 'lucide-react';
 import './Contact.css';
 
@@ -51,15 +51,26 @@ const Contact = () => {
     setFormState('submitting');
     
     try {
+      const budgetMap = {
+        'starter': 499,
+        'growth': 999,
+        'premium': 1999,
+        'unsure': 0
+      };
+      const estimatedValue = budgetMap[formData.budget] || 0;
+
       const payload = {
-        name: formData.name,
+        businessName: formData.business || 'Unknown Business',
+        industry: formData.type || 'Other',
+        websiteUrl: formData.url || '',
         email: formData.email,
         phone: formData.phone,
-        business: formData.business,
-        message: `Help: ${formData.help} | Budget: ${formData.budget} | Timeline: ${formData.timeline} | Site: ${formData.url} | Type: ${formData.type}\n\n${formData.message}`
+        estimatedValue,
+        notes: `Contact Name: ${formData.name}\nHelp Needed: ${formData.help}\nTimeline: ${formData.timeline}\nMessage: ${formData.message}`,
+        contactStatus: 'New'
       };
 
-      const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+      const response = await fetch('/api/leads', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
