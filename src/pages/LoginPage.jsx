@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { Lock, ArrowRight } from 'lucide-react';
@@ -31,7 +31,7 @@ const LoginPage = () => {
   return (
     <main className="login-page">
       <Helmet>
-        <title>Admin Login | Ascend Digital Co</title>
+        <title>Admin Login | SignalRise Studio</title>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
       <div className="login-container">
@@ -41,7 +41,7 @@ const LoginPage = () => {
               <Lock size={32} />
             </div>
             <h1>Agency Login</h1>
-            <p>Access the Ascend Digital Co CRM Dashboard.</p>
+            <p>Access the SignalRise Studio CRM Dashboard.</p>
           </div>
           
           <form onSubmit={handleSubmit} className="login-form">
@@ -52,7 +52,7 @@ const LoginPage = () => {
                 id="email" 
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="admin@ascenddigitalco.local"
+                placeholder="admin@signalrisestudio.local"
                 required
               />
             </div>
@@ -82,3 +82,4 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
+

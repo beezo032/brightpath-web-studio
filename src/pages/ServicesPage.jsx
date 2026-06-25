@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+﻿import React, { useEffect } from 'react';
 import { Layout, PenTool, Search, MapPin, ShieldCheck, Target, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Pricing from '../components/Pricing';
@@ -66,9 +66,9 @@ const ServicesPage = () => {
   return (
     <main className="services-page">
       <Helmet>
-        <title>Our Services | Ascend Digital Co</title>
+        <title>Our Services | SignalRise Studio</title>
         <meta name="description" content="Custom website design, local SEO, and monthly care plans engineered to turn visitors into paying customers." />
-        <meta property="og:title" content="Our Services | Ascend Digital Co" />
+        <meta property="og:title" content="Our Services | SignalRise Studio" />
         <meta property="og:description" content="Custom website design, local SEO, and monthly care plans engineered to turn visitors into paying customers." />
       </Helmet>
       
@@ -138,3 +138,4 @@ const ServicesPage = () => {
 };
 
 export default ServicesPage;
+

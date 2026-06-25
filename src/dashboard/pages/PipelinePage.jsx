@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Mail, Phone, Calendar } from 'lucide-react';
 import './PipelinePage.css';
@@ -19,7 +19,7 @@ const PipelinePage = () => {
 
   const fetchLeads = async () => {
     try {
-      const token = localStorage.getItem('ascenddigitalco_jwt');
+      const token = localStorage.getItem('signalrisestudio_jwt');
       // Fetch all leads (high limit for Kanban board)
       const res = await fetch('/api/leads?limit=500', {
         headers: { 'Authorization': `Bearer ${token}` }
@@ -93,7 +93,7 @@ const PipelinePage = () => {
 
     // Sync with backend
     try {
-      const token = localStorage.getItem('ascenddigitalco_jwt');
+      const token = localStorage.getItem('signalrisestudio_jwt');
       await fetch(`/api/leads/${draggedLeadId}`, {
         method: 'PUT',
         headers: { 
@@ -183,3 +183,4 @@ const PipelinePage = () => {
 };
 
 export default PipelinePage;
+

@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { 
   LayoutDashboard, 
@@ -33,7 +33,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
       <aside className={`dashboard-sidebar ${isOpen ? 'open' : ''}`}>
         <div className="sidebar-header">
           <div className="sidebar-logo">
-            <span className="logo-accent">Ascend</span> Digital Co<span className="crm-badge">CRM</span>
+            <span className="logo-accent">Signal</span>Rise Studio<span className="crm-badge">CRM</span>
           </div>
           <button className="sidebar-close" onClick={() => setIsOpen(false)} aria-label="Close sidebar">
             <X size={24} />
@@ -63,3 +63,4 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
 };
 
 export default Sidebar;
+

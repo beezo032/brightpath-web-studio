@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+﻿import React, { useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Calendar, User, Tag, ArrowLeft, ArrowRight, MessageSquare } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
@@ -194,9 +194,9 @@ const BlogPostPage = () => {
   return (
     <main className="blog-post-page">
       <Helmet>
-        <title>{post.title} | Ascend Digital Co</title>
+        <title>{post.title} | SignalRise Studio</title>
         <meta name="description" content={post.excerpt} />
-        <meta property="og:title" content={`${post.title} | Ascend Digital Co`} />
+        <meta property="og:title" content={`${post.title} | SignalRise Studio`} />
         <meta property="og:description" content={post.excerpt} />
         <meta property="og:image" content={post.image} />
       </Helmet>
@@ -269,3 +269,4 @@ const BlogPostPage = () => {
 };
 
 export default BlogPostPage;
+

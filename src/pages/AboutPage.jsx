@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+﻿import React, { useEffect } from 'react';
 import { Shield, MessageSquare, Star, TrendingUp, Handshake } from 'lucide-react';
 import Benefits from '../components/Benefits';
 import FinalCTA from '../components/FinalCTA';
@@ -21,9 +21,9 @@ const AboutPage = () => {
   return (
     <main className="about-page">
       <Helmet>
-        <title>About Us | Ascend Digital Co</title>
+        <title>About Us | SignalRise Studio</title>
         <meta name="description" content="Learn about our mission to help local businesses succeed online with premium web design and transparent partnerships." />
-        <meta property="og:title" content="About Us | Ascend Digital Co" />
+        <meta property="og:title" content="About Us | SignalRise Studio" />
         <meta property="og:description" content="Learn about our mission to help local businesses succeed online with premium web design and transparent partnerships." />
       </Helmet>
       
@@ -58,7 +58,7 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Why Choose Ascend Digital Co (Reuse Benefits Component) */}
+      {/* Why Choose SignalRise Studio (Reuse Benefits Component) */}
       <Benefits />
 
       {/* CTA */}
@@ -68,3 +68,4 @@ const AboutPage = () => {
 };
 
 export default AboutPage;
+

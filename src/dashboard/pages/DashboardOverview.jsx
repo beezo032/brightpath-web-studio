@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Users, DollarSign, Target, TrendingUp } from 'lucide-react';
 import { 
@@ -23,7 +23,7 @@ const DashboardOverview = () => {
   useEffect(() => {
     const fetchAllLeads = async () => {
       try {
-        const token = localStorage.getItem('ascenddigitalco_jwt');
+        const token = localStorage.getItem('signalrisestudio_jwt');
         const res = await fetch('/api/leads?limit=1000', {
           headers: { 'Authorization': `Bearer ${token}` }
         });
@@ -207,3 +207,4 @@ const DashboardOverview = () => {
 };
 
 export default DashboardOverview;
+

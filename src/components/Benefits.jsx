@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Smartphone, Search, Zap, MessageCircle, HeadphonesIcon, Code, ArrowRight } from 'lucide-react';
 import './Benefits.css';
 
@@ -16,7 +16,7 @@ const Benefits = () => {
     <section id="benefits" className="benefits section section-light relative">
       <div className="container relative z-10">
         <div className="section-header text-center reveal">
-          <h2>Why Businesses Choose Ascend Digital Co</h2>
+          <h2>Why Businesses Choose SignalRise Studio</h2>
           <p className="subtitle" style={{maxWidth: '700px', margin: '0 auto'}}>
             We build websites designed to help local businesses grow online and generate more customers.
           </p>
@@ -45,3 +45,4 @@ const Benefits = () => {
 };
 
 export default Benefits;
+

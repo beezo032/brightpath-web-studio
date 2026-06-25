@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Search, MapPin, Phone, Globe, Star, CheckCircle, AlertTriangle, Plus } from 'lucide-react';
 import './ProspectorPage.css';
@@ -20,7 +20,7 @@ const ProspectorPage = () => {
     setResults([]);
 
     try {
-      const token = localStorage.getItem('ascenddigitalco_jwt');
+      const token = localStorage.getItem('signalrisestudio_jwt');
       const res = await fetch('/api/prospector/search', {
         method: 'POST',
         headers: {
@@ -48,7 +48,7 @@ const ProspectorPage = () => {
     if (importedIds.has(prospect.place_id)) return;
 
     try {
-      const token = localStorage.getItem('ascenddigitalco_jwt');
+      const token = localStorage.getItem('signalrisestudio_jwt');
       
       const newLead = {
         businessName: prospect.name,
@@ -206,3 +206,4 @@ const ProspectorPage = () => {
 };
 
 export default ProspectorPage;
+

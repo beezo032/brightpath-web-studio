@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { ExternalLink, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -7,7 +7,7 @@ const RazorCutsDemoPage = () => {
   return (
     <main className="portfolio-detail-page" style={{paddingTop: '100px', minHeight: '100vh', backgroundColor: '#f9fafb'}}>
       <Helmet>
-        <title>Razor Cuts Barbershop Demo | Ascend Digital Co</title>
+        <title>Razor Cuts Barbershop Demo | SignalRise Studio</title>
         <meta name="description" content="Case study for Razor Cuts Barbershop Demo." />
       </Helmet>
 
@@ -59,3 +59,4 @@ const RazorCutsDemoPage = () => {
 };
 
 export default RazorCutsDemoPage;
+

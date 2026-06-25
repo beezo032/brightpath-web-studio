@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { ArrowRight, Zap, Smartphone, Search, HeadphonesIcon, MessageCircle } from 'lucide-react';
 import './Hero.css';
 
@@ -28,7 +28,7 @@ const Hero = () => {
             </div>
             <h1>Websites Built to Help Local Businesses Get More Calls, Leads, and Customers</h1>
             <p className="hero-subtitle">
-              Ascend Digital Co designs fast, mobile-friendly websites that help local businesses stand out online, generate more leads, and convert visitors into paying customers.
+              SignalRise Studio designs fast, mobile-friendly websites that help local businesses stand out online, generate more leads, and convert visitors into paying customers.
             </p>
             <div className="hero-actions">
               <a href="#contact" className="btn btn-primary pulse-cta" aria-label="Get a Free Website Review">
@@ -85,3 +85,4 @@ const Hero = () => {
 };
 
 export default Hero;
+

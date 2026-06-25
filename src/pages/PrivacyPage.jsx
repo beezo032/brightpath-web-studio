@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+﻿import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 
@@ -8,7 +8,7 @@ const PrivacyPage = () => {
   return (
     <main style={{ paddingTop: '120px', minHeight: '100vh', backgroundColor: 'var(--color-bg-gray)' }}>
       <Helmet>
-        <title>Privacy Policy | Ascend Digital Co</title>
+        <title>Privacy Policy | SignalRise Studio</title>
         <meta name="robots" content="noindex" />
       </Helmet>
 
@@ -45,12 +45,12 @@ const PrivacyPage = () => {
 
           <section style={{ marginBottom: '2rem' }}>
             <h2 style={{ fontSize: '1.3rem', marginBottom: '0.75rem' }}>5. Your Rights</h2>
-            <p>You may request to view, correct, or delete any personal data we hold about you at any time by contacting us at <a href="mailto:hello@ascenddigitalco.com" style={{ color: 'var(--color-accent-blue)' }}>hello@ascenddigitalco.com</a>.</p>
+            <p>You may request to view, correct, or delete any personal data we hold about you at any time by contacting us at <a href="mailto:hello@signalrisestudio.com" style={{ color: 'var(--color-accent-blue)' }}>hello@signalrisestudio.com</a>.</p>
           </section>
 
           <section>
             <h2 style={{ fontSize: '1.3rem', marginBottom: '0.75rem' }}>6. Contact</h2>
-            <p>For any privacy-related questions, contact us at <a href="mailto:hello@ascenddigitalco.com" style={{ color: 'var(--color-accent-blue)' }}>hello@ascenddigitalco.com</a>.</p>
+            <p>For any privacy-related questions, contact us at <a href="mailto:hello@signalrisestudio.com" style={{ color: 'var(--color-accent-blue)' }}>hello@signalrisestudio.com</a>.</p>
           </section>
         </div>
       </div>
@@ -59,3 +59,4 @@ const PrivacyPage = () => {
 };
 
 export default PrivacyPage;
+

@@ -1,4 +1,4 @@
-import express from 'express';
+﻿import express from 'express';
 import jwt from 'jsonwebtoken';
 import cors from 'cors';
 import path from 'path';
@@ -22,9 +22,9 @@ const PORT = process.env.PORT || 3001;
 app.use(cors());
 app.use(express.json());
 
-const ADMIN_EMAIL = 'admin@ascenddigitalco.local';
+const ADMIN_EMAIL = 'admin@signalrisestudio.local';
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'admin123';
-const JWT_SECRET = process.env.JWT_SECRET || 'ascenddigitalco-super-secret-jwt-key-2026';
+const JWT_SECRET = process.env.JWT_SECRET || 'signalrisestudio-super-secret-jwt-key-2026';
 
 app.post('/api/auth/login', (req, res) => {
   const { email, password } = req.body;
@@ -66,7 +66,7 @@ app.use('/api/leads', requireDB, leadsRoutes);
 app.use('/api/templates', requireDB, templatesRoutes);
 app.use('/api/prospector', prospectorRoutes);
 
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/ascenddigitalco';
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/signalrisestudio';
 
 export const connectDB = async () => {
   if (mongoose.connection.readyState >= 1) return;
@@ -115,3 +115,4 @@ if (!process.env.VERCEL) {
 }
 
 export default app;
+

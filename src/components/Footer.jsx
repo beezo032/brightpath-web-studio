@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Link } from 'react-router-dom';
 import './Footer.css';
 
@@ -10,8 +10,8 @@ const Footer = () => {
       <div className="container">
         <div className="footer-grid">
           <div className="footer-brand">
-        <Link to="/" className="logo" aria-label="Ascend Digital Co - Home">
-              <span className="logo-accent">Ascend</span> Digital Co
+        <Link to="/" className="logo" aria-label="SignalRise Studio - Home">
+              <span className="logo-accent">Signal</span>Rise Studio
             </Link>
             <p className="footer-desc">
               Building high-converting, premium websites for local service businesses. We help you turn visitors into paying customers.
@@ -49,7 +49,7 @@ const Footer = () => {
         </div>
         
         <div className="footer-bottom">
-          <p>&copy; {currentYear} Ascend Digital Co. All rights reserved.</p>
+          <p>&copy; {currentYear} SignalRise Studio. All rights reserved.</p>
         </div>
       </div>
     </footer>
@@ -57,3 +57,4 @@ const Footer = () => {
 };
 
 export default Footer;
+

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { Search, Tag, Calendar, ArrowRight, User } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
@@ -79,9 +79,9 @@ const BlogPage = () => {
   return (
     <main className="blog-page">
       <Helmet>
-        <title>Digital Growth Blog | Ascend Digital Co</title>
+        <title>Digital Growth Blog | SignalRise Studio</title>
         <meta name="description" content="Actionable web design and digital marketing advice to help local service businesses dominate their market and acquire more customers online." />
-        <meta property="og:title" content="Digital Growth Blog | Ascend Digital Co" />
+        <meta property="og:title" content="Digital Growth Blog | SignalRise Studio" />
         <meta property="og:description" content="Actionable web design and digital marketing advice to help local service businesses dominate their market and acquire more customers online." />
       </Helmet>
 
@@ -179,3 +179,4 @@ const BlogPage = () => {
 };
 
 export default BlogPage;
+

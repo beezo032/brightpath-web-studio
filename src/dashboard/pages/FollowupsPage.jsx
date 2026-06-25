@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Calendar, Clock, AlertCircle, CheckCircle, Mail, Phone, CalendarPlus } from 'lucide-react';
 import './FollowupsPage.css';
@@ -10,7 +10,7 @@ const FollowupsPage = () => {
   const fetchLeads = async () => {
     setLoading(true);
     try {
-      const token = localStorage.getItem('ascenddigitalco_jwt');
+      const token = localStorage.getItem('signalrisestudio_jwt');
       // Fetch a large number of leads to filter client-side
       const res = await fetch('/api/leads?limit=1000', {
         headers: { 'Authorization': `Bearer ${token}` }
@@ -29,7 +29,7 @@ const FollowupsPage = () => {
 
   const updateFollowUp = async (leadId, newDateStr) => {
     try {
-      const token = localStorage.getItem('ascenddigitalco_jwt');
+      const token = localStorage.getItem('signalrisestudio_jwt');
       await fetch(`/api/leads/${leadId}`, {
         method: 'PUT',
         headers: { 
@@ -195,3 +195,4 @@ const FollowupsPage = () => {
 };
 
 export default FollowupsPage;
+

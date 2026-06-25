@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { ExternalLink, Code } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import './PortfolioPage.css';
@@ -63,9 +63,9 @@ const PortfolioPage = () => {
   return (
     <main className="portfolio-page">
       <Helmet>
-        <title>Our Work & Portfolio | Ascend Digital Co</title>
+        <title>Our Work & Portfolio | SignalRise Studio</title>
         <meta name="description" content="Explore our portfolio of high-converting websites designed specifically for landscaping, grooming, and local service businesses." />
-        <meta property="og:title" content="Our Work & Portfolio | Ascend Digital Co" />
+        <meta property="og:title" content="Our Work & Portfolio | SignalRise Studio" />
         <meta property="og:description" content="Explore our portfolio of high-converting websites designed specifically for landscaping, grooming, and local service businesses." />
       </Helmet>
 
@@ -155,3 +155,4 @@ const PortfolioPage = () => {
 };
 
 export default PortfolioPage;
+

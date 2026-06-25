@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { ArrowLeft, Save, Trash2, Building, Phone, Mail, Globe, MapPin, DollarSign, Calendar } from 'lucide-react';
@@ -37,7 +37,7 @@ const LeadDetailPage = () => {
 
   const fetchLead = async () => {
     try {
-      const token = localStorage.getItem('ascenddigitalco_jwt');
+      const token = localStorage.getItem('signalrisestudio_jwt');
       const res = await fetch(`/api/leads/${id}`, {
         headers: {
           'Authorization': `Bearer ${token}`
@@ -91,7 +91,7 @@ const LeadDetailPage = () => {
     setSuccessMsg('');
 
     try {
-      const token = localStorage.getItem('ascenddigitalco_jwt');
+      const token = localStorage.getItem('signalrisestudio_jwt');
       const res = await fetch(`/api/leads/${id}`, {
         method: 'PUT',
         headers: {
@@ -123,7 +123,7 @@ const LeadDetailPage = () => {
     }
 
     try {
-      const token = localStorage.getItem('ascenddigitalco_jwt');
+      const token = localStorage.getItem('signalrisestudio_jwt');
       const res = await fetch(`/api/leads/${id}`, {
         method: 'DELETE',
         headers: {
@@ -288,3 +288,4 @@ const LeadDetailPage = () => {
 };
 
 export default LeadDetailPage;
+

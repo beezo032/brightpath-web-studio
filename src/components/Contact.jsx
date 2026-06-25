@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, AlertCircle } from 'lucide-react';
 import './Contact.css';
 
@@ -93,7 +93,7 @@ const Contact = () => {
                 <div className="method-icon"><Mail size={20} /></div>
                 <div>
                   <h4>Message Us</h4>
-                  <p>hello@ascenddigitalco.com</p>
+                  <p>hello@signalrisestudio.com</p>
                 </div>
               </div>
               <div className="contact-method">
@@ -278,3 +278,4 @@ const Contact = () => {
 };
 
 export default Contact;
+

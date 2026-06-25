@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+﻿import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 
@@ -8,7 +8,7 @@ const TermsPage = () => {
   return (
     <main style={{ paddingTop: '120px', minHeight: '100vh', backgroundColor: 'var(--color-bg-gray)' }}>
       <Helmet>
-        <title>Terms of Service | Ascend Digital Co</title>
+        <title>Terms of Service | SignalRise Studio</title>
         <meta name="robots" content="noindex" />
       </Helmet>
 
@@ -25,7 +25,7 @@ const TermsPage = () => {
 
           <section style={{ marginBottom: '2rem' }}>
             <h2 style={{ fontSize: '1.3rem', marginBottom: '0.75rem' }}>1. Services</h2>
-            <p>Ascend Digital Co ("we", "us") provides website design, development, and related digital services to clients ("you"). The specific scope, deliverables, and payment terms for each project are agreed upon in a separate written proposal or contract.</p>
+            <p>SignalRise Studio ("we", "us") provides website design, development, and related digital services to clients ("you"). The specific scope, deliverables, and payment terms for each project are agreed upon in a separate written proposal or contract.</p>
           </section>
 
           <section style={{ marginBottom: '2rem' }}>
@@ -50,7 +50,7 @@ const TermsPage = () => {
 
           <section>
             <h2 style={{ fontSize: '1.3rem', marginBottom: '0.75rem' }}>6. Contact</h2>
-            <p>For any questions regarding these terms, contact us at <a href="mailto:hello@ascenddigitalco.com" style={{ color: 'var(--color-accent-blue)' }}>hello@ascenddigitalco.com</a>.</p>
+            <p>For any questions regarding these terms, contact us at <a href="mailto:hello@signalrisestudio.com" style={{ color: 'var(--color-accent-blue)' }}>hello@signalrisestudio.com</a>.</p>
           </section>
         </div>
       </div>
@@ -59,3 +59,4 @@ const TermsPage = () => {
 };
 
 export default TermsPage;
+

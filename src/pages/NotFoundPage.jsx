@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+﻿import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Compass, ArrowLeft } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
@@ -12,7 +12,7 @@ const NotFoundPage = () => {
   return (
     <main className="not-found-page section-light">
       <Helmet>
-        <title>Page Not Found | Ascend Digital Co</title>
+        <title>Page Not Found | SignalRise Studio</title>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
       <div className="container text-center reveal">
@@ -33,3 +33,4 @@ const NotFoundPage = () => {
 };
 
 export default NotFoundPage;
+

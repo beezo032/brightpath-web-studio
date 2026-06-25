@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { Mail, Clock, ShieldCheck, CheckCircle2, ChevronDown, ChevronUp, ArrowRight, ArrowLeft } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import './ContactPage.css';
@@ -141,9 +141,9 @@ const ContactPage = () => {
   return (
     <main className="contact-page">
       <Helmet>
-        <title>Get a Quote | Ascend Digital Co</title>
+        <title>Get a Quote | SignalRise Studio</title>
         <meta name="description" content="Get your free website review today. Fill out our project inquiry form and we'll get back to you within 24 hours to discuss your web design project." />
-        <meta property="og:title" content="Get a Quote | Ascend Digital Co" />
+        <meta property="og:title" content="Get a Quote | SignalRise Studio" />
         <meta property="og:description" content="Get your free website review today. Fill out our project inquiry form and we'll get back to you within 24 hours to discuss your web design project." />
       </Helmet>
 
@@ -352,7 +352,7 @@ const ContactPage = () => {
                   <Mail className="info-icon" aria-hidden="true" />
                   <div>
                     <span className="info-label">Email Us</span>
-                    <a href="mailto:hello@ascenddigitalco.com" className="info-value">hello@ascenddigitalco.com</a>
+                    <a href="mailto:hello@signalrisestudio.com" className="info-value">hello@signalrisestudio.com</a>
                   </div>
                 </div>
                 <div className="info-item">
@@ -387,7 +387,7 @@ const ContactPage = () => {
               
               <div className="sidebar-trust">
                 <div className="trust-stars" aria-hidden="true">★★★★★</div>
-                <p>"Ascend Digital Co completely transformed our online presence. Our lead volume has tripled since launching the new site."</p>
+                <p>"SignalRise Studio completely transformed our online presence. Our lead volume has tripled since launching the new site."</p>
               </div>
             </div>
             
@@ -399,3 +399,4 @@ const ContactPage = () => {
 };
 
 export default ContactPage;
+

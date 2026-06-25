@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+﻿import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const AuthContext = createContext();
 
@@ -11,7 +11,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     // Check for token and verify it with the backend on load
     const verifyToken = async () => {
-      const token = localStorage.getItem('ascenddigitalco_jwt');
+      const token = localStorage.getItem('signalrisestudio_jwt');
       if (token) {
         try {
           const response = await fetch('/api/auth/verify', {
@@ -23,7 +23,7 @@ export const AuthProvider = ({ children }) => {
             setIsAuthenticated(true);
           } else {
             // Token invalid or expired
-            localStorage.removeItem('ascenddigitalco_jwt');
+            localStorage.removeItem('signalrisestudio_jwt');
             setIsAuthenticated(false);
           }
         } catch (error) {
@@ -49,7 +49,7 @@ export const AuthProvider = ({ children }) => {
 
       if (response.ok) {
         const data = await response.json();
-        localStorage.setItem('ascenddigitalco_jwt', data.token);
+        localStorage.setItem('signalrisestudio_jwt', data.token);
         setIsAuthenticated(true);
         return { success: true };
       } else {
@@ -63,7 +63,7 @@ export const AuthProvider = ({ children }) => {
 
   const logout = () => {
     setIsAuthenticated(false);
-    localStorage.removeItem('ascenddigitalco_jwt');
+    localStorage.removeItem('signalrisestudio_jwt');
   };
 
   if (isLoading) return null;
@@ -74,3 +74,4 @@ export const AuthProvider = ({ children }) => {
     </AuthContext.Provider>
   );
 };
+
