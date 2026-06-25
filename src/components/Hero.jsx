@@ -34,7 +34,7 @@ const Hero = () => {
               <a href="#contact" className="btn btn-primary pulse-cta" aria-label="Get a Free Website Review">
                 Get a Free Website Review <ArrowRight size={20} />
               </a>
-              <a href="#portfolio" className="btn btn-secondary bg-white-blur">
+              <a href="#portfolio" className="btn btn-secondary">
                 View Our Work
               </a>
             </div>
