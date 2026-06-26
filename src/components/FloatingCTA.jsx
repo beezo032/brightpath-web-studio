@@ -33,12 +33,12 @@ const FloatingCTA = () => {
           <Phone size={18} /> Call Now
         </a>
         <a href="#contact" className="sticky-btn audit-btn">
-          <Clipboard size={18} /> Free Review
+          <Clipboard size={18} /> Free Roadmap
         </a>
       </div>
 
       {/* Desktop Slide-In Video Audit Offer */}
-      <div className={`desktop-audit-widget ${showAuditWidget ? 'active' : ''}`} role="dialog" aria-label="Free Website Audit Promotion">
+      <div className={`desktop-audit-widget ${showAuditWidget ? 'active' : ''}`} role="dialog" aria-label="Free Growth Roadmap Promotion">
         <button className="widget-close" onClick={handleClose} aria-label="Close promotion">
           <X size={16} />
         </button>
@@ -46,10 +46,10 @@ const FloatingCTA = () => {
           <Gift size={24} />
         </div>
         <div className="widget-content">
-          <h4>Free Website Video Audit</h4>
-          <p>We'll record a custom 5-minute video showing exactly how to get more calls from your website.</p>
+          <h4>Free Growth Roadmap</h4>
+          <p>Send us your goals and we'll draft a custom strategy roadmap and pricing quote for your project.</p>
           <a href="#contact" className="btn btn-primary btn-sm pulse-cta" onClick={() => setShowAuditWidget(false)}>
-            Claim Free Audit <Sparkles size={14} style={{ marginLeft: '0.25rem' }} />
+            Get My Roadmap <Sparkles size={14} style={{ marginLeft: '0.25rem' }} />
           </a>
         </div>
       </div>
