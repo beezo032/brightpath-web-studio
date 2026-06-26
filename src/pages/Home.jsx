@@ -5,12 +5,10 @@ import Industries from '../components/Industries';
 import Portfolio from '../components/Portfolio';
 import Process from '../components/Process';
 import Pricing from '../components/Pricing';
-import WhyChooseUs from '../components/WhyChooseUs';
 import Benefits from '../components/Benefits';
 import Testimonials from '../components/Testimonials';
 import FAQ from '../components/FAQ';
 import Contact from '../components/Contact';
-import FinalCTA from '../components/FinalCTA';
 import BeforeAfter from '../components/BeforeAfter';
 import { Helmet } from 'react-helmet-async';
 
@@ -33,11 +31,9 @@ const Home = () => {
       <Testimonials />
       <Process />
       <Pricing />
-      <WhyChooseUs />
       <Benefits />
       <FAQ />
       <Contact />
-      <FinalCTA />
     </main>
   );
 };
