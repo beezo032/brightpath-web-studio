@@ -21,6 +21,16 @@ import PrivacyPage from './pages/PrivacyPage';
 import TermsPage from './pages/TermsPage';
 import BlogPostPage from './pages/BlogPostPage';
 
+// Niche & Local SEO Pages
+import DentalWebDesign from './pages/DentalWebDesign';
+import LandscaperWebDesign from './pages/LandscaperWebDesign';
+import ContractorWebDesign from './pages/ContractorWebDesign';
+import HvacWebDesign from './pages/HvacWebDesign';
+import BarbershopWebDesign from './pages/BarbershopWebDesign';
+import CharlestonScWebDesign from './pages/CharlestonScWebDesign';
+import SummervilleScWebDesign from './pages/SummervilleScWebDesign';
+import GooseCreekWebDesign from './pages/GooseCreekWebDesign';
+
 
 // Dashboard Pages
 import DashboardOverview from './dashboard/pages/DashboardOverview';
@@ -57,6 +67,19 @@ function App() {
             <Route path="/portfolio/razor-cuts-demo" element={<RazorCutsDemoPage />} />
             <Route path="/privacy" element={<PrivacyPage />} />
             <Route path="/terms" element={<TermsPage />} />
+            
+            {/* Niche Industry Pages */}
+            <Route path="/dental-web-design" element={<DentalWebDesign />} />
+            <Route path="/landscaper-web-design" element={<LandscaperWebDesign />} />
+            <Route path="/contractor-web-design" element={<ContractorWebDesign />} />
+            <Route path="/hvac-web-design" element={<HvacWebDesign />} />
+            <Route path="/barbershop-web-design" element={<BarbershopWebDesign />} />
+
+            {/* Local SEO Pages */}
+            <Route path="/charleston-sc-web-design" element={<CharlestonScWebDesign />} />
+            <Route path="/summerville-sc-web-design" element={<SummervilleScWebDesign />} />
+            <Route path="/goose-creek-web-design" element={<GooseCreekWebDesign />} />
+
             <Route path="*" element={<NotFoundPage />} />
           </Route>
 

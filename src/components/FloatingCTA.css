@@ -1,0 +1,137 @@
+/* Mobile Sticky Bottom Bar */
+.mobile-sticky-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: white;
+  box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.08);
+  display: none;
+  grid-template-columns: 1fr 1fr;
+  z-index: 999;
+  border-top: 1px solid var(--color-border);
+}
+
+.sticky-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: background 0.2s;
+}
+
+.call-btn {
+  color: var(--color-primary);
+  background: white;
+}
+
+.call-btn:hover {
+  background: var(--color-bg-gray);
+}
+
+.audit-btn {
+  color: white;
+  background: var(--color-accent-blue);
+}
+
+.audit-btn:hover {
+  background: var(--color-accent-blue-hover);
+}
+
+@media (max-width: 768px) {
+  .mobile-sticky-bar {
+    display: grid;
+  }
+  
+  /* Prevent content from being hidden behind sticky bar */
+  body {
+    padding-bottom: 60px;
+  }
+}
+
+/* Desktop Slide-In Video Audit Offer */
+.desktop-audit-widget {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 320px;
+  background: white;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-lg);
+  padding: 1.5rem;
+  z-index: 998;
+  transform: translateY(120%);
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  gap: 1rem;
+}
+
+.desktop-audit-widget.active {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .desktop-audit-widget {
+    display: none;
+  }
+}
+
+.widget-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: transparent;
+  border: none;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  padding: 2px;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.widget-close:hover {
+  background: var(--color-bg-gray);
+  color: var(--color-text-dark);
+}
+
+.widget-icon {
+  width: 48px;
+  height: 48px;
+  background: #eff6ff;
+  color: var(--color-accent-blue);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.widget-content {
+  flex-grow: 1;
+}
+
+.widget-content h4 {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.widget-content p {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.btn-sm {
+  padding: 0.5rem 1rem !important;
+  font-size: 0.875rem !important;
+}

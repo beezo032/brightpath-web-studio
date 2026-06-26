@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { ArrowRight, Zap, Smartphone, Search, HeadphonesIcon, MessageCircle } from 'lucide-react';
 import './Hero.css';
 
@@ -26,7 +26,7 @@ const Hero = () => {
             <div className="badge" style={{display: 'inline-flex', alignItems: 'center', gap: '0.5rem'}}>
               <span style={{fontSize: '1.2rem'}}>🔥</span> Limited availability for {new Date().toLocaleString('default', { month: 'long' })}
             </div>
-            <h1>Websites Built to Help Local Businesses Get More Calls, Leads, and Customers</h1>
+            <h1>Websites Built to Generate More Leads, Calls & Customers</h1>
             <p className="hero-subtitle">
               SignalRise Studio designs fast, mobile-friendly websites that help local businesses stand out online, generate more leads, and convert visitors into paying customers.
             </p>
@@ -38,13 +38,26 @@ const Hero = () => {
                 View Our Work
               </a>
             </div>
-            <div className="hero-trust-signals" style={{marginTop: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
-              <div style={{display: 'flex', color: '#F59E0B'}}>
-                {'★★★★★'}
+            
+            <div className="hero-badges" style={{marginTop: '2.5rem', display: 'flex', flexWrap: 'wrap', gap: '2rem'}}>
+              <div className="hero-badge-item" style={{display: 'flex', alignItems: 'center', gap: '0.75rem'}}>
+                <div style={{color: '#F59E0B', fontSize: '1.1rem', display: 'flex', gap: '2px'}}>
+                  {'★★★★★'}
+                </div>
+                <div>
+                  <p style={{margin: 0, fontWeight: 700, fontSize: '0.9rem', color: 'var(--color-text-dark)'}}>Google 5-Star Rated</p>
+                  <p style={{margin: 0, fontSize: '0.75rem', color: 'var(--color-text-muted)'}}>Based on 25+ local reviews</p>
+                </div>
               </div>
-              <span style={{fontSize: '0.875rem', color: 'var(--color-text-muted)', fontWeight: '500'}}>
-                Built for Local Business Growth
-              </span>
+              <div className="hero-badge-item" style={{display: 'flex', alignItems: 'center', gap: '0.75rem'}}>
+                <div style={{background: '#EFF6FF', color: 'var(--color-accent-blue)', padding: '0.5rem', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                </div>
+                <div>
+                  <p style={{margin: 0, fontWeight: 700, fontSize: '0.9rem', color: 'var(--color-text-dark)'}}>#1 Local Growth Partner</p>
+                  <p style={{margin: 0, fontSize: '0.75rem', color: 'var(--color-text-muted)'}}>Charleston & surrounding areas</p>
+                </div>
+              </div>
             </div>
           </div>
           <div className="hero-image reveal reveal-delay-2">

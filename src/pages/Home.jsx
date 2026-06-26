@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import Hero from '../components/Hero';
 import Services from '../components/Services';
 import Industries from '../components/Industries';
@@ -11,6 +11,7 @@ import Testimonials from '../components/Testimonials';
 import FAQ from '../components/FAQ';
 import Contact from '../components/Contact';
 import FinalCTA from '../components/FinalCTA';
+import BeforeAfter from '../components/BeforeAfter';
 import { Helmet } from 'react-helmet-async';
 
 const Home = () => {
@@ -28,6 +29,7 @@ const Home = () => {
       <Services />
       <Industries />
       <Portfolio />
+      <BeforeAfter />
       <Testimonials />
       <Process />
       <Pricing />

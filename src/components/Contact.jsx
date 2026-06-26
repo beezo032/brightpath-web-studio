@@ -54,7 +54,7 @@ const Contact = () => {
       const budgetMap = {
         'starter': 499,
         'growth': 999,
-        'premium': 1999,
+        'premium': 2499,
         'unsure': 0
       };
       const estimatedValue = budgetMap[formData.budget] || 0;
@@ -232,8 +232,8 @@ const Contact = () => {
                     >
                       <option value="">Select your budget</option>
                       <option value="starter">$499 - $999</option>
-                      <option value="growth">$999 - $1,999</option>
-                      <option value="premium">$1,999+</option>
+                      <option value="growth">$999 - $2,499</option>
+                      <option value="premium">$2,499+</option>
                       <option value="unsure">Not sure yet</option>
                     </select>
                     {errors.budget && <span className="error-text"><AlertCircle size={14} /> {errors.budget}</span>}

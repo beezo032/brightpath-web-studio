@@ -1,6 +1,6 @@
-# Ascend Digital Co
+# SignalRise Studio
 
-Ascend Digital Co is a modern web design agency focused on helping local businesses generate more leads, calls, and customers through fast, mobile-friendly websites.
+SignalRise Studio is a modern web design agency focused on helping local businesses generate more leads, calls, and customers through fast, mobile-friendly websites.
 
 ## Services
 
@@ -29,7 +29,7 @@ Ascend Digital Co is a modern web design agency focused on helping local busines
 
 ## Featured Project Goals
 
-Ascend Digital Co was created to showcase premium websites for local service businesses including landscapers, pressure washers, barbershops, churches, and contractors.
+SignalRise Studio was created to showcase premium websites for local service businesses including landscapers, pressure washers, barbershops, churches, and contractors.
 
 ## Future Improvements
 

@@ -66,7 +66,7 @@ const Pricing = () => {
           <div className="pricing-card reveal reveal-delay-3">
             <div className="pricing-header">
               <h3>Premium Authority</h3>
-              <div className="price"><span>$</span>1,999<span>+</span></div>
+              <div className="price"><span>$</span>2,499<span>+</span></div>
               <p>For businesses that want a stronger online presence and more advanced lead systems.</p>
             </div>
             <div className="pricing-features">

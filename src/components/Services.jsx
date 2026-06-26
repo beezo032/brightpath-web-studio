@@ -5,33 +5,33 @@ import './Services.css';
 const services = [
   {
     icon: <Layout className="service-icon" />,
-    title: "High-Converting Web Design",
-    description: "Get a beautiful, mobile-friendly site designed specifically to turn casual visitors into paying customers."
+    title: "Custom Website Design",
+    description: "Get a beautiful, custom, responsive website built from scratch. No generic templates, no cutting corners. Engineered specifically to convert local visitors into paying customers."
   },
   {
     icon: <RefreshCw className="service-icon" />,
-    title: "Strategic Website Redesigns",
-    description: "Stop losing leads to a dated website. We'll modernize your online presence to build instant trust and authority."
+    title: "Website Redesign",
+    description: "Stop losing business to a dated, slow website. We'll completely modernize your online brand, optimize the user experience, and structure it to double your conversion rate."
   },
   {
     icon: <TrendingUp className="service-icon" />,
-    title: "Local Search Dominance",
-    description: "Rank higher on Google so when people search for your services in your area, your phone rings instead of your competitors'."
-  },
-  {
-    icon: <MapPin className="service-icon" />,
-    title: "Google Business Optimization",
-    description: "Maximize your visibility in local maps and reviews to capture the most engaged, ready-to-buy customers."
-  },
-  {
-    icon: <ClipboardList className="service-icon" />,
-    title: "Automated Lead Capture",
-    description: "Make it incredibly easy for prospects to request a quote or book an appointment right from their phone."
+    title: "Local SEO",
+    description: "Dominate search queries in your town. We build local authority to rank your website and Google Business Profile in the top results so customers call you first."
   },
   {
     icon: <ShieldCheck className="service-icon" />,
-    title: "Stress-Free Monthly Support",
-    description: "Focus on running your business. We'll handle hosting, security, and updates so your site stays fast and secure."
+    title: "Website Maintenance",
+    description: "Enjoy total peace of mind. We handle high-speed hosting, daily cloud backups, SSL security, updates, and content changes so your site stays fast and secure 24/7."
+  },
+  {
+    icon: <MapPin className="service-icon" />,
+    title: "Dental Website Design",
+    description: "A tailored patient-generation solution for dental practices. High-converting layouts displaying credentials, reviews, and easy appointment scheduling."
+  },
+  {
+    icon: <ClipboardList className="service-icon" />,
+    title: "CRM Integration",
+    description: "Connect your forms directly to pipelines (like our built-in CRM or ServiceTitan, Housecall Pro, Calendly) to manage leads, followups, and jobs automatically."
   }
 ];
 
