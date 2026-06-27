@@ -1,11 +1,14 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Search, Plus, Download, Edit, Trash2, X } from 'lucide-react';
+import { Search, Plus, Download, Upload, Edit, Trash2, X } from 'lucide-react';
 import './LeadsPage.css';
 
 const LeadsPage = () => {
   const [leads, setLeads] = useState([]);
   const [loading, setLoading] = useState(true);
+  const fileInputRef = useRef(null);
+  const [importing, setImporting] = useState(false);
+  const [importMessage, setImportMessage] = useState(null);
   
   // Pagination & Filtering
   const [page, setPage] = useState(1);
@@ -95,6 +98,134 @@ const LeadsPage = () => {
     }
   };
 
+  const handleCSVImport = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    setImporting(true);
+    setImportMessage(null);
+    const reader = new FileReader();
+    reader.onload = async (event) => {
+      try {
+        const csvText = event.target.result;
+        
+        // Simple but robust CSV parser that handles quotes and commas
+        const lines = [];
+        let row = [''];
+        let inQuotes = false;
+
+        for (let i = 0; i < csvText.length; i++) {
+          const char = csvText[i];
+          const nextChar = csvText[i + 1];
+
+          if (char === '"') {
+            if (inQuotes && nextChar === '"') {
+              row[row.length - 1] += '"';
+              i++; // skip next quote
+            } else {
+              inQuotes = !inQuotes;
+            }
+          } else if (char === ',' && !inQuotes) {
+            row.push('');
+          } else if ((char === '\r' || char === '\n') && !inQuotes) {
+            if (char === '\r' && nextChar === '\n') {
+              i++; // skip LF
+            }
+            lines.push(row);
+            row = [''];
+          } else {
+            row[row.length - 1] += char;
+          }
+        }
+        if (row.length > 1 || row[0] !== '') {
+          lines.push(row);
+        }
+
+        if (lines.length < 2) {
+          throw new Error('CSV is empty or invalid.');
+        }
+
+        const headers = lines[0].map(h => h.trim().toLowerCase());
+        
+        // Find column mappings based on aliases
+        const mapCol = (aliases) => {
+          return headers.findIndex(h => aliases.some(alias => h.includes(alias)));
+        };
+
+        const nameIdx = mapCol(['company', 'business', 'name', 'title', 'organization']);
+        const phoneIdx = mapCol(['phone', 'tel', 'cell', 'mobile']);
+        const emailIdx = mapCol(['email', 'e-mail', 'mail']);
+        const websiteIdx = mapCol(['website', 'site', 'url', 'link']);
+        const industryIdx = mapCol(['industry', 'category', 'niche', 'type', 'specialty']);
+        const cityIdx = mapCol(['city', 'town', 'locality']);
+        const stateIdx = mapCol(['state', 'region', 'province']);
+        const notesIdx = mapCol(['notes', 'note', 'description', 'about', 'summary']);
+
+        // Default name column to 0 if not explicitly found
+        const finalNameIdx = nameIdx >= 0 ? nameIdx : 0;
+
+        const parsedLeads = [];
+        for (let idx = 1; idx < lines.length; idx++) {
+          const columns = lines[idx];
+          if (!columns || columns.length === 0) continue;
+          
+          const getVal = (colIdx) => (colIdx >= 0 && colIdx < columns.length ? columns[colIdx].trim() : '');
+
+          const businessName = getVal(finalNameIdx);
+          if (!businessName) continue; // required field
+
+          parsedLeads.push({
+            businessName,
+            email: getVal(emailIdx),
+            phone: getVal(phoneIdx),
+            websiteUrl: getVal(websiteIdx),
+            industry: getVal(industryIdx),
+            city: getVal(cityIdx),
+            state: getVal(stateIdx),
+            notes: getVal(notesIdx),
+            contactStatus: 'New'
+          });
+        }
+
+        if (parsedLeads.length === 0) {
+          throw new Error('No valid leads with a business name found in the file.');
+        }
+
+        const token = localStorage.getItem('signalrisestudio_jwt');
+        const response = await fetch('/api/leads/bulk', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          },
+          body: JSON.stringify(parsedLeads)
+        });
+
+        if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(errorData.error || 'Failed to save leads to database.');
+        }
+
+        setImportMessage({ type: 'success', text: `Successfully imported ${parsedLeads.length} leads!` });
+        fetchLeads();
+      } catch (err) {
+        console.error(err);
+        setImportMessage({ type: 'error', text: err.message || 'Error importing CSV.' });
+      } finally {
+        setImporting(false);
+        e.target.value = ''; // clear input
+      }
+    };
+
+    reader.onerror = () => {
+      setImportMessage({ type: 'error', text: 'Error reading file.' });
+      setImporting(false);
+      e.target.value = '';
+    };
+
+    reader.readAsText(file);
+  };
+
   const exportCSV = () => {
     if (!leads.length) return;
     const headers = ['Business Name', 'Email', 'Phone', 'Industry', 'Status', 'Date Added'];
@@ -123,6 +254,16 @@ const LeadsPage = () => {
           <p>Track, update, and export your agency leads.</p>
         </div>
         <div className="leads-actions">
+          <input 
+            type="file" 
+            ref={fileInputRef} 
+            onChange={handleCSVImport} 
+            style={{ display: 'none' }} 
+            accept=".csv" 
+          />
+          <button className="btn btn-outline" onClick={() => fileInputRef.current.click()} disabled={importing}>
+            <Upload size={18} style={{marginRight: '0.5rem'}} /> {importing ? 'Importing...' : 'Import CSV'}
+          </button>
           <button className="btn btn-outline" onClick={exportCSV}>
             <Download size={18} style={{marginRight: '0.5rem'}} /> Export CSV
           </button>
@@ -131,6 +272,15 @@ const LeadsPage = () => {
           </button>
         </div>
       </div>
+
+      {importMessage && (
+        <div className={`import-alert ${importMessage.type}`}>
+          <span>{importMessage.text}</span>
+          <button onClick={() => setImportMessage(null)} className="alert-close">
+            <X size={16} />
+          </button>
+        </div>
+      )}
 
       <div className="leads-controls">
         <div className="search-bar">

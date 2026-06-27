@@ -59,6 +59,18 @@ router.post('/', async (req, res) => {
   }
 });
 
+router.post('/bulk', authenticateToken, async (req, res) => {
+  try {
+    if (!Array.isArray(req.body)) {
+      return res.status(400).json({ error: 'Body must be an array of leads' });
+    }
+    const savedLeads = await Lead.insertMany(req.body);
+    res.status(201).json(savedLeads);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
+
 router.get('/:id', authenticateToken, async (req, res) => {
   try {
     const lead = await Lead.findById(req.params.id);
