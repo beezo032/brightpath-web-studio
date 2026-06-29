@@ -20,7 +20,7 @@ const Navbar = () => {
     <header className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="container navbar-container">
         <Link to="/" className="logo">
-          <span className="logo-accent">Signal</span>Rise Studio
+          <span className="logo-accent">Signal</span>Light Studio
         </Link>
         
         <nav className={`nav-links ${mobileMenuOpen ? 'open' : ''}`}>

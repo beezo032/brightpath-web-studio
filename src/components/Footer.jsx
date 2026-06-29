@@ -11,7 +11,7 @@ const Footer = () => {
         <div className="footer-grid">
           <div className="footer-brand">
         <Link to="/" className="logo" aria-label="Signal Light Studio - Home">
-              <span className="logo-accent">Signal</span>Rise Studio
+              <span className="logo-accent">Signal</span>Light Studio
             </Link>
             <p className="footer-desc">
               Building high-converting, premium websites for local service businesses. We help you turn visitors into paying customers.
