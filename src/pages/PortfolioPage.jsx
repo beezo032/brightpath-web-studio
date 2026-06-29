@@ -12,7 +12,7 @@ const allProjects = [
     services: ["Website Design", "Online Scheduling", "Smile Gallery", "HIPAA-Compliant Layouts"],
     technologies: ["React", "TypeScript", "Vite", "Framer Motion"],
     results: "600+ Google Reviews",
-    demoUrl: "https://github.com/beezo032/Aster-House-Dental",
+    demoUrl: "https://aster-house-dental.vercel.app/",
     githubUrl: "https://github.com/beezo032/Aster-House-Dental",
     image: "/aster_house_dental.png"
   },
@@ -24,7 +24,7 @@ const allProjects = [
     services: ["AC Repair & Install", "Heating Services", "Indoor Air Quality", "Emergency Response"],
     technologies: ["React", "TypeScript", "Tailwind CSS", "Vite"],
     results: "4.9 Local Rating",
-    demoUrl: "https://github.com/beezo032/Northstar--Heating",
+    demoUrl: "https://northstar-heating.vercel.app/",
     githubUrl: "https://github.com/beezo032/Northstar--Heating",
     image: "/northstar_heating.png"
   },
@@ -36,7 +36,7 @@ const allProjects = [
     services: ["Custom Tattooing", "Fine Line Work", "Portrait & Realism", "Strategic Cover-ups"],
     technologies: ["React", "TypeScript", "Vite", "Vanilla CSS"],
     results: "327+ Five-Star Reviews",
-    demoUrl: "https://github.com/beezo032/Vesper-Tattoo",
+    demoUrl: "https://vesper-tattoo.vercel.app/",
     githubUrl: "https://github.com/beezo032/Vesper-Tattoo",
     image: "/vesper_tattoo.png"
   }
