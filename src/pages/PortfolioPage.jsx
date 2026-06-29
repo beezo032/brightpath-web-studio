@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ExternalLink, Code } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import './PortfolioPage.css';
@@ -96,7 +96,7 @@ const PortfolioPage = () => {
 
           <div className="portfolio-page-grid">
             {filteredProjects.map((project) => (
-              <div key={project.id} className="portfolio-detail-card reveal">
+              <div key={project.id} className="portfolio-detail-card">
                 <div className="portfolio-image-container">
                   <img 
                     src={project.image} 
