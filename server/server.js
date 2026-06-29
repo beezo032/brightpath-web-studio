@@ -1,4 +1,4 @@
-﻿import express from 'express';
+import express from 'express';
 import jwt from 'jsonwebtoken';
 import cors from 'cors';
 import path from 'path';
@@ -56,7 +56,8 @@ const requireDB = async (req, res, next) => {
     try {
       await connectDB();
     } catch (err) {
-      return res.status(500).json({ error: err.message });
+      console.error('Database connection failed (Vercel):', err.message);
+      // Proceed even if database is down, so email alerts can still fire
     }
   }
   next();

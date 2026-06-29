@@ -1,4 +1,5 @@
 import express from 'express';
+import mongoose from 'mongoose';
 import Lead from '../models/Lead.js';
 import { authenticateToken } from '../middleware/auth.js';
 import nodemailer from 'nodemailer';
@@ -135,14 +136,30 @@ router.get('/', authenticateToken, async (req, res) => {
 router.post('/', async (req, res) => {
   try {
     const newLead = new Lead(req.body);
-    const savedLead = await newLead.save();
+    let savedLead = null;
+    let dbError = null;
     
-    // Asynchronously send the email notification without blocking request resolution
-    sendLeadEmail(savedLead).catch(err => console.error('Background sendLeadEmail failed:', err));
+    try {
+      if (mongoose.connection.readyState >= 1) {
+        savedLead = await newLead.save();
+      } else {
+        console.warn('Database is not connected. Skipping MongoDB save.');
+      }
+    } catch (dbErr) {
+      console.error('Failed to save lead to database:', dbErr.message);
+      dbError = dbErr.message;
+    }
     
-    res.status(201).json(savedLead);
+    // Always trigger email notification in the background
+    sendLeadEmail(req.body).catch(err => console.error('Background sendLeadEmail failed:', err));
+    
+    res.status(201).json(savedLead || { 
+      message: 'Lead received successfully', 
+      warning: dbError || 'Database is down' 
+    });
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    // Return friendly success anyway to prevent user-facing errors
+    res.status(201).json({ message: 'Lead received successfully' });
   }
 });
 
