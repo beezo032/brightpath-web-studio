@@ -150,8 +150,12 @@ router.post('/', async (req, res) => {
       dbError = dbErr.message;
     }
     
-    // Always trigger email notification in the background
-    sendLeadEmail(req.body).catch(err => console.error('Background sendLeadEmail failed:', err));
+    // Await email notification to ensure it finishes executing on Vercel's serverless container
+    try {
+      await sendLeadEmail(req.body);
+    } catch (mailErr) {
+      console.error('Background sendLeadEmail failed:', mailErr.message);
+    }
     
     res.status(201).json(savedLead || { 
       message: 'Lead received successfully', 
