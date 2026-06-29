@@ -4,31 +4,31 @@ import './Portfolio.css';
 
 const projects = [
   {
-    title: "We Can Do It Landscaping",
-    category: "Landscaping",
-    description: "A high-converting lead generation website designed to capture seasonal lawn care contracts and large landscaping quotes.",
-    services: ["Web Design", "Local SEO", "Copywriting"],
-    technologies: ["React", "Vite", "CSS3"],
-    results: "Conversion Optimized",
-    image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?q=80&w=800&auto=format&fit=crop"
+    title: "Aster House Dental",
+    category: "Dental",
+    description: "A premium website for a luxury boutique dental clinic featuring relationship-first dentistry and calm, patient-focused experiences.",
+    services: ["Web Design", "Local SEO", "Custom Booking"],
+    technologies: ["React", "TypeScript", "Vite", "Framer Motion"],
+    results: "600+ Google Reviews",
+    image: "/aster_house_dental.png"
   },
   {
-    title: "Razorcut Barbershop",
-    category: "Grooming",
-    description: "A sleek, dark-themed website with integrated booking to help a local barbershop manage their growing clientele.",
-    services: ["Redesign", "Booking Integration"],
-    technologies: ["React", "Custom CSS"],
-    results: "Automated Booking Flow",
-    image: "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=800&auto=format&fit=crop"
+    title: "Northstar Heating & Air",
+    category: "HVAC",
+    description: "Charlotte’s dependable cooling and heating service site with upfront pricing guides, 24/7 dispatcher, and easy bookings.",
+    services: ["Web Design", "SEO Setup", "Speed Optimization"],
+    technologies: ["React", "TypeScript", "Tailwind CSS", "Vite"],
+    results: "4.9 Local Rating",
+    image: "/northstar_heating.png"
   },
   {
-    title: "The Amta Corner",
-    category: "Restaurant & Wine Bar",
-    description: "A visually striking, modern site highlighting menus, reservations, and a premium dining experience.",
-    services: ["Web Design", "SEO Setup"],
-    technologies: ["React", "Animations"],
-    results: "High Local Visibility",
-    image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=800&auto=format&fit=crop"
+    title: "Vesper Tattoo Co.",
+    category: "Tattoo Studio",
+    description: "Richmond's private, award-winning tattoo shop with custom black & grey, fine line, and realism artwork galleries.",
+    services: ["Redesign", "Booking Integration", "Portfolio Gallery"],
+    technologies: ["React", "TypeScript", "Vite", "Vanilla CSS"],
+    results: "327+ Five-Star Reviews",
+    image: "/vesper_tattoo.png"
   }
 ];
 

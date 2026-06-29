@@ -6,43 +6,43 @@ import './PortfolioPage.css';
 const allProjects = [
   {
     id: 1,
-    title: "We Can Do It Landscaping",
-    category: "Landscaping",
-    description: "Modern redesign for a local landscaping company focused on generating more quote requests and showcasing services.",
-    services: ["Website Design", "Mobile Optimization", "Local SEO", "Lead Generation"],
-    technologies: ["React", "Vite", "CSS"],
-    results: "+45% Quote Requests",
-    demoUrl: "https://we-can-do-it-lawn-care.vercel.app/",
-    githubUrl: "#",
-    image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?q=80&w=800&auto=format&fit=crop"
+    title: "Aster House Dental",
+    category: "Dental",
+    description: "A premium website for a luxury boutique dental clinic featuring relationship-first dentistry and calm, patient-focused experiences.",
+    services: ["Website Design", "Online Scheduling", "Smile Gallery", "HIPAA-Compliant Layouts"],
+    technologies: ["React", "TypeScript", "Vite", "Framer Motion"],
+    results: "600+ Google Reviews",
+    demoUrl: "https://github.com/beezo032/Aster-House-Dental",
+    githubUrl: "https://github.com/beezo032/Aster-House-Dental",
+    image: "/aster_house_dental.png"
   },
   {
     id: 2,
-    title: "Razor Cuts Barbershop",
-    category: "Grooming",
-    description: "Sleek, dark-themed website with integrated booking to help a local barbershop manage their growing clientele.",
-    services: ["Website Design", "Mobile Optimization", "Booking CTA", "Local SEO", "Lead Capture"],
-    technologies: ["React", "Vite", "Vanilla CSS"],
-    results: "Automated Booking Flow",
-    demoUrl: "https://razor-cuts.vercel.app/",
-    caseStudyUrl: "/portfolio/razor-cuts-demo",
-    image: "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=800&auto=format&fit=crop"
+    title: "Northstar Heating & Air",
+    category: "HVAC",
+    description: "Charlotte’s dependable cooling and heating service site with upfront pricing guides, 24/7 dispatcher, and easy bookings.",
+    services: ["AC Repair & Install", "Heating Services", "Indoor Air Quality", "Emergency Response"],
+    technologies: ["React", "TypeScript", "Tailwind CSS", "Vite"],
+    results: "4.9 Local Rating",
+    demoUrl: "https://github.com/beezo032/Northstar--Heating",
+    githubUrl: "https://github.com/beezo032/Northstar--Heating",
+    image: "/northstar_heating.png"
   },
   {
     id: 3,
-    title: "The Amta Corner",
-    category: "Restaurant & Wine Bar",
-    description: "Visually striking site highlighting menus and reservations to build immediate customer trust.",
-    services: ["Web Design", "SEO Setup", "Speed Optimization"],
-    technologies: ["React", "Vite", "CSS3"],
-    results: "Top 3 Local Maps Ranking",
-    demoUrl: "https://amta-corner.vercel.app/",
-    githubUrl: "#",
-    image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=800&auto=format&fit=crop"
+    title: "Vesper Tattoo Co.",
+    category: "Tattoo Studio",
+    description: "Richmond's private, award-winning tattoo shop with custom black & grey, fine line, and realism artwork galleries.",
+    services: ["Custom Tattooing", "Fine Line Work", "Portrait & Realism", "Strategic Cover-ups"],
+    technologies: ["React", "TypeScript", "Vite", "Vanilla CSS"],
+    results: "327+ Five-Star Reviews",
+    demoUrl: "https://github.com/beezo032/Vesper-Tattoo",
+    githubUrl: "https://github.com/beezo032/Vesper-Tattoo",
+    image: "/vesper_tattoo.png"
   }
 ];
 
-const categories = ["All", "Landscaping", "Grooming", "Restaurant & Wine Bar"];
+const categories = ["All", "Dental", "HVAC", "Tattoo Studio"];
 
 const PortfolioPage = () => {
   const [activeCategory, setActiveCategory] = useState("All");
