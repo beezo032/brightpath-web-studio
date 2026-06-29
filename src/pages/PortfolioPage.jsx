@@ -63,9 +63,9 @@ const PortfolioPage = () => {
   return (
     <main className="portfolio-page">
       <Helmet>
-        <title>Our Work & Portfolio | SignalRise Studio</title>
+        <title>Our Work & Portfolio | Signal Light Studio</title>
         <meta name="description" content="Explore our portfolio of high-converting websites designed specifically for landscaping, grooming, and local service businesses." />
-        <meta property="og:title" content="Our Work & Portfolio | SignalRise Studio" />
+        <meta property="og:title" content="Our Work & Portfolio | Signal Light Studio" />
         <meta property="og:description" content="Explore our portfolio of high-converting websites designed specifically for landscaping, grooming, and local service businesses." />
       </Helmet>
 

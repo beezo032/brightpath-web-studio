@@ -12,15 +12,15 @@ const LandscaperWebDesign = () => {
     "description": "Premium landscaping website design built to win seasonal maintenance contracts and high-ticket hardscaping quotes.",
     "publisher": {
       "@type": "ProfessionalService",
-      "name": "SignalRise Studio",
-      "logo": "https://signalrisestudio.com/favicon.png"
+      "name": "Signal Light Studio",
+      "logo": "https://signallightstudio.com/favicon.png"
     }
   };
 
   return (
     <main style={{ paddingTop: '100px', backgroundColor: 'var(--color-bg-gray)', minHeight: '100vh' }}>
       <Helmet>
-        <title>Landscaping & Lawn Care Web Design | SignalRise Studio</title>
+        <title>Landscaping & Lawn Care Web Design | Signal Light Studio</title>
         <meta name="description" content="Custom web design services for landscaping and lawn care businesses. Generate seasonal quotes, capture high-ticket contracts, and rank local search." />
         <script type="application/ld+json">
           {JSON.stringify(schemaMarkup)}

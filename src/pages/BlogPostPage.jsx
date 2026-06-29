@@ -194,9 +194,9 @@ const BlogPostPage = () => {
   return (
     <main className="blog-post-page">
       <Helmet>
-        <title>{post.title} | SignalRise Studio</title>
+        <title>{post.title} | Signal Light Studio</title>
         <meta name="description" content={post.excerpt} />
-        <meta property="og:title" content={`${post.title} | SignalRise Studio`} />
+        <meta property="og:title" content={`${post.title} | Signal Light Studio`} />
         <meta property="og:description" content={post.excerpt} />
         <meta property="og:image" content={post.image} />
       </Helmet>

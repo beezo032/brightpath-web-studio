@@ -20,7 +20,7 @@ const ProspectorPage = () => {
     setResults([]);
 
     try {
-      const token = localStorage.getItem('signalrisestudio_jwt');
+      const token = localStorage.getItem('signallightstudio_jwt');
       const res = await fetch('/api/prospector/search', {
         method: 'POST',
         headers: {
@@ -48,7 +48,7 @@ const ProspectorPage = () => {
     if (importedIds.has(prospect.place_id)) return;
 
     try {
-      const token = localStorage.getItem('signalrisestudio_jwt');
+      const token = localStorage.getItem('signallightstudio_jwt');
       
       const newLead = {
         businessName: prospect.name,

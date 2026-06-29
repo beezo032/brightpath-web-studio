@@ -23,7 +23,7 @@ const DashboardOverview = () => {
   useEffect(() => {
     const fetchAllLeads = async () => {
       try {
-        const token = localStorage.getItem('signalrisestudio_jwt');
+        const token = localStorage.getItem('signallightstudio_jwt');
         const res = await fetch('/api/leads?limit=1000', {
           headers: { 'Authorization': `Bearer ${token}` }
         });

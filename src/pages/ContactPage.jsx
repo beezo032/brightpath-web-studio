@@ -141,9 +141,9 @@ const ContactPage = () => {
   return (
     <main className="contact-page">
       <Helmet>
-        <title>Get a Quote | SignalRise Studio</title>
+        <title>Get a Quote | Signal Light Studio</title>
         <meta name="description" content="Get your free website review today. Fill out our project inquiry form and we'll get back to you within 24 hours to discuss your web design project." />
-        <meta property="og:title" content="Get a Quote | SignalRise Studio" />
+        <meta property="og:title" content="Get a Quote | Signal Light Studio" />
         <meta property="og:description" content="Get your free website review today. Fill out our project inquiry form and we'll get back to you within 24 hours to discuss your web design project." />
       </Helmet>
 
@@ -352,7 +352,7 @@ const ContactPage = () => {
                   <Mail className="info-icon" aria-hidden="true" />
                   <div>
                     <span className="info-label">Email Us</span>
-                    <a href="mailto:hello@signalrisestudio.com" className="info-value">hello@signalrisestudio.com</a>
+                    <a href="mailto:hello@signallightstudio.com" className="info-value">hello@signallightstudio.com</a>
                   </div>
                 </div>
                 <div className="info-item">
@@ -387,7 +387,7 @@ const ContactPage = () => {
               
               <div className="sidebar-trust">
                 <div className="trust-stars" aria-hidden="true">★★★★★</div>
-                <p>"SignalRise Studio completely transformed our online presence. Our lead volume has tripled since launching the new site."</p>
+                <p>"Signal Light Studio completely transformed our online presence. Our lead volume has tripled since launching the new site."</p>
               </div>
             </div>
             

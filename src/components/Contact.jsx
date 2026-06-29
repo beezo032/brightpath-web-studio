@@ -104,7 +104,7 @@ const Contact = () => {
                 <div className="method-icon"><Mail size={20} /></div>
                 <div>
                   <h4>Message Us</h4>
-                  <p>hello@signalrisestudio.com</p>
+                  <p>hello@signallightstudio.com</p>
                 </div>
               </div>
               <div className="contact-method">

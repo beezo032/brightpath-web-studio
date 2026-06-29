@@ -28,7 +28,7 @@ const Hero = () => {
             </div>
             <h1>Websites Built to Generate More Leads, Calls & Customers</h1>
             <p className="hero-subtitle">
-              SignalRise Studio designs fast, mobile-friendly websites that help local businesses stand out online, generate more leads, and convert visitors into paying customers.
+              Signal Light Studio designs fast, mobile-friendly websites that help local businesses stand out online, generate more leads, and convert visitors into paying customers.
             </p>
             <div className="hero-actions">
               <a href="#contact" className="btn btn-primary pulse-cta" aria-label="Get a Free Website Review">

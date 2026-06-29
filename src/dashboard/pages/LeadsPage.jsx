@@ -30,7 +30,7 @@ const LeadsPage = () => {
   const fetchLeads = async () => {
     setLoading(true);
     try {
-      const token = localStorage.getItem('signalrisestudio_jwt');
+      const token = localStorage.getItem('signallightstudio_jwt');
       const res = await fetch(`/api/leads?page=${page}&search=${search}&status=${statusFilter}`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
@@ -64,7 +64,7 @@ const LeadsPage = () => {
 
   const handleSaveLead = async (e) => {
     e.preventDefault();
-    const token = localStorage.getItem('signalrisestudio_jwt');
+    const token = localStorage.getItem('signallightstudio_jwt');
     const method = currentLead ? 'PUT' : 'POST';
     const url = currentLead ? `/api/leads/${currentLead._id}` : '/api/leads';
 
@@ -86,7 +86,7 @@ const LeadsPage = () => {
 
   const handleDelete = async (id) => {
     if (!window.confirm('Are you sure you want to delete this lead?')) return;
-    const token = localStorage.getItem('signalrisestudio_jwt');
+    const token = localStorage.getItem('signallightstudio_jwt');
     try {
       await fetch(`/api/leads/${id}`, {
         method: 'DELETE',
@@ -191,7 +191,7 @@ const LeadsPage = () => {
           throw new Error('No valid leads with a business name found in the file.');
         }
 
-        const token = localStorage.getItem('signalrisestudio_jwt');
+        const token = localStorage.getItem('signallightstudio_jwt');
         const response = await fetch('/api/leads/bulk', {
           method: 'POST',
           headers: {
@@ -238,7 +238,7 @@ const LeadsPage = () => {
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.setAttribute('href', url);
-    link.setAttribute('download', 'signalrisestudio_leads.csv');
+    link.setAttribute('download', 'signallightstudio_leads.csv');
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

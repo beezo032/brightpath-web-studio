@@ -66,9 +66,9 @@ const ServicesPage = () => {
   return (
     <main className="services-page">
       <Helmet>
-        <title>Our Services | SignalRise Studio</title>
+        <title>Our Services | Signal Light Studio</title>
         <meta name="description" content="Custom website design, local SEO, and monthly care plans engineered to turn visitors into paying customers." />
-        <meta property="og:title" content="Our Services | SignalRise Studio" />
+        <meta property="og:title" content="Our Services | Signal Light Studio" />
         <meta property="og:description" content="Custom website design, local SEO, and monthly care plans engineered to turn visitors into paying customers." />
       </Helmet>
       

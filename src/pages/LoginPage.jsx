@@ -31,7 +31,7 @@ const LoginPage = () => {
   return (
     <main className="login-page">
       <Helmet>
-        <title>Admin Login | SignalRise Studio</title>
+        <title>Admin Login | Signal Light Studio</title>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
       <div className="login-container">
@@ -41,7 +41,7 @@ const LoginPage = () => {
               <Lock size={32} />
             </div>
             <h1>Agency Login</h1>
-            <p>Access the SignalRise Studio CRM Dashboard.</p>
+            <p>Access the Signal Light Studio CRM Dashboard.</p>
           </div>
           
           <form onSubmit={handleSubmit} className="login-form">
@@ -52,7 +52,7 @@ const LoginPage = () => {
                 id="email" 
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="admin@signalrisestudio.local"
+                placeholder="admin@signallightstudio.local"
                 required
               />
             </div>

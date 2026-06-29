@@ -10,7 +10,7 @@ const Footer = () => {
       <div className="container">
         <div className="footer-grid">
           <div className="footer-brand">
-        <Link to="/" className="logo" aria-label="SignalRise Studio - Home">
+        <Link to="/" className="logo" aria-label="Signal Light Studio - Home">
               <span className="logo-accent">Signal</span>Rise Studio
             </Link>
             <p className="footer-desc">
@@ -69,7 +69,7 @@ const Footer = () => {
         </div>
         
         <div className="footer-bottom">
-          <p>&copy; {currentYear} SignalRise Studio. All rights reserved.</p>
+          <p>&copy; {currentYear} Signal Light Studio. All rights reserved.</p>
         </div>
       </div>
     </footer>

@@ -9,7 +9,7 @@ const AboutFounder = () => {
         <div className="about-grid">
           
           <div className="about-image-wrapper reveal">
-            <div className="founder-photo-placeholder" role="img" aria-label="Brandon - Founder of SignalRise Studio">
+            <div className="founder-photo-placeholder" role="img" aria-label="Brandon - Founder of Signal Light Studio">
               <span style={{fontSize: '3.5rem', fontWeight: '800', color: 'white', lineHeight: 1}}>B</span>
             </div>
             
@@ -33,7 +33,7 @@ const AboutFounder = () => {
           <div className="about-content reveal reveal-delay-2">
             <h2>Meet the Founder</h2>
             <p className="founder-bio">
-              Hi, I'm Brandon, founder of SignalRise Studio. I help local businesses grow online by building fast, modern websites designed to generate more calls, leads, and customers.
+              Hi, I'm Brandon, founder of Signal Light Studio. I help local businesses grow online by building fast, modern websites designed to generate more calls, leads, and customers.
             </p>
             <p className="founder-mission">
               "My mission is simple: create websites that not only look great but also help businesses grow."

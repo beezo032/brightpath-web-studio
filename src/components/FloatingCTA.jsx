@@ -29,7 +29,7 @@ const FloatingCTA = () => {
     <>
       {/* Mobile Sticky Bottom Bar */}
       <div className="mobile-sticky-bar" aria-label="Quick contact links">
-        <a href="mailto:hello@signalrisestudio.com" className="sticky-btn call-btn">
+        <a href="mailto:hello@signallightstudio.com" className="sticky-btn call-btn">
           <Mail size={18} /> Email Us
         </a>
         <a href="#contact" className="sticky-btn audit-btn">

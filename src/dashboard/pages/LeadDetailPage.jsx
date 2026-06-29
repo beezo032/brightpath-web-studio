@@ -37,7 +37,7 @@ const LeadDetailPage = () => {
 
   const fetchLead = async () => {
     try {
-      const token = localStorage.getItem('signalrisestudio_jwt');
+      const token = localStorage.getItem('signallightstudio_jwt');
       const res = await fetch(`/api/leads/${id}`, {
         headers: {
           'Authorization': `Bearer ${token}`
@@ -91,7 +91,7 @@ const LeadDetailPage = () => {
     setSuccessMsg('');
 
     try {
-      const token = localStorage.getItem('signalrisestudio_jwt');
+      const token = localStorage.getItem('signallightstudio_jwt');
       const res = await fetch(`/api/leads/${id}`, {
         method: 'PUT',
         headers: {
@@ -123,7 +123,7 @@ const LeadDetailPage = () => {
     }
 
     try {
-      const token = localStorage.getItem('signalrisestudio_jwt');
+      const token = localStorage.getItem('signallightstudio_jwt');
       const res = await fetch(`/api/leads/${id}`, {
         method: 'DELETE',
         headers: {

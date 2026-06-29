@@ -12,15 +12,15 @@ const ContractorWebDesign = () => {
     "description": "Premium contractor website design engineered to showcase your projects and capture high-value remodel or construction leads.",
     "publisher": {
       "@type": "ProfessionalService",
-      "name": "SignalRise Studio",
-      "logo": "https://signalrisestudio.com/favicon.png"
+      "name": "Signal Light Studio",
+      "logo": "https://signallightstudio.com/favicon.png"
     }
   };
 
   return (
     <main style={{ paddingTop: '100px', backgroundColor: 'var(--color-bg-gray)', minHeight: '100vh' }}>
       <Helmet>
-        <title>Contractor & Home Services Web Design | SignalRise Studio</title>
+        <title>Contractor & Home Services Web Design | Signal Light Studio</title>
         <meta name="description" content="Custom web design for general contractors, remodelers, roofers, and home services. Showcase craftsmanship, win high-end quotes, and stand out locally." />
         <script type="application/ld+json">
           {JSON.stringify(schemaMarkup)}

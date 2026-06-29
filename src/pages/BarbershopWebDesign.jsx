@@ -12,15 +12,15 @@ const BarbershopWebDesign = () => {
     "description": "Sleek, dark-themed, conversion-optimized barbershop websites with integrated appointment systems to fill chairs.",
     "publisher": {
       "@type": "ProfessionalService",
-      "name": "SignalRise Studio",
-      "logo": "https://signalrisestudio.com/favicon.png"
+      "name": "Signal Light Studio",
+      "logo": "https://signallightstudio.com/favicon.png"
     }
   };
 
   return (
     <main style={{ paddingTop: '100px', backgroundColor: 'var(--color-bg-gray)', minHeight: '100vh' }}>
       <Helmet>
-        <title>Barbershop & Beauty Salon Web Design | SignalRise Studio</title>
+        <title>Barbershop & Beauty Salon Web Design | Signal Light Studio</title>
         <meta name="description" content="Custom web design for barbershops, salons, and grooming lounges. Sleek modern styling, Squirrel/Fresha scheduling integrations, and local reviews." />
         <script type="application/ld+json">
           {JSON.stringify(schemaMarkup)}

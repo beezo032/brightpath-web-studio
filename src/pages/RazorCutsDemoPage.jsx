@@ -7,7 +7,7 @@ const RazorCutsDemoPage = () => {
   return (
     <main className="portfolio-detail-page" style={{paddingTop: '100px', minHeight: '100vh', backgroundColor: '#f9fafb'}}>
       <Helmet>
-        <title>Razor Cuts Barbershop Demo | SignalRise Studio</title>
+        <title>Razor Cuts Barbershop Demo | Signal Light Studio</title>
         <meta name="description" content="Case study for Razor Cuts Barbershop Demo." />
       </Helmet>
 

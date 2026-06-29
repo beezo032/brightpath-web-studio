@@ -13,15 +13,15 @@ const DentalWebDesign = () => {
     "description": "Premium, conversion-optimized dental website design to attract new patients, schedule appointments, and build trust.",
     "publisher": {
       "@type": "ProfessionalService",
-      "name": "SignalRise Studio",
-      "logo": "https://signalrisestudio.com/favicon.png"
+      "name": "Signal Light Studio",
+      "logo": "https://signallightstudio.com/favicon.png"
     }
   };
 
   return (
     <main style={{ paddingTop: '100px', backgroundColor: 'var(--color-bg-gray)', minHeight: '100vh' }}>
       <Helmet>
-        <title>Dental Practice Web Design | SignalRise Studio</title>
+        <title>Dental Practice Web Design | Signal Light Studio</title>
         <meta name="description" content="Custom dental website design built to attract new patients, automate appointment scheduling, and highlight patient reviews." />
         <script type="application/ld+json">
           {JSON.stringify(schemaMarkup)}

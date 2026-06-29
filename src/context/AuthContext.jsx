@@ -11,7 +11,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     // Check for token and verify it with the backend on load
     const verifyToken = async () => {
-      const token = localStorage.getItem('signalrisestudio_jwt');
+      const token = localStorage.getItem('signallightstudio_jwt');
       if (token) {
         try {
           const response = await fetch('/api/auth/verify', {
@@ -23,7 +23,7 @@ export const AuthProvider = ({ children }) => {
             setIsAuthenticated(true);
           } else {
             // Token invalid or expired
-            localStorage.removeItem('signalrisestudio_jwt');
+            localStorage.removeItem('signallightstudio_jwt');
             setIsAuthenticated(false);
           }
         } catch (error) {
@@ -49,7 +49,7 @@ export const AuthProvider = ({ children }) => {
 
       if (response.ok) {
         const data = await response.json();
-        localStorage.setItem('signalrisestudio_jwt', data.token);
+        localStorage.setItem('signallightstudio_jwt', data.token);
         setIsAuthenticated(true);
         return { success: true };
       } else {
@@ -63,7 +63,7 @@ export const AuthProvider = ({ children }) => {
 
   const logout = () => {
     setIsAuthenticated(false);
-    localStorage.removeItem('signalrisestudio_jwt');
+    localStorage.removeItem('signallightstudio_jwt');
   };
 
   if (isLoading) return null;

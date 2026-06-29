@@ -1,6 +1,6 @@
-# SignalRise Studio
+# Signal Light Studio
 
-SignalRise Studio is a modern web design agency focused on helping local businesses generate more leads, calls, and customers through fast, mobile-friendly websites.
+Signal Light Studio is a modern web design agency focused on helping local businesses generate more leads, calls, and customers through fast, mobile-friendly websites.
 
 ## Services
 
@@ -29,7 +29,7 @@ SignalRise Studio is a modern web design agency focused on helping local busines
 
 ## Featured Project Goals
 
-SignalRise Studio was created to showcase premium websites for local service businesses including landscapers, pressure washers, barbershops, churches, and contractors.
+Signal Light Studio was created to showcase premium websites for local service businesses including landscapers, pressure washers, barbershops, churches, and contractors.
 
 ## Future Improvements
 

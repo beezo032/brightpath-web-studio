@@ -12,15 +12,15 @@ const HvacWebDesign = () => {
     "description": "Emergency service web design for HVAC, Plumbing, and Electrical companies. Capture emergency calls, schedule tune-ups, and dominate local search.",
     "publisher": {
       "@type": "ProfessionalService",
-      "name": "SignalRise Studio",
-      "logo": "https://signalrisestudio.com/favicon.png"
+      "name": "Signal Light Studio",
+      "logo": "https://signallightstudio.com/favicon.png"
     }
   };
 
   return (
     <main style={{ paddingTop: '100px', backgroundColor: 'var(--color-bg-gray)', minHeight: '100vh' }}>
       <Helmet>
-        <title>HVAC, Plumbing & Electrical Web Design | SignalRise Studio</title>
+        <title>HVAC, Plumbing & Electrical Web Design | Signal Light Studio</title>
         <meta name="description" content="Custom web design services for HVAC, plumbers, and home service providers. Optimize for tap-to-call emergency leads, map SEO, and local booking." />
         <script type="application/ld+json">
           {JSON.stringify(schemaMarkup)}

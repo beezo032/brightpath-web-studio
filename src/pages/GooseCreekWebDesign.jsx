@@ -8,11 +8,11 @@ const GooseCreekWebDesign = () => {
   const businessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": "SignalRise Studio",
-    "image": "https://signalrisestudio.com/favicon.png",
-    "@id": "https://signalrisestudio.com/#goosecreek-localbusiness",
-    "url": "https://signalrisestudio.com/goose-creek-web-design",
-    "telephone": "hello@signalrisestudio.com",
+    "name": "Signal Light Studio",
+    "image": "https://signallightstudio.com/favicon.png",
+    "@id": "https://signallightstudio.com/#goosecreek-localbusiness",
+    "url": "https://signallightstudio.com/goose-creek-web-design",
+    "telephone": "hello@signallightstudio.com",
     "priceRange": "$$",
     "address": {
       "@type": "PostalAddress",
@@ -74,7 +74,7 @@ const GooseCreekWebDesign = () => {
   return (
     <main style={{ paddingTop: '100px', backgroundColor: 'var(--color-bg-gray)', minHeight: '100vh' }}>
       <Helmet>
-        <title>Goose Creek, SC Web Design & Local SEO | SignalRise Studio</title>
+        <title>Goose Creek, SC Web Design & Local SEO | Signal Light Studio</title>
         <meta name="description" content="Premium, custom web design and local SEO services in Goose Creek, SC. Fast, search-optimized websites designed to generate more customer leads." />
         <script type="application/ld+json">
           {JSON.stringify(businessSchema)}

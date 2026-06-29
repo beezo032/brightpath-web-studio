@@ -22,9 +22,9 @@ const PORT = process.env.PORT || 3001;
 app.use(cors());
 app.use(express.json());
 
-const ADMIN_EMAIL = 'admin@signalrisestudio.local';
+const ADMIN_EMAIL = 'admin@signallightstudio.local';
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'admin123';
-const JWT_SECRET = process.env.JWT_SECRET || 'signalrisestudio-super-secret-jwt-key-2026';
+const JWT_SECRET = process.env.JWT_SECRET || 'signallightstudio-super-secret-jwt-key-2026';
 
 app.post('/api/auth/login', (req, res) => {
   const { email, password } = req.body;
@@ -66,7 +66,7 @@ app.use('/api/leads', requireDB, leadsRoutes);
 app.use('/api/templates', requireDB, templatesRoutes);
 app.use('/api/prospector', prospectorRoutes);
 
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/signalrisestudio';
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/signallightstudio';
 
 export const connectDB = async () => {
   if (mongoose.connection.readyState >= 1) return;

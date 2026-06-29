@@ -21,9 +21,9 @@ const AboutPage = () => {
   return (
     <main className="about-page">
       <Helmet>
-        <title>About Us | SignalRise Studio</title>
+        <title>About Us | Signal Light Studio</title>
         <meta name="description" content="Learn about our mission to help local businesses succeed online with premium web design and transparent partnerships." />
-        <meta property="og:title" content="About Us | SignalRise Studio" />
+        <meta property="og:title" content="About Us | Signal Light Studio" />
         <meta property="og:description" content="Learn about our mission to help local businesses succeed online with premium web design and transparent partnerships." />
       </Helmet>
       
@@ -58,7 +58,7 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Why Choose SignalRise Studio (Reuse Benefits Component) */}
+      {/* Why Choose Signal Light Studio (Reuse Benefits Component) */}
       <Benefits />
 
       {/* CTA */}

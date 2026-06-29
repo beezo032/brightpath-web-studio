@@ -8,11 +8,11 @@ const SummervilleScWebDesign = () => {
   const businessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": "SignalRise Studio",
-    "image": "https://signalrisestudio.com/favicon.png",
-    "@id": "https://signalrisestudio.com/#summerville-localbusiness",
-    "url": "https://signalrisestudio.com/summerville-sc-web-design",
-    "telephone": "hello@signalrisestudio.com",
+    "name": "Signal Light Studio",
+    "image": "https://signallightstudio.com/favicon.png",
+    "@id": "https://signallightstudio.com/#summerville-localbusiness",
+    "url": "https://signallightstudio.com/summerville-sc-web-design",
+    "telephone": "hello@signallightstudio.com",
     "priceRange": "$$",
     "address": {
       "@type": "PostalAddress",
@@ -74,7 +74,7 @@ const SummervilleScWebDesign = () => {
   return (
     <main style={{ paddingTop: '100px', backgroundColor: 'var(--color-bg-gray)', minHeight: '100vh' }}>
       <Helmet>
-        <title>Summerville, SC Web Design & Local SEO | SignalRise Studio</title>
+        <title>Summerville, SC Web Design & Local SEO | Signal Light Studio</title>
         <meta name="description" content="Premium, custom web design and local SEO services in Summerville, SC. We design fast, high-converting websites for contractors, dentists, and home service providers." />
         <script type="application/ld+json">
           {JSON.stringify(businessSchema)}

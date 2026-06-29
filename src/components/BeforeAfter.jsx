@@ -10,7 +10,7 @@ const BeforeAfter = () => {
           <div className="badge" style={{ marginBottom: '1rem' }}>Redesign Showcase</div>
           <h2>Is Your Website Winning Clients or Losing Them?</h2>
           <p className="subtitle">
-            Most local business websites are "online brochures" that actually drive customers away. Here is the difference between a template site and a custom SignalRise Studio build.
+            Most local business websites are "online brochures" that actually drive customers away. Here is the difference between a template site and a custom Signal Light Studio build.
           </p>
         </div>
 
@@ -89,11 +89,11 @@ const BeforeAfter = () => {
           {/* New Website Card */}
           <div className="ba-card new-way reveal reveal-delay-3">
             <div className="ba-badge status-good">
-              <CheckCircle2 size={16} /> The SignalRise Standard (After)
+              <CheckCircle2 size={16} /> The Signal Light Standard (After)
             </div>
             
             <div className="ba-content">
-              <h3>SignalRise Custom Redesign</h3>
+              <h3>Signal Light Custom Redesign</h3>
               <p className="ba-desc">Fast, modern, and engineered to rank on Google and turn visitors into booked jobs.</p>
               
               <ul className="ba-list">
