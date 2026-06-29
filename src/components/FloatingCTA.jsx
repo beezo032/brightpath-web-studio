@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Phone, Clipboard, X, Gift, Sparkles, MessageSquare } from 'lucide-react';
+import { Mail, Clipboard, X, Gift, Sparkles, MessageSquare } from 'lucide-react';
 import './FloatingCTA.css';
 
 const FloatingCTA = () => {
@@ -29,8 +29,8 @@ const FloatingCTA = () => {
     <>
       {/* Mobile Sticky Bottom Bar */}
       <div className="mobile-sticky-bar" aria-label="Quick contact links">
-        <a href="tel:hello@signalrisestudio.com" className="sticky-btn call-btn">
-          <Phone size={18} /> Call Now
+        <a href="mailto:hello@signalrisestudio.com" className="sticky-btn call-btn">
+          <Mail size={18} /> Email Us
         </a>
         <a href="#contact" className="sticky-btn audit-btn">
           <Clipboard size={18} /> Free Roadmap
