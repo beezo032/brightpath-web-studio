@@ -96,7 +96,7 @@ const Contact = () => {
           <div className="contact-info">
             <h2>Ready to Get More Leads?</h2>
             <p className="subtitle">
-              Let's talk about how we can upgrade your online presence to drive more calls and quote requests. Fill out the form, and we'll reply with honest next steps.
+              Let's talk about how we can upgrade your online presence to drive more leads and quote requests. Fill out the form, and we'll reply with honest next steps.
             </p>
             
             <div className="contact-methods">

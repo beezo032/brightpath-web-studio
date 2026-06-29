@@ -94,7 +94,7 @@ const SummervilleScWebDesign = () => {
             Summerville, SC Web Design & SEO
           </h1>
           <p style={{ fontSize: '1.25rem', color: 'rgba(255,255,255,0.7)', marginBottom: '2.5rem', lineHeight: '1.7' }}>
-            We build lightning-fast, premium websites that turn Google searchers into scheduled bookings and phone calls for Summerville service providers.
+            We build lightning-fast, premium websites that turn Google searchers into scheduled bookings and inquiries for Summerville service providers.
           </p>
           <a href="#contact" className="btn btn-primary pulse-cta">Get a Free Website Audit</a>
         </div>

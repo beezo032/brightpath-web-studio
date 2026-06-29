@@ -60,7 +60,7 @@ const CharlestonScWebDesign = () => {
             Charleston, SC Web Design & SEO
           </h1>
           <p style={{ fontSize: '1.25rem', color: 'rgba(255,255,255,0.7)', marginBottom: '2.5rem', lineHeight: '1.7' }}>
-            We design high-converting, blazing-fast websites specifically engineered to help local Charleston service businesses get more calls and bookings.
+            We design high-converting, blazing-fast websites specifically engineered to help local Charleston service businesses get more inquiries and bookings.
           </p>
           <a href="#contact" className="btn btn-primary pulse-cta">Get a Free Website Audit</a>
         </div>

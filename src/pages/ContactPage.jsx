@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Mail, Clock, ShieldCheck, CheckCircle2, ChevronDown, ChevronUp, ArrowRight, ArrowLeft } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import './ContactPage.css';
@@ -35,7 +35,7 @@ const ContactPage = () => {
     { q: "Will I own the website?", a: "Absolutely. Once the final payment is made, you own 100% of the website and all its assets." }
   ];
 
-  const goals = ["More leads", "More calls", "New website", "Website redesign", "SEO help"];
+  const goals = ["More leads", "More inquiries", "New website", "Website redesign", "SEO help"];
   const budgets = ["Under $499", "$499 - $999", "$999 - $1,999", "$1,999+", "Not sure yet"];
   const websiteStatuses = [
     "I don't have a website yet",

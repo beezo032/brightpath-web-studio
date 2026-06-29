@@ -17,9 +17,9 @@ const Home = () => {
     <main className="home-page">
       <Helmet>
         <title>SignalRise Studio | High-Converting Web Design for Local Businesses</title>
-        <meta name="description" content="We build custom, fast-loading, mobile-friendly websites that help local service businesses get more calls and quote requests." />
+        <meta name="description" content="We build custom, fast-loading, mobile-friendly websites that help local service businesses get more leads and quote requests." />
         <meta property="og:title" content="SignalRise Studio | High-Converting Web Design for Local Businesses" />
-        <meta property="og:description" content="We build custom, fast-loading, mobile-friendly websites that help local service businesses get more calls and quote requests." />
+        <meta property="og:description" content="We build custom, fast-loading, mobile-friendly websites that help local service businesses get more leads and quote requests." />
       </Helmet>
       
       {/* Hero Section */}
