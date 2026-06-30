@@ -7,9 +7,7 @@
 .footer .logo {
   color: white;
   margin-bottom: 1.5rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
+  display: inline-block;
 }
 
 .footer-grid {
