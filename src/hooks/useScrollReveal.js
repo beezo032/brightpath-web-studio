@@ -5,6 +5,8 @@ export const useScrollReveal = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
+    if (typeof window === 'undefined' || typeof document === 'undefined') return;
+
     const observerOptions = {
       root: null,
       rootMargin: '0px',
