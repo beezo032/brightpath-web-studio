@@ -122,7 +122,7 @@ const BlogPage = () => {
 
           {/* Featured Post Card (Only shown on index view with no filters active) */}
           {activeCategory === "All" && searchQuery === "" && featuredPost && (
-            <div className="featured-post-card reveal reveal-delay-1">
+            <div className="featured-post-card">
               <div className="featured-image">
                 <img src={featuredPost.image} alt={featuredPost.title} loading="lazy" />
                 <div className="featured-badge">Featured Article</div>
@@ -146,7 +146,7 @@ const BlogPage = () => {
           {/* Articles Grid */}
           <div className="blog-grid">
             {displayedPosts.map((post, index) => (
-              <article key={post.id} className="blog-card reveal" style={{animationDelay: `${(index % 3) * 0.1}s`}}>
+              <article key={post.id} className="blog-card" style={{animationDelay: `${(index % 3) * 0.1}s`}}>
                 <div className="blog-card-image">
                   <img src={post.image} alt={post.title} loading="lazy" />
                   <span className="blog-card-category">{post.category}</span>
