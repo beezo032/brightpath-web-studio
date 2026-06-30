@@ -38,4 +38,4 @@ Signal Light Studio was created to showcase premium websites for local service b
 * Live Contact Backend
 * Client Dashboard
 
-Created by Brandon Johnson.
+Created by Signal Light Studio.

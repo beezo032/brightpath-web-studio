@@ -191,17 +191,6 @@ const BlogPostPage = () => {
             <div ref={articleRef} className="blog-post-body">
               {post.content}
             </div>
-
-            {/* Author Box */}
-            <div className="author-box" style={{ marginTop: '4rem' }}>
-              <div className="author-avatar">
-                <User size={40} style={{ color: 'var(--color-accent-blue)' }} />
-              </div>
-              <div className="author-info">
-                <h4>About Brandon Johnson</h4>
-                <p>Brandon is the founder of Signal Light Studio. He helps local service businesses grow their bottom line through performance web design, local SEO campaigns, and digital analytics.</p>
-              </div>
-            </div>
           </article>
 
           {/* Sticky Sidebar Column */}

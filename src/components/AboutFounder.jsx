@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { Award, Briefcase, Smartphone, Users } from 'lucide-react';
 import './AboutFounder.css';
 
@@ -9,8 +9,8 @@ const AboutFounder = () => {
         <div className="about-grid">
           
           <div className="about-image-wrapper reveal">
-            <div className="founder-photo-placeholder" role="img" aria-label="Brandon - Founder of Signal Light Studio">
-              <span style={{fontSize: '3.5rem', fontWeight: '800', color: 'white', lineHeight: 1}}>B</span>
+            <div className="founder-photo-placeholder" role="img" aria-label="Signal Light Studio - Web Design & SEO">
+              <span style={{fontSize: '3.5rem', fontWeight: '800', color: 'white', lineHeight: 1}}>S</span>
             </div>
             
             {/* Floating Badges */}
@@ -31,12 +31,12 @@ const AboutFounder = () => {
           </div>
           
           <div className="about-content reveal reveal-delay-2">
-            <h2>Meet the Founder</h2>
+            <h2>Our Studio</h2>
             <p className="founder-bio">
-              Hi, I'm Brandon, founder of Signal Light Studio. I help local businesses grow online by building fast, modern websites designed to generate more calls, leads, and customers.
+              Signal Light Studio helps local service businesses grow online. We build fast, premium, and high-converting websites engineered to rank on Google and turn online visitors into paying customers.
             </p>
             <p className="founder-mission">
-              "My mission is simple: create websites that not only look great but also help businesses grow."
+              "Our mission is simple: create websites that not only look great but also serve as your business's primary growth driver."
             </p>
             
             <div className="about-features">
