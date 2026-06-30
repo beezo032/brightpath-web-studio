@@ -20,7 +20,8 @@ const Navbar = () => {
     <header className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="container navbar-container">
         <Link to="/" className="logo">
-          <span className="logo-accent">Signal</span>Light Studio
+          <img src="/logo.jpg" alt="Signal Light Studio Logo" className="logo-img" />
+          <span><span className="logo-accent">Signal</span>Light Studio</span>
         </Link>
         
         <nav className={`nav-links ${mobileMenuOpen ? 'open' : ''}`}>

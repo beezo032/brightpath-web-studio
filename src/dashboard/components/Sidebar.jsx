@@ -32,8 +32,10 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
       
       <aside className={`dashboard-sidebar ${isOpen ? 'open' : ''}`}>
         <div className="sidebar-header">
-          <div className="sidebar-logo">
-            <span className="logo-accent">Signal</span>Light Studio<span className="crm-badge">CRM</span>
+          <div className="sidebar-logo" style={{ gap: '0.5rem' }}>
+            <img src="/logo.jpg" alt="Signal Light Studio Logo" className="logo-img" style={{ height: '30px', width: '30px' }} />
+            <span><span className="logo-accent">Signal</span>Light Studio</span>
+            <span className="crm-badge">CRM</span>
           </div>
           <button className="sidebar-close" onClick={() => setIsOpen(false)} aria-label="Close sidebar">
             <X size={24} />
