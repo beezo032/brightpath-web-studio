@@ -23,9 +23,6 @@ const Hero = () => {
 
         <div className="container hero-container relative">
           <div className="hero-content reveal">
-            <div className="badge" style={{display: 'inline-flex', alignItems: 'center', gap: '0.5rem'}}>
-              <span style={{fontSize: '1.2rem'}}>🔥</span> Limited availability for {new Date().toLocaleString('default', { month: 'long' })}
-            </div>
             <h1>Websites Built to Generate More Leads, Calls & Customers</h1>
             <p className="hero-subtitle">
               Signal Light Studio designs fast, mobile-friendly websites that help local businesses stand out online, generate more leads, and convert visitors into paying customers.
