@@ -24,6 +24,15 @@ export const useScrollReveal = () => {
     // Wait a brief moment to ensure DOM is fully rendered
     const timeoutId = setTimeout(() => {
       const revealElements = document.querySelectorAll('.reveal');
+      
+      // Instantly reveal elements already visible in the viewport on load
+      revealElements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          el.classList.add('active');
+        }
+      });
+
       revealElements.forEach(el => observer.observe(el));
     }, 100);
 
