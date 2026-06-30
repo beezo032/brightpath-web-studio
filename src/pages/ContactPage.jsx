@@ -131,7 +131,7 @@ const ContactPage = () => {
       });
       setStep(1);
     } catch (err) {
-      console.error(err);
+      // console.error(err);
       setStatus('error');
     }
   };
@@ -237,12 +237,14 @@ const ContactPage = () => {
                         </div>
 
                         <div className="form-group mt-4">
-                          <label>Current Website Status *</label>
-                          <div className="selection-grid vertical">
+                          <label id="websiteStatusLabel">Current Website Status *</label>
+                          <div className="selection-grid vertical" role="radiogroup" aria-labelledby="websiteStatusLabel">
                             {websiteStatuses.map((statusOption) => (
                               <button 
                                 type="button" 
                                 key={statusOption}
+                                role="radio"
+                                aria-checked={formState.websiteStatus === statusOption}
                                 className={`selection-pill ${formState.websiteStatus === statusOption ? 'selected' : ''}`}
                                 onClick={() => handleSelection('websiteStatus', statusOption)}
                               >
@@ -264,12 +266,14 @@ const ContactPage = () => {
                         </div>
                         
                         <div className="form-group">
-                          <label>Primary Goal *</label>
-                          <div className="selection-grid">
+                          <label id="primaryGoalLabel">Primary Goal *</label>
+                          <div className="selection-grid" role="radiogroup" aria-labelledby="primaryGoalLabel">
                             {goals.map((goal) => (
                               <button 
                                 type="button" 
                                 key={goal}
+                                role="radio"
+                                aria-checked={formState.primaryGoal === goal}
                                 className={`selection-pill ${formState.primaryGoal === goal ? 'selected' : ''}`}
                                 onClick={() => handleSelection('primaryGoal', goal)}
                               >
@@ -281,12 +285,14 @@ const ContactPage = () => {
                         </div>
 
                         <div className="form-group mt-4">
-                          <label>Estimated Budget *</label>
-                          <div className="selection-grid">
+                          <label id="budgetLabel">Estimated Budget *</label>
+                          <div className="selection-grid" role="radiogroup" aria-labelledby="budgetLabel">
                             {budgets.map((budget) => (
                               <button 
                                 type="button" 
                                 key={budget}
+                                role="radio"
+                                aria-checked={formState.budget === budget}
                                 className={`selection-pill ${formState.budget === budget ? 'selected' : ''}`}
                                 onClick={() => handleSelection('budget', budget)}
                               >

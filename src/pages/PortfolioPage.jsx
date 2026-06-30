@@ -133,7 +133,7 @@ const PortfolioPage = () => {
                   </div>
                   
                   <div className="portfolio-card-actions">
-                    <a href={project.demoUrl} target="_blank" rel="noreferrer" className="btn btn-primary" style={{flex: 1}}>
+                    <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{flex: 1}}>
                       View Demo <ExternalLink size={18} style={{marginLeft: '0.5rem'}} />
                     </a>
                     {project.caseStudyUrl ? (

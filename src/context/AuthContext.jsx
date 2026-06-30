@@ -1,4 +1,4 @@
-﻿import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const AuthContext = createContext();
 
@@ -27,7 +27,7 @@ export const AuthProvider = ({ children }) => {
             setIsAuthenticated(false);
           }
         } catch (error) {
-          console.error("Token verification failed", error);
+          // console.error("Token verification failed", error);
           setIsAuthenticated(false);
         }
       }

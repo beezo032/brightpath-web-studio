@@ -83,7 +83,7 @@ const Contact = () => {
         name: '', business: '', email: '', phone: '', url: '', type: '', help: '', budget: '', timeline: '', message: ''
       });
     } catch (error) {
-      console.error(error);
+      // console.error(error);
       setErrors({ message: 'Something went wrong. Please try again.' });
       setFormState('idle');
     }
