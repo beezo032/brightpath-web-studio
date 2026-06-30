@@ -1,67 +1,16 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Search, Tag, Calendar, ArrowRight, User } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { blogPosts, categories } from '../data/blogPosts';
 import './BlogPage.css';
-
-export const blogPosts = [
-  {
-    id: "landscaping-website",
-    title: "Why Every Landscaping Company Needs a Website",
-    excerpt: "In today's digital age, relying on word-of-mouth is no longer enough for landscaping businesses. Discover how a custom website can act as your 24/7 salesperson.",
-    category: "Industry",
-    date: "June 20, 2026",
-    author: "Brandon Johnson",
-    featured: true,
-    image: "https://images.unsplash.com/photo-1615671524827-c1fe3973b648?q=80&w=1200&auto=format&fit=crop"
-  },
-  {
-    id: "lose-customers",
-    title: "5 Ways Local Businesses Lose Customers Online",
-    excerpt: "Are you unknowingly driving prospects to your competitors? Learn the top 5 mistakes local businesses make with their online presence.",
-    category: "Strategy",
-    date: "June 15, 2026",
-    author: "Brandon Johnson",
-    featured: false,
-    image: "https://images.unsplash.com/photo-1556761175-5973dc0f32b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    id: "increase-leads",
-    title: "How a Better Website Can Increase Leads",
-    excerpt: "A website shouldn't just be an online brochure. See how strategic design choices can turn your site into an automated lead generation machine.",
-    category: "Design",
-    date: "June 10, 2026",
-    author: "Brandon Johnson",
-    featured: false,
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    id: "mobile-friendly",
-    title: "Why Mobile-Friendly Websites Matter",
-    excerpt: "Over 60% of local searches happen on mobile devices. If your website isn't optimized for phones, you're leaving money on the table.",
-    category: "Development",
-    date: "June 5, 2026",
-    author: "Brandon Johnson",
-    featured: false,
-    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    id: "seo-tips",
-    title: "SEO Tips for Local Service Businesses",
-    excerpt: "Want to rank higher on Google Maps and local search results? Implement these fundamental SEO strategies today to outrank your competitors.",
-    category: "SEO",
-    date: "June 1, 2026",
-    author: "Brandon Johnson",
-    featured: false,
-    image: "https://images.unsplash.com/photo-1562577309-4932fdd64cd1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-  }
-];
-
-const categories = ["All", "Industry", "Strategy", "Design", "Development", "SEO"];
 
 const BlogPage = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState("All");
+  const [visibleCount, setVisibleCount] = useState(6);
+  const [email, setEmail] = useState("");
+  const [newsletterStatus, setNewsletterStatus] = useState(""); // '', 'loading', 'success', 'error'
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -72,39 +21,85 @@ const BlogPage = () => {
   const filteredPosts = blogPosts.filter(post => {
     const matchesCategory = activeCategory === "All" || post.category === activeCategory;
     const matchesSearch = post.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                          post.excerpt.toLowerCase().includes(searchQuery.toLowerCase());
+                          post.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                          post.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()));
+    
+    // If search or category is active, show everything including featured post in grid
+    const isSearchOrFilterActive = searchQuery !== "" || activeCategory !== "All";
+    if (isSearchOrFilterActive) {
+      return matchesCategory && matchesSearch;
+    }
+    
+    // Otherwise, exclude the featured post from the grid list
     return matchesCategory && matchesSearch && !post.featured;
   });
+
+  const displayedPosts = filteredPosts.slice(0, visibleCount);
+  const hasMore = filteredPosts.length > visibleCount;
+
+  const handleLoadMore = () => {
+    setVisibleCount(prev => prev + 6);
+  };
+
+  const handleNewsletterSubmit = (e) => {
+    e.preventDefault();
+    if (!email) return;
+    setNewsletterStatus("loading");
+    setTimeout(() => {
+      setNewsletterStatus("success");
+      setEmail("");
+    }, 800);
+  };
 
   return (
     <main className="blog-page">
       <Helmet>
         <title>Digital Growth Blog | Signal Light Studio</title>
         <meta name="description" content="Actionable web design and digital marketing advice to help local service businesses dominate their market and acquire more customers online." />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://signallightstudio.com/blog" />
         <meta property="og:title" content="Digital Growth Blog | Signal Light Studio" />
-        <meta property="og:description" content="Actionable web design and digital marketing advice to help local service businesses dominate their market and acquire more customers online." />
+        <meta property="og:description" content="Actionable web design and digital marketing advice to help local service businesses dominate their market." />
+        <meta property="og:image" content="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop" />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://signallightstudio.com/blog" />
+        <meta property="twitter:title" content="Digital Growth Blog | Signal Light Studio" />
+        <meta property="twitter:description" content="Actionable web design and digital marketing advice to help local service businesses dominate their market." />
+        <meta property="twitter:image" content="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop" />
+
+        <link rel="canonical" href="https://signallightstudio.com/blog" />
       </Helmet>
 
+      {/* Hero Section */}
       <section className="blog-hero section-dark text-center">
         <div className="container reveal">
           <h1>Digital Growth Blog</h1>
           <p className="subtitle" style={{maxWidth: '700px', margin: '0 auto'}}>
-            Actionable web design and marketing advice to help local service businesses dominate their market.
+            Actionable web design, local SEO, and client-acquisition strategies built specifically for local service businesses.
           </p>
         </div>
       </section>
 
+      {/* Content Section */}
       <section className="blog-content section">
         <div className="container">
           
+          {/* Search & Categories Bar */}
           <div className="blog-controls reveal">
             <div className="blog-search">
               <Search className="search-icon" size={20} aria-hidden="true" />
               <input 
                 type="text" 
-                placeholder="Search articles..." 
+                placeholder="Search articles or tags..." 
                 value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+                onChange={(e) => {
+                  setSearchQuery(e.target.value);
+                  setVisibleCount(6); // Reset visible count on search
+                }}
                 aria-label="Search articles"
               />
             </div>
@@ -114,7 +109,10 @@ const BlogPage = () => {
                 <button 
                   key={category}
                   className={`category-pill ${activeCategory === category ? 'active' : ''}`}
-                  onClick={() => setActiveCategory(category)}
+                  onClick={() => {
+                    setActiveCategory(category);
+                    setVisibleCount(6); // Reset visible count on category change
+                  }}
                 >
                   {category}
                 </button>
@@ -122,11 +120,12 @@ const BlogPage = () => {
             </div>
           </div>
 
+          {/* Featured Post Card (Only shown on index view with no filters active) */}
           {activeCategory === "All" && searchQuery === "" && featuredPost && (
             <div className="featured-post-card reveal reveal-delay-1">
               <div className="featured-image">
                 <img src={featuredPost.image} alt={featuredPost.title} loading="lazy" />
-                <div className="featured-badge">Featured</div>
+                <div className="featured-badge">Featured Article</div>
               </div>
               <div className="featured-content">
                 <span className="post-category"><Tag size={14} aria-hidden="true" /> {featuredPost.category}</span>
@@ -135,17 +134,19 @@ const BlogPage = () => {
                 <div className="post-meta">
                   <span><Calendar size={14} aria-hidden="true" /> {featuredPost.date}</span>
                   <span><User size={14} aria-hidden="true" /> {featuredPost.author}</span>
+                  <span style={{ marginLeft: 'auto', fontWeight: '500', color: 'var(--color-accent-blue)' }}>{featuredPost.readTime}</span>
                 </div>
                 <Link to={`/blog/${featuredPost.id}`} className="btn btn-primary pulse-cta mt-4" style={{display: 'inline-flex', alignItems: 'center'}}>
-                  Read Full Article <ArrowRight size={18} style={{marginLeft: '0.5rem'}} aria-hidden="true" />
+                  Read Article <ArrowRight size={18} style={{marginLeft: '0.5rem'}} aria-hidden="true" />
                 </Link>
               </div>
             </div>
           )}
 
+          {/* Articles Grid */}
           <div className="blog-grid">
-            {filteredPosts.map((post, index) => (
-              <div key={post.id} className="blog-card reveal" style={{animationDelay: `${(index % 3) * 0.1}s`}}>
+            {displayedPosts.map((post, index) => (
+              <article key={post.id} className="blog-card reveal" style={{animationDelay: `${(index % 3) * 0.1}s`}}>
                 <div className="blog-card-image">
                   <img src={post.image} alt={post.title} loading="lazy" />
                   <span className="blog-card-category">{post.category}</span>
@@ -155,15 +156,17 @@ const BlogPage = () => {
                   <p>{post.excerpt}</p>
                   <div className="blog-card-meta">
                     <span><Calendar size={14} aria-hidden="true" /> {post.date}</span>
+                    <span style={{ marginLeft: 'auto', color: 'var(--color-text-muted)' }}>{post.readTime}</span>
                   </div>
                   <Link to={`/blog/${post.id}`} className="blog-read-more">
-                    Read More <ArrowRight size={16} aria-hidden="true" />
+                    Read Article <ArrowRight size={16} aria-hidden="true" />
                   </Link>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
 
+          {/* No Results */}
           {filteredPosts.length === 0 && (
              <div className="no-results text-center">
                <h3>No articles found</h3>
@@ -172,6 +175,49 @@ const BlogPage = () => {
              </div>
           )}
 
+          {/* Pagination / Load More Button */}
+          {hasMore && (
+            <div className="text-center mt-5 reveal">
+              <button className="btn btn-outline" onClick={handleLoadMore}>
+                Load More Articles
+              </button>
+            </div>
+          )}
+
+          {/* Newsletter / Signup CTA */}
+          <div className="newsletter-cta-card reveal" style={{ marginTop: '5rem' }}>
+            <div className="newsletter-content">
+              <h3>Get Weekly Agency Strategies</h3>
+              <p>Subscribe to our newsletter to receive actionable web design, local SEO checklists, and marketing tips to scale your service business.</p>
+            </div>
+            <div className="newsletter-form-container">
+              {newsletterStatus === "success" ? (
+                <div className="newsletter-success">
+                  <h4>🎉 You're Subscribed!</h4>
+                  <p>Check your inbox soon for your first digital growth playbook.</p>
+                </div>
+              ) : (
+                <form onSubmit={handleNewsletterSubmit} className="newsletter-form">
+                  <input 
+                    type="email" 
+                    placeholder="Enter your email address" 
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                    aria-label="Email Address for newsletter"
+                  />
+                  <button 
+                    type="submit" 
+                    className="btn btn-primary"
+                    disabled={newsletterStatus === "loading"}
+                  >
+                    {newsletterStatus === "loading" ? "Subscribing..." : "Join Playbook"}
+                  </button>
+                </form>
+              )}
+            </div>
+          </div>
+
         </div>
       </section>
     </main>
@@ -179,4 +225,3 @@ const BlogPage = () => {
 };
 
 export default BlogPage;
-
