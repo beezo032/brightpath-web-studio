@@ -9,9 +9,9 @@ const GooseCreekWebDesign = () => {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Signal Light Studio",
-    "image": "https://signallightstudio.com/favicon.png",
-    "@id": "https://signallightstudio.com/#goosecreek-localbusiness",
-    "url": "https://signallightstudio.com/goose-creek-web-design",
+    "image": "https://www.signallightstudio.com/favicon.png",
+    "@id": "https://www.signallightstudio.com/#goosecreek-localbusiness",
+    "url": "https://www.signallightstudio.com/goose-creek-web-design",
     "telephone": "hello@signallightstudio.com",
     "priceRange": "$$",
     "address": {

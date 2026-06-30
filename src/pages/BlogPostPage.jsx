@@ -83,11 +83,11 @@ const BlogPostPage = () => {
       <Helmet>
         <title>{post.title} | Signal Light Studio</title>
         <meta name="description" content={post.excerpt} />
-        <link rel="canonical" href={`https://signallightstudio.com/blog/${post.id}`} />
+        <link rel="canonical" href={`https://www.signallightstudio.com/blog/${post.id}`} />
         
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="article" />
-        <meta property="og:url" content={`https://signallightstudio.com/blog/${post.id}`} />
+        <meta property="og:url" content={`https://www.signallightstudio.com/blog/${post.id}`} />
         <meta property="og:title" content={`${post.title} | Signal Light Studio`} />
         <meta property="og:description" content={post.excerpt} />
         <meta property="og:image" content={post.image} />
@@ -112,20 +112,20 @@ const BlogPostPage = () => {
             "author": {
               "@type": "Person",
               "name": post.author,
-              "url": "https://signallightstudio.com/about"
+              "url": "https://www.signallightstudio.com/about"
             },
             "publisher": {
               "@type": "Organization",
               "name": "Signal Light Studio",
               "logo": {
                 "@type": "ImageObject",
-                "url": "https://signallightstudio.com/favicon.png"
+                "url": "https://www.signallightstudio.com/favicon.png"
               }
             },
             "description": post.excerpt,
             "mainEntityOfPage": {
               "@type": "WebPage",
-              "@id": `https://signallightstudio.com/blog/${post.id}`
+              "@id": `https://www.signallightstudio.com/blog/${post.id}`
             }
           })}
         </script>
@@ -140,19 +140,19 @@ const BlogPostPage = () => {
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Home",
-                "item": "https://signallightstudio.com"
+                "item": "https://www.signallightstudio.com"
               },
               {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Blog",
-                "item": "https://signallightstudio.com/blog"
+                "item": "https://www.signallightstudio.com/blog"
               },
               {
                 "@type": "ListItem",
                 "position": 3,
                 "name": post.title,
-                "item": `https://signallightstudio.com/blog/${post.id}`
+                "item": `https://www.signallightstudio.com/blog/${post.id}`
               }
             ]
           })}
@@ -186,7 +186,7 @@ const BlogPostPage = () => {
           
           {/* Main Article Column */}
           <article className="blog-post-card">
-            <img src={post.image} alt={post.title} className="blog-post-featured-image" />
+            <img src={post.image} alt={post.title} width={800} height={450} className="blog-post-featured-image" />
             
             <div ref={articleRef} className="blog-post-body">
               {post.content}
@@ -250,7 +250,7 @@ const BlogPostPage = () => {
             {relatedPosts.map(rp => (
               <article key={rp.id} className="blog-card" style={{ background: 'white', borderRadius: '12px', overflow: 'hidden', boxShadow: 'var(--shadow-sm)' }}>
                 <div className="blog-card-image" style={{ height: '200px' }}>
-                  <img src={rp.image} alt={rp.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} loading="lazy" />
+                  <img src={rp.image} alt={rp.title} width={380} height={200} style={{ width: '100%', height: '100%', objectFit: 'cover' }} loading="lazy" />
                   <span className="blog-card-category">{rp.category}</span>
                 </div>
                 <div className="blog-card-content" style={{ padding: '1.5rem' }}>

@@ -59,7 +59,7 @@ const Hero = () => {
           </div>
           <div className="hero-image reveal reveal-delay-2">
             <div className="hero-image-wrapper" aria-label="Mockup of a local business website on desktop and mobile">
-              <img src="/hero_mockup.png" alt="Modern Local Business Website Design" className="hero-mockup-img" style={{ width: '100%', height: 'auto', borderRadius: '12px', boxShadow: '0 20px 40px rgba(0,0,0,0.2)' }} />
+              <img src="/hero_mockup.webp" alt="Modern Local Business Website Design" className="hero-mockup-img" width={640} height={380} style={{ width: '100%', height: 'auto', borderRadius: '12px', boxShadow: '0 20px 40px rgba(0,0,0,0.2)' }} />
               <div className="floating-card lead-card" aria-hidden="true" style={{ bottom: '-20px', left: '-20px' }}>
                 <div className="lead-icon">🎉</div>
                 <div className="lead-text">

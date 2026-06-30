@@ -9,9 +9,9 @@ const SummervilleScWebDesign = () => {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Signal Light Studio",
-    "image": "https://signallightstudio.com/favicon.png",
-    "@id": "https://signallightstudio.com/#summerville-localbusiness",
-    "url": "https://signallightstudio.com/summerville-sc-web-design",
+    "image": "https://www.signallightstudio.com/favicon.png",
+    "@id": "https://www.signallightstudio.com/#summerville-localbusiness",
+    "url": "https://www.signallightstudio.com/summerville-sc-web-design",
     "telephone": "hello@signallightstudio.com",
     "priceRange": "$$",
     "address": {

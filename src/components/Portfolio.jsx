@@ -48,7 +48,7 @@ const Portfolio = () => {
             <div key={index} className={`project-card reveal reveal-delay-${(index % 3) + 1}`}>
               <div className="project-image-wrapper">
                 <div className="project-category">{project.category}</div>
-                <img src={project.image} alt={project.title} style={{width: '100%', height: '240px', objectFit: 'cover', borderRadius: '12px'}} />
+                <img src={project.image} alt={project.title} width={380} height={240} loading="lazy" style={{width: '100%', height: '240px', objectFit: 'cover', borderRadius: '12px'}} />
               </div>
               
               <div className="project-content">

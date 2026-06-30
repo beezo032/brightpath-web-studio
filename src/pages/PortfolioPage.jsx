@@ -101,6 +101,9 @@ const PortfolioPage = () => {
                   <img 
                     src={project.image} 
                     alt={`Screenshot of ${project.title} website`} 
+                    width={380}
+                    height={300}
+                    loading="lazy"
                     style={{width: '100%', height: '300px', objectFit: 'cover', borderTopLeftRadius: '16px', borderTopRightRadius: '16px'}} 
                   />
                   <div className="portfolio-category-badge">{project.category}</div>

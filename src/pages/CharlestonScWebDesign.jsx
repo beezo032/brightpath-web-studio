@@ -9,9 +9,9 @@ const CharlestonScWebDesign = () => {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Signal Light Studio",
-    "image": "https://signallightstudio.com/favicon.png",
-    "@id": "https://signallightstudio.com/#localbusiness",
-    "url": "https://signallightstudio.com/charleston-sc-web-design",
+    "image": "https://www.signallightstudio.com/favicon.png",
+    "@id": "https://www.signallightstudio.com/#localbusiness",
+    "url": "https://www.signallightstudio.com/charleston-sc-web-design",
     "telephone": "hello@signallightstudio.com",
     "priceRange": "$$",
     "address": {

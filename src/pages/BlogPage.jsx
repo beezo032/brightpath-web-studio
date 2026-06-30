@@ -59,19 +59,19 @@ const BlogPage = () => {
         
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://signallightstudio.com/blog" />
+        <meta property="og:url" content="https://www.signallightstudio.com/blog" />
         <meta property="og:title" content="Digital Growth Blog | Signal Light Studio" />
         <meta property="og:description" content="Actionable web design and digital marketing advice to help local service businesses dominate their market." />
         <meta property="og:image" content="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop" />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://signallightstudio.com/blog" />
+        <meta property="twitter:url" content="https://www.signallightstudio.com/blog" />
         <meta property="twitter:title" content="Digital Growth Blog | Signal Light Studio" />
         <meta property="twitter:description" content="Actionable web design and digital marketing advice to help local service businesses dominate their market." />
         <meta property="twitter:image" content="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop" />
 
-        <link rel="canonical" href="https://signallightstudio.com/blog" />
+        <link rel="canonical" href="https://www.signallightstudio.com/blog" />
       </Helmet>
 
       {/* Hero Section */}
@@ -124,7 +124,7 @@ const BlogPage = () => {
           {activeCategory === "All" && searchQuery === "" && featuredPost && (
             <div className="featured-post-card">
               <div className="featured-image">
-                <img src={featuredPost.image} alt={featuredPost.title} loading="lazy" />
+                <img src={featuredPost.image} alt={featuredPost.title} width={800} height={450} />
                 <div className="featured-badge">Featured Article</div>
               </div>
               <div className="featured-content">
@@ -148,7 +148,7 @@ const BlogPage = () => {
             {displayedPosts.map((post, index) => (
               <article key={post.id} className="blog-card" style={{animationDelay: `${(index % 3) * 0.1}s`}}>
                 <div className="blog-card-image">
-                  <img src={post.image} alt={post.title} loading="lazy" />
+                  <img src={post.image} alt={post.title} width={380} height={240} loading="lazy" />
                   <span className="blog-card-category">{post.category}</span>
                 </div>
                 <div className="blog-card-content">

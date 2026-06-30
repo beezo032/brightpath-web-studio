@@ -13,7 +13,7 @@ const ContractorWebDesign = () => {
     "publisher": {
       "@type": "ProfessionalService",
       "name": "Signal Light Studio",
-      "logo": "https://signallightstudio.com/favicon.png"
+      "logo": "https://www.signallightstudio.com/favicon.png"
     }
   };
 
