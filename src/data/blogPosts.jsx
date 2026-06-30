@@ -80,7 +80,7 @@ export const blogPosts = [
     readTime: "9 min read",
     tags: ["Web Design", "Redesign", "CRO", "Small Business"],
     featured: false,
-    image: "https://images.unsplash.com/photo-1556761175-5973dc0f32b7?q=80&w=800&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=800&auto=format&fit=crop",
     content: (
       <>
         <p>Many business owners take a \"set it and forget it\" approach to their online presence. They invest in a website, launch it, and don't look at it again for years. But the internet moves fast. Design trends shift, search engines update their ranking algorithms, and user behavior changes.</p>
