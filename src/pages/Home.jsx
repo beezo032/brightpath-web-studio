@@ -10,7 +10,6 @@ import Pricing from '../components/Pricing';
 import Benefits from '../components/Benefits';
 import FAQ from '../components/FAQ';
 import Contact from '../components/Contact';
-import LazySection from '../components/LazySection';
 import { Helmet } from 'react-helmet-async';
 
 const Home = () => {
@@ -29,34 +28,14 @@ const Home = () => {
       <Industries />
       <Portfolio />
       
-      {/* Below-the-fold components loaded progressively */}
-      <LazySection height="500px">
-        <BeforeAfter />
-      </LazySection>
-      
-      <LazySection height="400px">
-        <Testimonials />
-      </LazySection>
-      
-      <LazySection height="500px">
-        <Process />
-      </LazySection>
-      
-      <LazySection height="500px">
-        <Pricing />
-      </LazySection>
-      
-      <LazySection height="400px">
-        <Benefits />
-      </LazySection>
-      
-      <LazySection height="500px">
-        <FAQ />
-      </LazySection>
-      
-      <LazySection height="600px">
-        <Contact />
-      </LazySection>
+      {/* Below-the-fold components */}
+      <BeforeAfter />
+      <Testimonials />
+      <Process />
+      <Pricing />
+      <Benefits />
+      <FAQ />
+      <Contact />
     </main>
   );
 };

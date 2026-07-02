@@ -28,8 +28,26 @@
     <!-- Preload LCP Hero Image -->
     <link rel="preload" href="/hero_mockup.webp" as="image" type="image/webp" />
 
-    <!-- Fonts -->
-    <link rel="stylesheet" href="/fonts/fonts.css" />
+    <!-- Inline Critical Fonts for LCP -->
+    <style>
+      @font-face {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url('/fonts/inter-400-normal.woff2') format('woff2');
+      }
+      @font-face {
+        font-family: 'Outfit';
+        font-style: normal;
+        font-weight: 800;
+        font-display: swap;
+        src: url('/fonts/outfit-800-normal.woff2') format('woff2');
+      }
+    </style>
+    <!-- Async Non-Critical Fonts -->
+    <link rel="preload" href="/fonts/fonts.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="/fonts/fonts.css" /></noscript>
 
     <!-- Apollo Website Tracker -->
     <script>
