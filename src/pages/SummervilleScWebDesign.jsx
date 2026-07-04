@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { CheckCircle2, MapPin, Search, Star, Sparkles, MessageSquare } from 'lucide-react';
+import { CheckCircle2 } from 'lucide-react';
 
 const SummervilleScWebDesign = () => {
   useEffect(() => { window.scrollTo(0, 0); }, []);

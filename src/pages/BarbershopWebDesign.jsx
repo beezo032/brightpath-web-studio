@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { CheckCircle2, Scissors, Calendar, Smartphone, Sparkles, Star } from 'lucide-react';
+import { CheckCircle2, Calendar, Smartphone, Star } from 'lucide-react';
 
 const BarbershopWebDesign = () => {
   useEffect(() => { window.scrollTo(0, 0); }, []);

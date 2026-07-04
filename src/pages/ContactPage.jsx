@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Mail, Clock, ShieldCheck, CheckCircle2, ChevronDown, ChevronUp, ArrowRight, ArrowLeft } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import './ContactPage.css';
@@ -18,16 +18,28 @@ const ContactPage = () => {
     primaryGoal: '',
     budget: '',
     timeline: '',
-    message: ''
+    message: '',
+    companyWebsite: ''
   });
   
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState('idle');
   const [openFaq, setOpenFaq] = useState(0);
+  const statusRef = useRef(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  useEffect(() => {
+    if (status === 'success' || status === 'error') statusRef.current?.focus();
+  }, [status]);
+
+  const focusFirstError = (validationErrors) => {
+    const first = Object.keys(validationErrors)[0];
+    const ids = { websiteStatus: 'websiteStatusGroup', primaryGoal: 'primaryGoalGroup', budget: 'budgetGroup' };
+    window.requestAnimationFrame(() => document.getElementById(ids[first] || first)?.focus());
+  };
 
   const faqs = [
     { q: "How long does a website project take?", a: "Most custom websites are completed within 3 to 6 weeks depending on complexity and content readiness." },
@@ -81,6 +93,7 @@ const ContactPage = () => {
       setErrors(validationErrors);
       return;
     }
+      focusFirstError(validationErrors);
     setStep(prev => Math.min(prev + 1, totalSteps));
   };
 
@@ -96,6 +109,7 @@ const ContactPage = () => {
       return;
     }
     
+      focusFirstError(validationErrors);
     setStatus('loading');
 
     try {
@@ -118,6 +132,7 @@ const ContactPage = () => {
       };
 
       const response = await fetch('/api/leads', {
+        companyWebsite: formState.companyWebsite,
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
@@ -130,8 +145,7 @@ const ContactPage = () => {
         name: '', businessName: '', email: '', phone: '', businessType: '', website: '', websiteStatus: '', primaryGoal: '', budget: '', timeline: '', message: ''
       });
       setStep(1);
-    } catch (err) {
-      // console.error(err);
+    } catch  {
       setStatus('error');
     }
   };
@@ -163,7 +177,7 @@ const ContactPage = () => {
             <div className="contact-form-wrapper reveal">
               
               {status === 'success' ? (
-                <div className="contact-success-state animate-fade-in">
+                <div className="contact-success-state animate-fade-in" ref={statusRef} role="status" aria-live="polite" tabIndex="-1">
                   <div className="success-icon-wrapper" aria-hidden="true">
                     <CheckCircle2 size={48} />
                   </div>
@@ -183,6 +197,8 @@ const ContactPage = () => {
                   <form className="premium-contact-form" onSubmit={handleSubmit} noValidate>
                     
                     {/* STEP 1: Basic Info */}
+                    <div className="sr-only" aria-hidden="true"><label htmlFor="companyWebsite">Leave this field blank</label><input id="companyWebsite" name="companyWebsite" tabIndex="-1" autoComplete="off" value={formState.companyWebsite} onChange={handleChange} /></div>
+                    {status === 'error' && <div ref={statusRef} className="error-text" role="alert" aria-live="assertive" tabIndex="-1">We could not submit your request. Please try again.</div>}
                     {step === 1 && (
                       <div className="wizard-step animate-fade-in">
                         <div className="form-header">
@@ -192,12 +208,12 @@ const ContactPage = () => {
                         <div className="form-row">
                           <div className="form-group">
                             <label htmlFor="name">Full Name *</label>
-                            <input type="text" id="name" name="name" value={formState.name} onChange={handleChange} className={errors.name ? 'error-input' : ''} placeholder="Your full name" />
+                            <input type="text" id="name" name="name" value={formState.name} onChange={handleChange} className={errors.name ? 'error-input' : ''} aria-invalid={Boolean(errors.name)} placeholder="Your full name" />
                             {errors.name && <span className="error-text">{errors.name}</span>}
                           </div>
                           <div className="form-group">
                             <label htmlFor="businessName">Business Name *</label>
-                            <input type="text" id="businessName" name="businessName" value={formState.businessName} onChange={handleChange} className={errors.businessName ? 'error-input' : ''} placeholder="Acme Corp" />
+                            <input type="text" id="businessName" name="businessName" value={formState.businessName} onChange={handleChange} className={errors.businessName ? 'error-input' : ''} aria-invalid={Boolean(errors.businessName)} placeholder="Acme Corp" />
                             {errors.businessName && <span className="error-text">{errors.businessName}</span>}
                           </div>
                         </div>
@@ -205,7 +221,7 @@ const ContactPage = () => {
                         <div className="form-row">
                           <div className="form-group">
                             <label htmlFor="email">Email Address *</label>
-                            <input type="email" id="email" name="email" value={formState.email} onChange={handleChange} className={errors.email ? 'error-input' : ''} placeholder="your@email.com" />
+                            <input type="email" id="email" name="email" value={formState.email} onChange={handleChange} className={errors.email ? 'error-input' : ''} aria-invalid={Boolean(errors.email)} placeholder="your@email.com" />
                             {errors.email && <span className="error-text">{errors.email}</span>}
                           </div>
                           <div className="form-group">
@@ -227,7 +243,7 @@ const ContactPage = () => {
                         <div className="form-row">
                           <div className="form-group">
                             <label htmlFor="businessType">Type of Business *</label>
-                            <input type="text" id="businessType" name="businessType" value={formState.businessType} onChange={handleChange} className={errors.businessType ? 'error-input' : ''} placeholder="e.g. Landscaping, Plumber, Accountant" />
+                            <input type="text" id="businessType" name="businessType" value={formState.businessType} onChange={handleChange} className={errors.businessType ? 'error-input' : ''} aria-invalid={Boolean(errors.businessType)} placeholder="e.g. Landscaping, Plumber, Accountant" />
                             {errors.businessType && <span className="error-text">{errors.businessType}</span>}
                           </div>
                           <div className="form-group">
@@ -238,7 +254,7 @@ const ContactPage = () => {
 
                         <div className="form-group mt-4">
                           <label id="websiteStatusLabel">Current Website Status *</label>
-                          <div className="selection-grid vertical" role="radiogroup" aria-labelledby="websiteStatusLabel">
+                          <div id="websiteStatusGroup" className="selection-grid vertical" role="radiogroup" aria-labelledby="websiteStatusLabel" aria-invalid={Boolean(errors.websiteStatus)} tabIndex="-1">
                             {websiteStatuses.map((statusOption) => (
                               <button 
                                 type="button" 
@@ -267,7 +283,7 @@ const ContactPage = () => {
                         
                         <div className="form-group">
                           <label id="primaryGoalLabel">Primary Goal *</label>
-                          <div className="selection-grid" role="radiogroup" aria-labelledby="primaryGoalLabel">
+                          <div id="primaryGoalGroup" className="selection-grid" role="radiogroup" aria-labelledby="primaryGoalLabel" aria-invalid={Boolean(errors.primaryGoal)} tabIndex="-1">
                             {goals.map((goal) => (
                               <button 
                                 type="button" 
@@ -286,7 +302,7 @@ const ContactPage = () => {
 
                         <div className="form-group mt-4">
                           <label id="budgetLabel">Estimated Budget *</label>
-                          <div className="selection-grid" role="radiogroup" aria-labelledby="budgetLabel">
+                          <div id="budgetGroup" className="selection-grid" role="radiogroup" aria-labelledby="budgetLabel" aria-invalid={Boolean(errors.budget)} tabIndex="-1">
                             {budgets.map((budget) => (
                               <button 
                                 type="button" 

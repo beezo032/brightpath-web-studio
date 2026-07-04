@@ -11,7 +11,7 @@ import { AuthProvider } from './context/AuthContext';
 import Home from './pages/Home';
 
 // Lazy Loading for Public Subpages
-const PortfolioPage = lazy(() => import('./pages/PortfolioPage'));
+const PortfolioPage = lazy(() => import('./pages/PortfolioIndexPage'));
 const ServicesPage = lazy(() => import('./pages/ServicesPage'));
 const AboutPage = lazy(() => import('./pages/AboutPage'));
 const ContactPage = lazy(() => import('./pages/ContactPage'));
@@ -19,6 +19,7 @@ const BlogPage = lazy(() => import('./pages/BlogPage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 const LoginPage = lazy(() => import('./pages/LoginPage'));
 const RazorCutsDemoPage = lazy(() => import('./pages/RazorCutsDemoPage'));
+const CaseStudyPage = lazy(() => import('./pages/CaseStudyPage'));
 const PrivacyPage = lazy(() => import('./pages/PrivacyPage'));
 const TermsPage = lazy(() => import('./pages/TermsPage'));
 const BlogPostPage = lazy(() => import('./pages/BlogPostPage'));
@@ -76,6 +77,7 @@ function App() {
               <Route path="/blog/:id" element={<BlogPostPage />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/portfolio/razor-cuts-demo" element={<RazorCutsDemoPage />} />
+              <Route path="/portfolio/:slug" element={<CaseStudyPage />} />
               <Route path="/privacy" element={<PrivacyPage />} />
               <Route path="/terms" element={<TermsPage />} />
               

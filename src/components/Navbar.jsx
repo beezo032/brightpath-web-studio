@@ -19,9 +19,7 @@ const Navbar = () => {
   return (
     <header className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="container navbar-container">
-        <Link to="/" className="logo">
-          <span className="logo-accent">Signal</span>Light Studio
-        </Link>
+        <div className="logo-slot" aria-hidden="true" />
         
         <nav className={`nav-links ${mobileMenuOpen ? 'open' : ''}`}>
           <NavLink to="/about" className={({isActive}) => isActive ? 'active-link' : ''} onClick={() => setMobileMenuOpen(false)}>About</NavLink>

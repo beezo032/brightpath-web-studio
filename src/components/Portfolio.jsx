@@ -10,7 +10,8 @@ const projects = [
     services: ["Web Design", "Local SEO", "Custom Booking"],
     technologies: ["React", "TypeScript", "Vite", "Framer Motion"],
     results: "600+ Google Reviews",
-    image: "/aster_house_dental.png"
+    slug: "aster-house-dental",
+    image: "/aster_house_dental.webp"
   },
   {
     title: "Northstar Heating & Air",
@@ -19,7 +20,8 @@ const projects = [
     services: ["Web Design", "SEO Setup", "Speed Optimization"],
     technologies: ["React", "TypeScript", "Tailwind CSS", "Vite"],
     results: "4.9 Local Rating",
-    image: "/northstar_heating.png"
+    slug: "northstar-heating-air",
+    image: "/northstar_heating.webp"
   },
   {
     title: "Vesper Tattoo Co.",
@@ -28,7 +30,8 @@ const projects = [
     services: ["Redesign", "Booking Integration", "Portfolio Gallery"],
     technologies: ["React", "TypeScript", "Vite", "Vanilla CSS"],
     results: "327+ Five-Star Reviews",
-    image: "/vesper_tattoo.png"
+    slug: "vesper-tattoo",
+    image: "/vesper_tattoo.webp"
   }
 ];
 
@@ -79,7 +82,7 @@ const Portfolio = () => {
                   {project.results}
                 </div>
                 
-                <a href="/contact" className="btn btn-outline" style={{width: '100%', textAlign: 'center'}}>
+                <a href={`/portfolio/${project.slug}`} className="btn btn-outline" style={{width: '100%', textAlign: 'center'}}>
                   View Full Case Study
                 </a>
               </div>

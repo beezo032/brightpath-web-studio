@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Link } from 'react-router-dom';
-import { CheckCircle2, ShieldCheck, Calendar, Users, MapPin, Award } from 'lucide-react';
+
+import { CheckCircle2, ShieldCheck, Calendar, Users } from 'lucide-react';
 
 const DentalWebDesign = () => {
   useEffect(() => { window.scrollTo(0, 0); }, []);

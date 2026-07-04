@@ -1,16 +1,17 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import Hero from '../components/Hero';
-import Services from '../components/Services';
-import Industries from '../components/Industries';
-import Portfolio from '../components/Portfolio';
-import BeforeAfter from '../components/BeforeAfter';
-import Testimonials from '../components/Testimonials';
-import Process from '../components/Process';
-import Pricing from '../components/Pricing';
-import Benefits from '../components/Benefits';
-import FAQ from '../components/FAQ';
-import Contact from '../components/Contact';
 import { Helmet } from 'react-helmet-async';
+
+const Services = lazy(() => import('../components/Services'));
+const Industries = lazy(() => import('../components/Industries'));
+const Portfolio = lazy(() => import('../components/Portfolio'));
+const BeforeAfter = lazy(() => import('../components/BeforeAfter'));
+const Testimonials = lazy(() => import('../components/Testimonials'));
+const Process = lazy(() => import('../components/Process'));
+const Pricing = lazy(() => import('../components/Pricing'));
+const Benefits = lazy(() => import('../components/Benefits'));
+const FAQ = lazy(() => import('../components/FAQ'));
+const Contact = lazy(() => import('../components/Contact'));
 
 const Home = () => {
   return (
@@ -24,18 +25,20 @@ const Home = () => {
       
       {/* Above-the-fold content rendered eagerly */}
       <Hero />
-      <Services />
-      <Industries />
-      <Portfolio />
-      
-      {/* Below-the-fold components */}
-      <BeforeAfter />
-      <Testimonials />
-      <Process />
-      <Pricing />
-      <Benefits />
-      <FAQ />
-      <Contact />
+      <Suspense fallback={null}>
+        <Services />
+        <Industries />
+        <Portfolio />
+
+        {/* Below-the-fold components */}
+        <BeforeAfter />
+        <Testimonials />
+        <Process />
+        <Pricing />
+        <Benefits />
+        <FAQ />
+        <Contact />
+      </Suspense>
     </main>
   );
 };

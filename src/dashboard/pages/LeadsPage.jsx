@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Search, Plus, Download, Upload, Edit, Trash2, X } from 'lucide-react';
 import './LeadsPage.css';
@@ -27,7 +27,7 @@ const LeadsPage = () => {
     websiteScore: '', estimatedValue: '', notes: '', followUpDate: ''
   });
 
-  const fetchLeads = async () => {
+  const fetchLeads = useCallback(async () => {
     setLoading(true);
     try {
       const token = localStorage.getItem('signallightstudio_jwt');
@@ -37,15 +37,14 @@ const LeadsPage = () => {
       const data = await res.json();
       setLeads(data.leads || []);
       setTotalPages(data.totalPages || 1);
-    } catch (err) {
-      console.error('Failed to fetch leads', err);
+    } catch  {
     }
     setLoading(false);
-  };
+  }, [page, search, statusFilter]);
 
   useEffect(() => {
     fetchLeads();
-  }, [page, search, statusFilter]);
+  }, [fetchLeads]);
 
   const handleOpenModal = (lead = null) => {
     if (lead) {
@@ -79,8 +78,7 @@ const LeadsPage = () => {
       });
       setIsModalOpen(false);
       fetchLeads();
-    } catch (err) {
-      console.error('Failed to save lead', err);
+    } catch  {
     }
   };
 
@@ -93,8 +91,7 @@ const LeadsPage = () => {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       fetchLeads();
-    } catch (err) {
-      console.error('Failed to delete lead', err);
+    } catch  {
     }
   };
 
@@ -209,7 +206,6 @@ const LeadsPage = () => {
         setImportMessage({ type: 'success', text: `Successfully imported ${parsedLeads.length} leads!` });
         fetchLeads();
       } catch (err) {
-        console.error(err);
         setImportMessage({ type: 'error', text: err.message || 'Error importing CSV.' });
       } finally {
         setImporting(false);

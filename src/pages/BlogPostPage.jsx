@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Calendar, User, Tag, ArrowLeft, ArrowRight, Share2, Link as LinkIcon } from 'lucide-react';
+import { Calendar, User, Tag, ArrowLeft, ArrowRight, Link as LinkIcon } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import { blogPosts } from '../data/blogPosts';
 import './BlogPostPage.css';

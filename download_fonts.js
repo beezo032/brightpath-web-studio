@@ -41,7 +41,6 @@ async function main() {
     const originalCss = await fetchText(cssUrl);
     
     // We only want the latin subset definitions
-    const blocks = [];
     const regex = /\/\* latin \*\/\s*@font-face\s*\{([^}]+)\}/g;
     let match;
     let localCss = '';

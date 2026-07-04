@@ -1,6 +1,6 @@
 import React from 'react';
-import { Menu, Bell, UserCircle, LogOut } from 'lucide-react';
-import { useAuth } from '../../context/AuthContext';
+import { Menu, UserCircle, LogOut } from 'lucide-react';
+import { useAuth } from '../../context/auth';
 import { useNavigate } from 'react-router-dom';
 import './Topbar.css';
 

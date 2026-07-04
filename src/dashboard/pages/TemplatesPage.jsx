@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Plus, Edit, Trash2, Copy, Check, X, FileText } from 'lucide-react';
 import './TemplatesPage.css';
@@ -31,8 +31,7 @@ const TemplatesPage = () => {
       } else {
         setTemplates(data.templates || []);
       }
-    } catch (err) {
-      console.error('Failed to fetch templates', err);
+    } catch  {
     }
     setLoading(false);
   };
@@ -46,8 +45,7 @@ const TemplatesPage = () => {
       });
       const data = await res.json();
       if (data.templates) setTemplates(data.templates);
-    } catch (err) {
-      console.error('Failed to seed templates', err);
+    } catch  {
     }
   };
 
@@ -87,8 +85,7 @@ const TemplatesPage = () => {
       });
       setIsModalOpen(false);
       fetchTemplates();
-    } catch (err) {
-      console.error('Failed to save template', err);
+    } catch  {
     }
   };
 
@@ -101,8 +98,7 @@ const TemplatesPage = () => {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       fetchTemplates();
-    } catch (err) {
-      console.error('Failed to delete template', err);
+    } catch  {
     }
   };
 

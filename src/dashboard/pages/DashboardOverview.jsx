@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Users, DollarSign, Target, TrendingUp } from 'lucide-react';
 import { 
@@ -29,8 +29,7 @@ const DashboardOverview = () => {
         });
         const data = await res.json();
         if (data.leads) setLeads(data.leads);
-      } catch (err) {
-        console.error('Failed to fetch leads for analytics', err);
+      } catch  {
       }
       setLoading(false);
     };

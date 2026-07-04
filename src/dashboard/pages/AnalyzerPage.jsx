@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Search, Activity, AlertTriangle, CheckCircle, Info } from 'lucide-react';
+import { Search, AlertTriangle, CheckCircle, Info } from 'lucide-react';
 import './AnalyzerPage.css';
 
 const AnalyzerPage = () => {
@@ -75,7 +75,6 @@ const AnalyzerPage = () => {
       }
 
     } catch (err) {
-      console.error(err);
       setError(err.message || 'An error occurred during the audit. Please try another URL.');
     } finally {
       setLoading(false);

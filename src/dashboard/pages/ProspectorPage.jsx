@@ -1,6 +1,6 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Search, MapPin, Phone, Globe, Star, CheckCircle, AlertTriangle, Plus } from 'lucide-react';
+import { Search, MapPin, Phone, Globe, Star, CheckCircle, Plus } from 'lucide-react';
 import './ProspectorPage.css';
 
 const ProspectorPage = () => {
@@ -78,7 +78,6 @@ const ProspectorPage = () => {
         throw new Error(data?.error || `Server returned ${res.status}`);
       }
     } catch (err) {
-      console.error(err);
       alert(`Error importing lead: ${err.message}`);
     }
   };

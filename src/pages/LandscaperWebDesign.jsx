@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { CheckCircle2, Leaf, MapPin, Sparkles, Sprout, TrendingUp } from 'lucide-react';
+import { CheckCircle2, Leaf, Sprout, TrendingUp } from 'lucide-react';
 
 const LandscaperWebDesign = () => {
   useEffect(() => { window.scrollTo(0, 0); }, []);

@@ -82,7 +82,7 @@ const Hero = () => {
                   {feature.icon}
                 </div>
                 <div className="trust-content">
-                  <h4>{feature.title}</h4>
+                  <strong>{feature.title}</strong>
                   <p>{feature.text}</p>
                 </div>
               </div>

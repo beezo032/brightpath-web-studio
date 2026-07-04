@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { CheckCircle2, Phone, Shield, ShieldCheck, Flame, Compass } from 'lucide-react';
+import { CheckCircle2, Phone, ShieldCheck, Flame } from 'lucide-react';
 
 const HvacWebDesign = () => {
   useEffect(() => { window.scrollTo(0, 0); }, []);
