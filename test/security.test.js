@@ -36,3 +36,27 @@ test('login attempts are rate limited', async () => withServer(async (base) => {
   for (let index = 0; index < 6; index += 1) response = await fetch(`${base}/api/auth/login`, { method: 'POST', headers: { 'content-type': 'application/json', 'x-forwarded-for': '203.0.113.50' }, body: JSON.stringify({ email: 'bad@example.com', password: 'wrong' }) });
   assert.equal(response.status, 429);
 }));
+
+test('API payload limits and parser failures return JSON', async () => withServer(async (base) => {
+  const acceptedPayload = await fetch(`${base}/api/prospector/search`, {
+    method: 'POST',
+    headers: { 'content-type': 'application/json' },
+    body: JSON.stringify({ padding: 'x'.repeat(40 * 1024) }),
+  });
+  assert.equal(acceptedPayload.status, 401);
+  assert.match(acceptedPayload.headers.get('content-type'), /application\/json/);
+
+  const oversizedPayload = await fetch(`${base}/api/prospector/search`, {
+    method: 'POST',
+    headers: { 'content-type': 'application/json' },
+    body: JSON.stringify({ padding: 'x'.repeat(600 * 1024) }),
+  });
+  assert.equal(oversizedPayload.status, 413);
+  assert.match(oversizedPayload.headers.get('content-type'), /application\/json/);
+  assert.equal((await oversizedPayload.json()).error, 'Request body is too large');
+
+  const missingRoute = await fetch(`${base}/api/not-a-route`);
+  assert.equal(missingRoute.status, 404);
+  assert.match(missingRoute.headers.get('content-type'), /application\/json/);
+  assert.equal((await missingRoute.json()).error, 'API route not found');
+}));

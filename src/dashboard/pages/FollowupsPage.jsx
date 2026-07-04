@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Calendar, Clock, AlertCircle, CheckCircle, Mail, Phone, CalendarPlus } from 'lucide-react';
+import { readJsonResponse } from '../../utils/apiResponse';
 import './FollowupsPage.css';
 
 const FollowupsPage = () => {
@@ -15,7 +16,7 @@ const FollowupsPage = () => {
       const res = await fetch('/api/leads?limit=1000', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
-      const data = await res.json();
+      const data = await readJsonResponse(res, 'Failed to load follow-ups');
       setLeads(data.leads || []);
     } catch  {
     }

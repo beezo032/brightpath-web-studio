@@ -40,7 +40,13 @@ router.post('/', leadLimiter, async (req, res) => {
 
 router.post('/bulk', authenticateToken, async (req, res) => {
   if (!Array.isArray(req.body) || req.body.length > 100) return res.status(400).json({ error: 'Body must contain at most 100 leads' });
-  try { res.status(201).json(await Lead.insertMany(req.body.map(normalizeLead))); } catch (error) { res.status(400).json({ error: error.message }); }
+  try {
+    const normalizedLeads = req.body.map(normalizeLead);
+    const savedLeads = await Lead.insertMany(normalizedLeads);
+    return res.status(201).json({ insertedCount: savedLeads.length });
+  } catch (error) {
+    return res.status(400).json({ error: error.message });
+  }
 });
 router.get('/:id', authenticateToken, async (req, res) => { try { const lead = await Lead.findById(req.params.id); return lead ? res.json(lead) : res.status(404).json({ error: 'Lead not found' }); } catch { return res.status(400).json({ error: 'Invalid lead ID' }); } });
 router.put('/:id', authenticateToken, async (req, res) => { try { const lead = await Lead.findByIdAndUpdate(req.params.id, normalizeLead(req.body), { new: true, runValidators: true }); return lead ? res.json(lead) : res.status(404).json({ error: 'Lead not found' }); } catch (error) { return res.status(400).json({ error: error.message }); } });

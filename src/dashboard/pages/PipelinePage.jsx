@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Mail, Phone } from 'lucide-react';
+import { readJsonResponse } from '../../utils/apiResponse';
 import './PipelinePage.css';
 
 const STATUS_COLUMNS = [
@@ -24,7 +25,7 @@ const PipelinePage = () => {
       const res = await fetch('/api/leads?limit=500', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
-      const data = await res.json();
+      const data = await readJsonResponse(res, 'Failed to load pipeline');
       if (data.leads) {
         setLeads(data.leads);
       }

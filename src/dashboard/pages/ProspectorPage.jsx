@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Search, MapPin, Phone, Globe, Star, CheckCircle, Plus } from 'lucide-react';
+import { readJsonResponse } from '../../utils/apiResponse';
 import './ProspectorPage.css';
 
 const ProspectorPage = () => {
@@ -30,11 +31,7 @@ const ProspectorPage = () => {
         body: JSON.stringify({ industry, location })
       });
 
-      const data = await res.json();
-
-      if (!res.ok) {
-        throw new Error(data.error || 'Failed to fetch prospects');
-      }
+      const data = await readJsonResponse(res, 'Failed to fetch prospects');
 
       setResults(data.results || []);
     } catch (err) {
@@ -70,13 +67,8 @@ const ProspectorPage = () => {
         body: JSON.stringify(newLead)
       });
 
-      const data = await res.json().catch(() => null);
-
-      if (res.ok) {
-        setImportedIds(new Set([...importedIds, prospect.place_id]));
-      } else {
-        throw new Error(data?.error || `Server returned ${res.status}`);
-      }
+      await readJsonResponse(res, 'Failed to import prospect');
+      setImportedIds(new Set([...importedIds, prospect.place_id]));
     } catch (err) {
       alert(`Error importing lead: ${err.message}`);
     }

@@ -5,6 +5,7 @@ import {
   PieChart, Pie, Cell, 
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer 
 } from 'recharts';
+import { readJsonResponse } from '../../utils/apiResponse';
 import './DashboardOverview.css';
 
 const STATUS_COLORS = {
@@ -27,7 +28,7 @@ const DashboardOverview = () => {
         const res = await fetch('/api/leads?limit=1000', {
           headers: { 'Authorization': `Bearer ${token}` }
         });
-        const data = await res.json();
+        const data = await readJsonResponse(res, 'Failed to load dashboard leads');
         if (data.leads) setLeads(data.leads);
       } catch  {
       }

@@ -2,6 +2,7 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { ArrowLeft, Save, Trash2, Building, Phone, Mail, Globe, MapPin, DollarSign, Calendar } from 'lucide-react';
+import { readJsonResponse } from '../../utils/apiResponse';
 import './LeadDetailPage.css';
 
 const STATUS_OPTIONS = ['New', 'Contacted', 'Meeting Scheduled', 'Proposal Sent', 'Won', 'Lost'];
@@ -43,10 +44,7 @@ const LeadDetailPage = () => {
           'Authorization': `Bearer ${token}`
         }
       });
-      
-      if (!res.ok) throw new Error('Failed to fetch lead details');
-      
-      const data = await res.json();
+      const data = await readJsonResponse(res, 'Failed to fetch lead details');
       setLead(data);
       
       // Populate form data
@@ -101,10 +99,7 @@ const LeadDetailPage = () => {
         body: JSON.stringify(formData)
       });
 
-      if (!res.ok) {
-        const errData = await res.json().catch(() => null);
-        throw new Error(errData?.error || 'Failed to save changes');
-      }
+      await readJsonResponse(res, 'Failed to save changes');
 
       setSuccessMsg('Changes saved successfully!');
       

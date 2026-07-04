@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Plus, Edit, Trash2, Copy, Check, X, FileText } from 'lucide-react';
+import { readJsonResponse } from '../../utils/apiResponse';
 import './TemplatesPage.css';
 
 const TemplatesPage = () => {
@@ -23,7 +24,7 @@ const TemplatesPage = () => {
       const res = await fetch('/api/templates', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
-      const data = await res.json();
+      const data = await readJsonResponse(res, 'Failed to load templates');
       
       // Auto-seed if empty
       if (data.templates && data.templates.length === 0) {
@@ -43,7 +44,7 @@ const TemplatesPage = () => {
         method: 'POST',
         headers: { 'Authorization': `Bearer ${token}` }
       });
-      const data = await res.json();
+      const data = await readJsonResponse(res, 'Failed to seed templates');
       if (data.templates) setTemplates(data.templates);
     } catch  {
     }

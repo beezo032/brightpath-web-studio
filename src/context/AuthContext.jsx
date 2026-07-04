@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { AuthContext } from './auth';
+import { readJsonResponse } from '../utils/apiResponse';
 
 export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -23,15 +24,11 @@ export const AuthProvider = ({ children }) => {
   const login = async (email, password) => {
     try {
       const response = await fetch('/api/auth/login', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email, password }) });
-      if (!response.ok) {
-        const data = await response.json();
-        return { success: false, error: data.error || 'Login failed' };
-      }
-      const data = await response.json();
+      const data = await readJsonResponse(response, 'Login failed');
       localStorage.setItem('signallightstudio_jwt', data.token);
       setIsAuthenticated(true);
       return { success: true };
-    } catch { return { success: false, error: 'Network error. Could not connect to server.' }; }
+    } catch (error) { return { success: false, error: error.message || 'Network error. Could not connect to server.' }; }
   };
 
   const logout = () => { setIsAuthenticated(false); localStorage.removeItem('signallightstudio_jwt'); };

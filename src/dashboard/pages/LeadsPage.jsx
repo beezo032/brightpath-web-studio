@@ -1,7 +1,10 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Search, Plus, Download, Upload, Edit, Trash2, X } from 'lucide-react';
+import { readJsonResponse } from '../../utils/apiResponse';
 import './LeadsPage.css';
+
+const LEAD_IMPORT_BATCH_SIZE = 50;
 
 const LeadsPage = () => {
   const [leads, setLeads] = useState([]);
@@ -34,7 +37,7 @@ const LeadsPage = () => {
       const res = await fetch(`/api/leads?page=${page}&search=${search}&status=${statusFilter}`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
-      const data = await res.json();
+      const data = await readJsonResponse(res, 'Failed to load leads');
       setLeads(data.leads || []);
       setTotalPages(data.totalPages || 1);
     } catch  {
@@ -68,7 +71,7 @@ const LeadsPage = () => {
     const url = currentLead ? `/api/leads/${currentLead._id}` : '/api/leads';
 
     try {
-      await fetch(url, {
+      const response = await fetch(url, {
         method,
         headers: { 
           'Content-Type': 'application/json',
@@ -76,6 +79,7 @@ const LeadsPage = () => {
         },
         body: JSON.stringify(formData)
       });
+      await readJsonResponse(response, 'Failed to save lead');
       setIsModalOpen(false);
       fetchLeads();
     } catch  {
@@ -86,10 +90,11 @@ const LeadsPage = () => {
     if (!window.confirm('Are you sure you want to delete this lead?')) return;
     const token = localStorage.getItem('signallightstudio_jwt');
     try {
-      await fetch(`/api/leads/${id}`, {
+      const response = await fetch(`/api/leads/${id}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${token}` }
       });
+      await readJsonResponse(response, 'Failed to delete lead');
       fetchLeads();
     } catch  {
     }
@@ -103,6 +108,7 @@ const LeadsPage = () => {
     setImportMessage(null);
     const reader = new FileReader();
     reader.onload = async (event) => {
+      let importedCount = 0;
       try {
         const csvText = event.target.result;
         
@@ -189,24 +195,25 @@ const LeadsPage = () => {
         }
 
         const token = localStorage.getItem('signallightstudio_jwt');
-        const response = await fetch('/api/leads/bulk', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-          },
-          body: JSON.stringify(parsedLeads)
-        });
-
-        if (!response.ok) {
-          const errorData = await response.json();
-          throw new Error(errorData.error || 'Failed to save leads to database.');
+        for (let offset = 0; offset < parsedLeads.length; offset += LEAD_IMPORT_BATCH_SIZE) {
+          const batch = parsedLeads.slice(offset, offset + LEAD_IMPORT_BATCH_SIZE);
+          const response = await fetch('/api/leads/bulk', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify(batch)
+          });
+          const result = await readJsonResponse(response, 'Failed to import lead batch');
+          importedCount += result.insertedCount;
         }
 
-        setImportMessage({ type: 'success', text: `Successfully imported ${parsedLeads.length} leads!` });
-        fetchLeads();
+        setImportMessage({ type: 'success', text: `Successfully imported ${importedCount} leads!` });
+        await fetchLeads();
       } catch (err) {
-        setImportMessage({ type: 'error', text: err.message || 'Error importing CSV.' });
+        const partial = importedCount ? ` ${importedCount} leads were imported before the error.` : '';
+        setImportMessage({ type: 'error', text: `${err.message || 'Error importing CSV.'}${partial}` });
       } finally {
         setImporting(false);
         e.target.value = ''; // clear input

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Search, AlertTriangle, CheckCircle, Info } from 'lucide-react';
+import { readJsonResponse } from '../../utils/apiResponse';
 import './AnalyzerPage.css';
 
 const AnalyzerPage = () => {
@@ -44,11 +45,7 @@ const AnalyzerPage = () => {
       const apiUrl = `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${encodeURIComponent(targetUrl)}&category=PERFORMANCE&category=ACCESSIBILITY&category=BEST_PRACTICES&category=SEO&strategy=desktop`;
       
       const response = await fetch(apiUrl);
-      if (!response.ok) {
-        throw new Error('Failed to analyze website. Ensure the URL is publicly accessible.');
-      }
-
-      const data = await response.json();
+      const data = await readJsonResponse(response, 'Failed to analyze website. Ensure the URL is publicly accessible.');
       
       if (data.lighthouseResult) {
         const categories = data.lighthouseResult.categories;
