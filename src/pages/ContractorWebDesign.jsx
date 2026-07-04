@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { CheckCircle2, Hammer, Image, Star, Shield, HardHat } from 'lucide-react';
+import { CheckCircle2, Image, Star, Shield } from 'lucide-react';
 
 const ContractorWebDesign = () => {
   useEffect(() => { window.scrollTo(0, 0); }, []);

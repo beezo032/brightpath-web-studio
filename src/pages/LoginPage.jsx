@@ -1,6 +1,6 @@
 ﻿import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
+import { useAuth } from '../context/auth';
 import { Lock, ArrowRight } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import './LoginPage.css';

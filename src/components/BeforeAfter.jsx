@@ -1,5 +1,5 @@
 import React from 'react';
-import { XCircle, CheckCircle2, ArrowRight, Zap, Smartphone, Sparkles, Target } from 'lucide-react';
+import { XCircle, CheckCircle2, ArrowRight, Sparkles } from 'lucide-react';
 import './BeforeAfter.css';
 
 const BeforeAfter = () => {

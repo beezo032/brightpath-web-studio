@@ -1,6 +1,6 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Mail, Phone, Calendar } from 'lucide-react';
+import { Mail, Phone } from 'lucide-react';
 import './PipelinePage.css';
 
 const STATUS_COLUMNS = [
@@ -28,8 +28,7 @@ const PipelinePage = () => {
       if (data.leads) {
         setLeads(data.leads);
       }
-    } catch (err) {
-      console.error('Failed to fetch leads', err);
+    } catch  {
     }
     setLoading(false);
   };
@@ -102,8 +101,7 @@ const PipelinePage = () => {
         },
         body: JSON.stringify({ contactStatus: newStatus })
       });
-    } catch (error) {
-      console.error('Failed to update lead status', error);
+    } catch  {
       // If it fails, revert the optimistic update by re-fetching
       fetchLeads();
     }

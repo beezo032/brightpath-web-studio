@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Calendar, Clock, AlertCircle, CheckCircle, Mail, Phone, CalendarPlus } from 'lucide-react';
 import './FollowupsPage.css';
@@ -17,8 +17,7 @@ const FollowupsPage = () => {
       });
       const data = await res.json();
       setLeads(data.leads || []);
-    } catch (err) {
-      console.error('Failed to fetch leads for follow-ups', err);
+    } catch  {
     }
     setLoading(false);
   };
@@ -40,8 +39,7 @@ const FollowupsPage = () => {
       });
       // Update local state without full refetch for snappy UI
       setLeads(leads.map(l => l._id === leadId ? { ...l, followUpDate: newDateStr } : l));
-    } catch (err) {
-      console.error('Failed to update follow-up date', err);
+    } catch  {
     }
   };
 

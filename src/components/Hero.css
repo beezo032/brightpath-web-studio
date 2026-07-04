@@ -281,7 +281,7 @@
   color: white;
 }
 
-.trust-content h4 {
+.trust-content strong {
   font-size: 1rem;
   font-weight: 700;
   color: var(--color-primary);

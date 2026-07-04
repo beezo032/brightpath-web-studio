@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Mail, Clipboard, X, Gift, Sparkles, MessageSquare } from 'lucide-react';
+import { Mail, Clipboard, X, Gift, Sparkles } from 'lucide-react';
 import './FloatingCTA.css';
 
 const FloatingCTA = () => {

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, AlertCircle } from 'lucide-react';
+import { Mail, MapPin, AlertCircle } from 'lucide-react';
 import './Contact.css';
 
 const Contact = () => {
@@ -82,8 +82,7 @@ const Contact = () => {
       setFormData({
         name: '', business: '', email: '', phone: '', url: '', type: '', help: '', budget: '', timeline: '', message: ''
       });
-    } catch (error) {
-      // console.error(error);
+    } catch  {
       setErrors({ message: 'Something went wrong. Please try again.' });
       setFormState('idle');
     }
@@ -103,14 +102,14 @@ const Contact = () => {
               <div className="contact-method">
                 <div className="method-icon"><Mail size={20} /></div>
                 <div>
-                  <h4>Message Us</h4>
+                  <h3>Message Us</h3>
                   <p>hello@signallightstudio.com</p>
                 </div>
               </div>
               <div className="contact-method">
                 <div className="method-icon"><MapPin size={20} /></div>
                 <div>
-                  <h4>Location</h4>
+                  <h3>Location</h3>
                   <p>Serving Local Businesses Nationwide</p>
                 </div>
               </div>
