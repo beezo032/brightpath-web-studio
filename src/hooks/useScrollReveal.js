@@ -7,41 +7,58 @@ export const useScrollReveal = () => {
   useEffect(() => {
     if (typeof window === 'undefined' || typeof document === 'undefined') return;
 
+    const revealAll = () => {
+      document.querySelectorAll('.reveal').forEach((element) => element.classList.add('active'));
+    };
+
+    if (!('IntersectionObserver' in window) || !('MutationObserver' in window)) {
+      revealAll();
+      return;
+    }
+
     const observerOptions = {
       root: null,
       rootMargin: '0px',
       threshold: 0.15
     };
 
-    const observer = new IntersectionObserver((entries, _observer) => {
+    const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('active');
-          // Optional: stop observing once revealed
-          // observer.unobserve(entry.target);
+          observer.unobserve(entry.target);
         }
       });
     }, observerOptions);
 
-    // Wait a brief moment to ensure DOM is fully rendered
-    const timeoutId = setTimeout(() => {
-      const revealElements = document.querySelectorAll('.reveal');
-      
-      // Instantly reveal elements already visible in the viewport on load
-      revealElements.forEach(el => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight && rect.bottom > 0) {
-          el.classList.add('active');
-        }
-      });
+    const observeElement = (element) => {
+      if (element.classList.contains('active')) return;
+      const rect = element.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        element.classList.add('active');
+        return;
+      }
+      observer.observe(element);
+    };
 
-      revealElements.forEach(el => observer.observe(el));
-    }, 100);
+    const observeRevealElements = (root) => {
+      if (root instanceof Element && root.matches('.reveal')) observeElement(root);
+      root.querySelectorAll?.('.reveal').forEach(observeElement);
+    };
+
+    observeRevealElements(document);
+
+    const mutationObserver = new MutationObserver((records) => {
+      records.forEach((record) => {
+        record.addedNodes.forEach((node) => {
+          if (node instanceof Element) observeRevealElements(node);
+        });
+      });
+    });
+    mutationObserver.observe(document.body, { childList: true, subtree: true });
 
     return () => {
-      clearTimeout(timeoutId);
-      const revealElements = document.querySelectorAll('.reveal');
-      revealElements.forEach(el => observer.unobserve(el));
+      mutationObserver.disconnect();
       observer.disconnect();
     };
   }, [pathname]);
