@@ -36,8 +36,7 @@ const localBusinessSchema = {
   "priceRange": "$$",
   "email": "hello@signallightstudio.com",
   "sameAs": [
-    "https://www.linkedin.com/company/signal-light-studio",
-    "https://www.instagram.com/signallightstudio"
+    "https://www.facebook.com/profile.php?id=61591269344521"
   ]
 };
 

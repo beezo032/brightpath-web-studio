@@ -20,8 +20,7 @@ const Footer = () => {
               <a href="mailto:hello@signallightstudio.com" style={{ color: 'var(--color-accent-blue)', fontWeight: 600 }}>hello@signallightstudio.com</a>
             </p>
             <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem' }}>
-              <a href="https://www.linkedin.com/company/signal-light-studio" target="_blank" rel="noopener noreferrer" aria-label="Signal Light Studio on LinkedIn" style={{ color: 'var(--color-text-muted)', fontSize: '0.85rem', fontWeight: 500 }}>LinkedIn</a>
-              <a href="https://www.instagram.com/signallightstudio" target="_blank" rel="noopener noreferrer" aria-label="Signal Light Studio on Instagram" style={{ color: 'var(--color-text-muted)', fontSize: '0.85rem', fontWeight: 500 }}>Instagram</a>
+              <a href="https://www.facebook.com/profile.php?id=61591269344521" target="_blank" rel="noopener noreferrer" aria-label="Signal Light Studio on Facebook" style={{ color: 'var(--color-text-muted)', fontSize: '0.85rem', fontWeight: 500 }}>Facebook</a>
             </div>
           </div>
           
