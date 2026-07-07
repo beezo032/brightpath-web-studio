@@ -12,23 +12,11 @@ const Pricing = () => {
         </div>
         
         <div className="pricing-grid">
-          {/* America 250 Promo */}
-          <div className="pricing-card reveal reveal-delay-1" style={{ borderColor: 'var(--color-accent-blue)', boxShadow: 'var(--shadow-md)' }}>
-            <div className="popular-badge" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <span aria-hidden="true">🇺🇸</span> America 250
-            </div>
-            
+          {/* Starter Launch */}
+          <div className="pricing-card reveal reveal-delay-1">
             <div className="pricing-header">
-              <h3>America 250 Launch</h3>
-              
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem', margin: '1rem 0' }}>
-                <div style={{ textDecoration: 'line-through', color: 'var(--color-text-muted)', fontSize: '1.2rem', fontWeight: '600' }}>$499</div>
-                <div className="price"><span>$</span>250</div>
-                <div style={{ background: '#FEE2E2', color: '#B91C1C', padding: '0.2rem 0.6rem', borderRadius: '4px', fontSize: '0.75rem', fontWeight: 'bold' }}>
-                  LIMITED TIME
-                </div>
-              </div>
-              
+              <h3>Starter Launch</h3>
+              <div className="price"><span>$</span>499</div>
               <p>Perfect for new businesses that need a professional online presence.</p>
             </div>
             <div className="pricing-features">
