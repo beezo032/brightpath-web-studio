@@ -155,10 +155,26 @@ const ContactPage = () => {
   return (
     <main className="contact-page">
       <Helmet>
-        <title>Get a Quote | Signal Light Studio</title>
-        <meta name="description" content="Get your free website review today. Fill out our project inquiry form and we'll get back to you within 24 hours to discuss your web design project." />
-        <meta property="og:title" content="Get a Quote | Signal Light Studio" />
-        <meta property="og:description" content="Get your free website review today. Fill out our project inquiry form and we'll get back to you within 24 hours to discuss your web design project." />
+        <title>Get a Free Website Quote | Signal Light Studio — Charleston, SC</title>
+        <meta name="description" content="Ready to grow your business online? Get a free quote from Signal Light Studio. We respond within 24 hours. Based in Charleston, SC." />
+        <link rel="canonical" href="https://www.signallightstudio.com/contact" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Get a Free Website Quote | Signal Light Studio" />
+        <meta property="og:description" content="Start your web design project today. Fill out our quick project inquiry form — we respond within 24 hours." />
+        <meta property="og:image" content="https://www.signallightstudio.com/hero_mockup.webp" />
+        <meta property="og:url" content="https://www.signallightstudio.com/contact" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Get a Free Website Quote | Signal Light Studio" />
+        <meta name="twitter:description" content="Start your web design project today. We respond within 24 hours." />
+        <meta name="twitter:image" content="https://www.signallightstudio.com/hero_mockup.webp" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.signallightstudio.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://www.signallightstudio.com/contact" }
+          ]
+        })}</script>
       </Helmet>
 
       <section className="contact-hero section-dark text-center">

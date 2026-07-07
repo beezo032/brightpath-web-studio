@@ -1,4 +1,4 @@
-﻿import React, { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Shield, MessageSquare, Star, TrendingUp, Handshake } from 'lucide-react';
 import Benefits from '../components/Benefits';
 import FinalCTA from '../components/FinalCTA';
@@ -21,10 +21,26 @@ const AboutPage = () => {
   return (
     <main className="about-page">
       <Helmet>
-        <title>About Us | Signal Light Studio</title>
-        <meta name="description" content="Learn about our mission to help local businesses succeed online with premium web design and transparent partnerships." />
-        <meta property="og:title" content="About Us | Signal Light Studio" />
-        <meta property="og:description" content="Learn about our mission to help local businesses succeed online with premium web design and transparent partnerships." />
+        <title>About Signal Light Studio | Web Design Agency, Charleston SC</title>
+        <meta name="description" content="Signal Light Studio is a web design studio based in Charleston, SC specializing in high-converting websites for local service businesses. Learn about our mission and values." />
+        <link rel="canonical" href="https://www.signallightstudio.com/about" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="About Signal Light Studio | Web Design Agency, Charleston SC" />
+        <meta property="og:description" content="We build premium websites that help local businesses attract more customers, generate more leads, and grow sustainably online." />
+        <meta property="og:image" content="https://www.signallightstudio.com/hero_mockup.webp" />
+        <meta property="og:url" content="https://www.signallightstudio.com/about" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="About Signal Light Studio" />
+        <meta name="twitter:description" content="Web design studio based in Charleston, SC. Premium websites for local service businesses." />
+        <meta name="twitter:image" content="https://www.signallightstudio.com/hero_mockup.webp" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.signallightstudio.com/" },
+            { "@type": "ListItem", "position": 2, "name": "About", "item": "https://www.signallightstudio.com/about" }
+          ]
+        })}</script>
       </Helmet>
       
       {/* Hero */}

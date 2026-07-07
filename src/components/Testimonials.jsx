@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { Star } from 'lucide-react';
 import './Testimonials.css';
 
@@ -25,8 +25,8 @@ const Testimonials = () => {
     <section id="testimonials" className="testimonials section section-light">
       <div className="container">
         <div className="section-header text-center reveal">
-          <h2>Client Success Stories</h2>
-          <p className="subtitle">Don't just take our word for it. See what our clients have to say.</p>
+          <h2>What Clients Say</h2>
+          <p className="subtitle">Feedback from businesses we've worked with directly.</p>
         </div>
         
         <div className="testimonials-grid">

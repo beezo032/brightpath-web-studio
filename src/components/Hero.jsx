@@ -23,9 +23,9 @@ const Hero = () => {
 
         <div className="container hero-container relative">
           <div className="hero-content reveal">
-            <h1>Websites Built to Generate More Leads, Calls & Customers</h1>
+            <h1>Custom Web Design for Local Businesses — Built to Bring in More Customers</h1>
             <p className="hero-subtitle">
-              Signal Light Studio designs fast, mobile-friendly websites that help local businesses stand out online, generate more leads, and convert visitors into paying customers.
+              Signal Light Studio builds fast, conversion-focused websites for service businesses in Charleston, SC and beyond. Starting at $499.
             </p>
             <div className="hero-actions">
               <a href="#contact" className="btn btn-primary pulse-cta" aria-label="Get a Free Website Review">
@@ -48,11 +48,11 @@ const Hero = () => {
               </div>
               <div className="hero-badge-item" style={{display: 'flex', alignItems: 'center', gap: '0.75rem'}}>
                 <div style={{background: '#EFF6FF', color: 'var(--color-accent-blue)', padding: '0.5rem', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                 </div>
                 <div>
-                  <p style={{margin: 0, fontWeight: 700, fontSize: '0.9rem', color: 'var(--color-text-dark)'}}>#1 Local Growth Partner</p>
-                  <p style={{margin: 0, fontSize: '0.75rem', color: 'var(--color-text-muted)'}}>Charleston & surrounding areas</p>
+                  <p style={{margin: 0, fontWeight: 700, fontSize: '0.9rem', color: 'var(--color-text-dark)'}}>Direct Communication</p>
+                  <a href="mailto:hello@signallightstudio.com" style={{margin: 0, fontSize: '0.75rem', color: 'var(--color-accent-blue)', display: 'block'}}>hello@signallightstudio.com</a>
                 </div>
               </div>
             </div>

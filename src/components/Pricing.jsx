@@ -18,6 +18,10 @@ const Pricing = () => {
               <h3>Starter Launch</h3>
               <div className="price"><span>$</span>499</div>
               <p>Perfect for new businesses that need a professional online presence.</p>
+              <div style={{ marginTop: '0.75rem', fontSize: '0.8rem', color: 'var(--color-text-muted)', display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+                <span>⏱ Live in 1–2 weeks</span>
+                <span>✏️ 1 revision round</span>
+              </div>
             </div>
             <div className="pricing-features">
               <ul>
@@ -28,7 +32,7 @@ const Pricing = () => {
                 <li><Check className="check-icon" /> Basic local SEO setup</li>
                 <li><Check className="check-icon" /> Google Maps integration</li>
                 <li><Check className="check-icon" /> Social media links</li>
-                <li><Check className="check-icon" /> 1 round of revisions</li>
+                <li><Check className="check-icon" /> 30-day post-launch support</li>
               </ul>
             </div>
             <div className="pricing-footer">
@@ -43,6 +47,10 @@ const Pricing = () => {
               <h3>Growth Package</h3>
               <div className="price"><span>$</span>999</div>
               <p>Designed for businesses ready to consistently generate leads.</p>
+              <div style={{ marginTop: '0.75rem', fontSize: '0.8rem', color: 'var(--color-text-muted)', display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+                <span>⏱ Live in 2–4 weeks</span>
+                <span>✏️ 2 revision rounds</span>
+              </div>
             </div>
             <div className="pricing-features">
               <ul>
@@ -54,7 +62,7 @@ const Pricing = () => {
                 <li><Check className="check-icon" /> Testimonials section</li>
                 <li><Check className="check-icon" /> Photo gallery</li>
                 <li><Check className="check-icon" /> Speed optimization</li>
-                <li><Check className="check-icon" /> 2 rounds of revisions</li>
+                <li><Check className="check-icon" /> 60-day post-launch support</li>
               </ul>
             </div>
             <div className="pricing-cta">
@@ -68,6 +76,10 @@ const Pricing = () => {
               <h3>Premium Authority</h3>
               <div className="price"><span>$</span>2,499<span>+</span></div>
               <p>For businesses that want a stronger online presence and more advanced lead systems.</p>
+              <div style={{ marginTop: '0.75rem', fontSize: '0.8rem', color: 'var(--color-text-muted)', display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+                <span>⏱ Live in 4–6 weeks</span>
+                <span>✏️ Unlimited revisions</span>
+              </div>
             </div>
             <div className="pricing-features">
               <ul>

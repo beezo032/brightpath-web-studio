@@ -1,5 +1,5 @@
-﻿import React, { useEffect } from 'react';
-import { Layout, PenTool, Search, MapPin, ShieldCheck, Target, ArrowRight, CheckCircle2 } from 'lucide-react';
+import React, { useEffect } from 'react';
+import { Layout, PenTool, Search, Monitor, ShieldCheck, Target, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Pricing from '../components/Pricing';
 import FAQ from '../components/FAQ';
@@ -35,7 +35,7 @@ const servicesData = [
   {
     id: "gbp",
     title: "Google Business Profile Optimization",
-    icon: <MapPin size={32} />,
+    icon: <Monitor size={32} />,
     description: "Your Google Business Profile is often the first thing customers see. We optimize it fully so you appear in the coveted Google 'Local Pack'.",
     benefits: ["Increase map visibility", "Drive more direct phone calls", "Build social proof with reviews"],
     features: ["Profile Claiming & Verification", "Category Optimization", "Photo & Post Strategy", "Review Management Setup"],
@@ -66,10 +66,42 @@ const ServicesPage = () => {
   return (
     <main className="services-page">
       <Helmet>
-        <title>Our Services | Signal Light Studio</title>
-        <meta name="description" content="Custom website design, local SEO, and monthly care plans engineered to turn visitors into paying customers." />
-        <meta property="og:title" content="Our Services | Signal Light Studio" />
-        <meta property="og:description" content="Custom website design, local SEO, and monthly care plans engineered to turn visitors into paying customers." />
+        <title>Web Design Services for Local Businesses | Signal Light Studio</title>
+        <meta name="description" content="Custom website design, local SEO, Google Business Profile optimization, and monthly care plans. Signal Light Studio helps local service businesses grow online from $499." />
+        <link rel="canonical" href="https://www.signallightstudio.com/services" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Web Design Services for Local Businesses | Signal Light Studio" />
+        <meta property="og:description" content="Custom website design, local SEO, Google Business Profile optimization, and monthly care plans. Starting at $499." />
+        <meta property="og:image" content="https://www.signallightstudio.com/hero_mockup.webp" />
+        <meta property="og:url" content="https://www.signallightstudio.com/services" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Web Design Services | Signal Light Studio" />
+        <meta name="twitter:description" content="Custom website design, local SEO, and monthly care plans for local service businesses. Starting at $499." />
+        <meta name="twitter:image" content="https://www.signallightstudio.com/hero_mockup.webp" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.signallightstudio.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.signallightstudio.com/services" }
+          ]
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": "Web Design for Local Businesses",
+          "provider": { "@type": "LocalBusiness", "name": "Signal Light Studio", "url": "https://www.signallightstudio.com" },
+          "areaServed": "Charleston, SC and surrounding areas",
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Web Design Services",
+            "itemListElement": [
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Starter Launch Website" }, "price": "499", "priceCurrency": "USD" },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Growth Package Website" }, "price": "999", "priceCurrency": "USD" },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Premium Authority Website" }, "price": "2499", "priceCurrency": "USD" }
+            ]
+          }
+        })}</script>
       </Helmet>
       
       {/* Hero */}

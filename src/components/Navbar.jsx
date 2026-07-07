@@ -48,6 +48,7 @@ const Navbar = () => {
 
           <NavLink to="/portfolio" className={({isActive}) => isActive ? 'active-link' : ''} onClick={() => setMobileMenuOpen(false)}>Work</NavLink>
           <Link to="/#pricing" onClick={() => setMobileMenuOpen(false)}>Pricing</Link>
+          <NavLink to="/blog" className={({isActive}) => isActive ? 'active-link' : ''} onClick={() => setMobileMenuOpen(false)}>Blog</NavLink>
           <Link to="/contact" className="btn btn-primary pulse-cta" onClick={() => setMobileMenuOpen(false)}>Get a Quote</Link>
         </nav>
 
